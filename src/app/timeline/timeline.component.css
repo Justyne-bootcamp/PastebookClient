@@ -1,0 +1,23 @@
+#post-contents{
+    display: flex;
+    justify-content: center;
+}
+#AddPost{
+    display: flex;
+    justify-content: center;
+}
+#profilePhotoIcon{
+    border-radius: 100%;
+    height: 80px;
+    width: 80px;
+}
+#AddPostCard{
+    display: flex;
+}
+#TextBox{
+    height: 60px;
+    width: 300px;
+}
+#PostButton{
+    height: 66px;
+}
