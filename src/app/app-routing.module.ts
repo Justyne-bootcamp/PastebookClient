@@ -10,7 +10,7 @@ import { TimelineComponent } from './timeline/timeline.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
-  {path: 'pastebook.com/{username}', component: ProfileComponent},
+  {path: 'pastebook.com', component: ProfileComponent},
   {path: 'register', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
   {path: 'album', component: AlbumComponent},
