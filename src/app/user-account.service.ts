@@ -15,7 +15,7 @@ export class UserAccountService {
      return this.http.get<UserAccount[]>(this.baseUrl);
    }
 
-   getUserAccountById(id: string): Observable<UserAccount>{
-     return this.http.get<UserAccount>(this.baseUrl + "getUserAccount/" + id);
+   getUserAccountByUsername(username: string): Observable<UserAccount>{
+     return this.http.get<UserAccount>(this.baseUrl + username);
     }
 }

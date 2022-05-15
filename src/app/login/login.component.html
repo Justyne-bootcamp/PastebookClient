@@ -1,23 +1,38 @@
-<div id="LoginCard">
-    <div>
+<div id="LoginCard" class="col-md-12 row">
+    <div class="col-md-3" style="background-color: gray;">
+        left div
+    </div>
+    <div class="col-md-6" style="background-color: rgb(228, 222, 222);">
         <h2>PASTEBOOK</h2>
         <div><h3>Sign In</h3></div>
         <form [formGroup]="loginForm" (submit)="onSubmit()">
-            <div>
-                <input type="text" formControlName="email" placeholder="Email Address">
+            <div class="form-group">
+                <div class="offset-md-2">
+                    <div class="col-md-10">
+                        <input type="text" formControlName="email" placeholder="Email Address" class="form-control form-control-lg">
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" formControlName="password" placeholder="Password" class="form-control form-control-lg">
+                    </div>
+                    <div class="col-md-10">
+                        <input type="submit" value="Submit" class="form-control form-control-lg btn btn-primary " />
+                    </div>
+                </div>
+                
+                <div class="col-md-8 offset-md-2 align-items-center">
+                    <a routerLink="/register">Create Account</a>
+                </div>
+                <div class="col-md-6 offset-md-5">
+                    <p *ngIf="loginForm.get('email')?.errors?.['required']"> Email is Requried</p>
+                    <p *ngIf="loginForm.get('password')?.errors?.['required']"> Password is Requried</p>
+                    <p *ngIf="errorMessage != null">Error: {{ errorMessage }}</p>
+                </div>
             </div>
-            <div>
-                <input type="text" formControlName="password" placeholder="Password">
-            </div>
-            <div id="LoginChoices">
-                <input type="submit" value="Submit" />
-                <div><a routerLink="/register">Create Account</a></div>
-            </div>
-            <p *ngIf="loginForm.get('email')?.errors?.['required']"> email is requried</p>
-            <p *ngIf="loginForm.get('password')?.errors?.['required']"> password is requried</p>
-            <p *ngIf="errorMessage != null">error: {{ errorMessage }}</p>
+            
         </form>
-        
+    </div>
+    <div class="col-md-3" style="background-color: gray;">
+        right div
     </div>
 </div>
 
