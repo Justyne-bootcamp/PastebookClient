@@ -1,4 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { UserAccount } from '../models/user-account.model';
+import { UserAccountService } from '../user-account.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  user!:UserAccount;
+
+  constructor(private userAccountService: UserAccountService, private route:ActivatedRoute) {
+   }
 
   ngOnInit(): void {
-  }
+    let username = this.route.snapshot.paramMap.get('username') as string;
+    this.userAccountService.getUserAccountById(username)
+    .subscribe(user => {
+      this.user = user; 
+    });
 
+    console.log(JSON.stringify(this.user));
+  }
 }

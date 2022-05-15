@@ -11,6 +11,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { FriendsComponent } from './friends/friends.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { AlbumComponent } from './album/album.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UserAccountService } from './user-account.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,9 +29,12 @@ import { AlbumComponent } from './album/album.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [HttpClientModule, UserAccountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
