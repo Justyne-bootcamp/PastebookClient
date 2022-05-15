@@ -1,6 +1,58 @@
 <section>
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">@</span>
-        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+  <div class="container col-md-6">
+    <span></span>
+  </div>
+    <form novalidate #form="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group form-group-inline col-md-6">
+          <label>First Name</label>
+          <input class="form-control form-control lg" placeholder="First Name"
+          name="firstName" #firstName="ngModel" [(ngModel)]="user.firstName"
+          required [class.invalid]="firstName.invalid && firstName.touched">
+        </div>
+        <div class="form-group form-group-inline col-md-6">
+          <label>Last Name</label>
+          <input class="form-control form-control lg" placeholder="Last Name"
+          name="lastName" #lastName="ngModel" [(ngModel)]="user.lastName"
+          required [class.invalid]="lastName.invalid && lastName.touched">
+        </div>
       </div>
+      <div class="form-row">
+        <div class="form-group form-group-inline col-md-6">
+          <label>Email</label>
+          <input type="email" class="form-control form-control lg" placeholder="email@email.com"
+          name="email" #email="ngModel" [(ngModel)]="user.email"
+          required [class.invalid]="email.invalid && email.touched">
+        </div>
+        <div class="form-group form-group-inline col-md-6">
+          <label>Password</label>
+          <input type="password" class="form-control form-control lg" placeholder="Password"
+          name="password" #password="ngModel" [(ngModel)]="user.password"
+          required minlength="6" [class.invalid]="password.invalid && password.touched">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group form-group-inline col-md-4">
+          <label>Birthday</label>
+          <input class="form-control form-control lg"
+          name="birthday" #birthday="ngModel" [(ngModel)]="user.birthday"
+          required [class.invalid]="birthday.invalid && birthday.touched">
+        </div>
+        <div class="form-group form-group-inline col-md-4">
+          <label>Gender</label>
+          <input class="form-control form-control lg" placeholder="M/F"
+          name="gender" #gender="ngModel" [(ngModel)]="user.gender"
+          required maxlength="1" minlength="1" [class.invalid]="gender.invalid && gender.touched">
+        </div>
+        <div class="form-group form-group-inline col-md-4">
+          <label>Mobile Number</label>
+          <input class="form-control form-control lg" placeholder="09123456789"
+          name="mobileNumber" #mobileNumber="ngModel" [(ngModel)]="user.mobileNumber"
+          maxlength="11" minlength="11" [class.invalid]="mobileNumber.invalid && mobileNumber.touched">
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">REGISTER</button>
+      </div>
+    </form>
 </section>
