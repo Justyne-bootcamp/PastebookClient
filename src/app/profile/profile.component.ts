@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { UserAccount } from '../models/user-account.model';
 import { UserAccountService } from '../user-account.service';
@@ -22,6 +23,7 @@ export class ProfileComponent implements OnInit {
     .subscribe(user => {
       this.user = user; 
     });
+
 
     console.log(JSON.stringify(this.user));
   }
