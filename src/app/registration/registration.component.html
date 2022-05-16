@@ -1,4 +1,6 @@
-<h2>Sign Up</h2>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+
+<!-- <h2>Sign Up</h2>
 <form>
   
     <div>
@@ -22,12 +24,14 @@
             name="email"
             pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
             required>
+            COMMENT START -->
         <!-- <div *ngIf="email.errors?.['required']">
             This field is required.
         </div>
         <div *ngIf="email.errors?.['pattern']">
             Please enter a valid email address.
         </div> -->
+        <!-- COMMENT END
     </div>
     <div>
         <label for="email">Password</label>
@@ -62,12 +66,45 @@
             required
             pattern="^09[0-9]{9}$"
         >
+        COMMENT START -->
         <!-- <div *ngIf="phone.errors?.['required']">
             This field is required.
         </div>
         <div *ngIf="phone.errors?.['pattern']">
             Please enter a valid phone number.
         </div> -->
+        <!-- COMMENT END
     </div>
     <input type="submit" value="Submit">
-</form>
+</form> -->
+<div class="testbox">
+    <h1>Registration</h1>
+    <form action="/">
+        <hr>
+        <label id="icon" for="name"><i class="fa fa-user-alt"></i></label>
+        <input type="text" name="name" id="name" placeholder="First Name" required/>
+        <label id="icon" for="name"><i class="fa fa-user-alt"></i></label>
+        <input type="text" name="name" id="name" placeholder="Last Name" required/>
+        <label id="icon" for="name"><i class="fa fa-envelope "></i></label>
+        <input type="text" name="name" id="name" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required/>
+        <label id="icon" for="name"><i class="fa fa-shield-alt"></i></label>
+        <input type="password" name="name" id="name" placeholder="Password" required/>
+        <label id="icon" for="name"><i class="fa fa-shield-alt"></i></label>
+        <input type="password" name="name" id="name" placeholder="Confirm Password" required/>
+        <label id="icon" for="name"><i class="fa fa-mobile"></i></label>
+        <input type="text" name="name" id="name" placeholder="Phone number" required/>
+        <label id="icon" for="name"><i class="fa fa-calendar"></i></label>
+        <input type="date" name="name" id="name">
+        <div class="gender">
+             <input type="radio" value="None" id="male" name="gender" checked/>
+             <label for="male" class="radio" chec>Male</label>
+             <input type="radio" value="None" id="female" name="gender" />
+             <label for="female" class="radio">Female</label>
+        </div>
+        <hr>
+        <div class="register">
+            <p>By clicking Register, you agree on our <a href="#">terms and condition</a>.</p>
+            <span><a href="#" class="button">Register</a></span>
+        </div>
+    </form>
+</div>

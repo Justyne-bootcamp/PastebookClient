@@ -6,3 +6,41 @@
     display: flex;
     justify-content: space-between;
 } */
+
+.gradient-custom-2 {
+
+    background: linear-gradient(to right, #d4afb9,  #d1cfe2, #9cadce, #7ec4cf); 
+}
+
+.gradient-custom-5 {
+
+    background: #7ec4cf;
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+    margin-right: 10px;
+    outline-color: black;
+}
+
+.gradient-custom-3 {
+
+    background: #b2b5b6;
+    border-radius: .3rem;
+    padding: 2px 4px 2px 4px;
+}
+
+.gradient-custom-4 {
+
+    background: #ffd8a1;
+    border-radius: .3rem;
+    padding: 2px 4px 2px 4px;
+}
+
+a:active,
+a:visited,
+a:hover {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+a {
+    text-decoration: none;
+}
