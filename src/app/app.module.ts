@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PostFormComponent } from './home/post-form/post-form.component';
 import { UserAccountService } from './user-account.service';
 import { PostComponent } from './post/post.component';
+import { NewsFeedComponent } from './home/news-feed/news-feed.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +29,9 @@ import { PostComponent } from './post/post.component';
     FriendsComponent,
     TimelineComponent,
     AlbumComponent,
-    PostFormComponent
-    PostComponent
+    PostFormComponent,
+    PostComponent,
+    NewsFeedComponent
   ],
   imports: [
     BrowserModule,

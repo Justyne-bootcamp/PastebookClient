@@ -1,7 +1,7 @@
-<form novalidate enctype="multipart/form-data" #form="ngForm" (ngSubmit)="onSubmit()">
+<!-- <form novalidate enctype="multipart/form-data" #form="ngForm" (ngSubmit)="onSubmit()">
     <div class="form-row">
         <div class="form-group form-group-inline col-md-6">
-            <input class="form-control form-control lg" placeholder="What's on your mind?" name="textContent" #textContent
+            <input class="form-control form-control-lg" placeholder="What's on your mind?" name="textContent" #textContent
                 [(ngModel)]="post.textContent">
         </div>
     </div>
@@ -10,7 +10,25 @@
         (change)="onFileSelected($event)" [(ngModel)]="post.photo">
         <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="!textContent && !photo">POST</button>
     </div>
-</form>
+</form> -->
+<div class="col-md-12 row">
+    <div id="add-post" class="col-md-8 offset-md-2">
+        <form class="card" style="width: 32rem;" novalidate enctype="multipart/form-data" #form="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-row" style="display:flex;margin-top: 5px;margin-left: 20px;">
+                <a routerLink="/pastebook.com/:username"><img id="user-icon-pic" src="../../assets/testPhoto/download.png" alt="Card image cap"></a>
+                <input id="post-textbox" class="form-control" placeholder="What's on your mind... " name="textContent" #textContent
+                [(ngModel)]="post.textContent">
+            </div>
+            <hr>
+            <div style="display: flex;justify-content:space-around;margin-top: 0px;margin-bottom: 10px;">
+                <input style="display: none;" id="homeUploadPhoto" type="file" accept=".png,.jpg" class="btn btn-info btn-lg btn-block" name="photo" #photo 
+                (change)="onFileSelected($event)" [(ngModel)]="post.photo">
+                <label for="homeUploadPhoto" class="btn upload-btn"><i class="fas fa-image"></i>  Upload Photo</label>
+                <button class="upload-btn" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>    Post</button>
+            </div>
+        </form>
+    </div>
+</div>
 <!-- <form novalidate #postForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="form-row">
         <div class="form-group form-group-inline col-md-6">
