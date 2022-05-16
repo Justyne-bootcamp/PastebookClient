@@ -1,9 +1,10 @@
 body{
-    background-color: rgb(39, 38, 38);
-    color: rgb(223, 215, 215);
+    background-color: rgb(247, 242, 242);
+    color: rgb(43, 42, 42);
+    font-weight: 600;
 }
 .card{
-    background-color: rgb(63, 62, 62);
+    background-color: white;
     border-radius: 10px;
 }
 #add-post{
@@ -21,19 +22,19 @@ body{
     height: 100%;
     border-radius: 20px;
     border-style: none;
-    background-color: rgb(211, 202, 202);
+    background-color: rgb(247, 242, 242);
     margin-left: 5px;
 }
 #upload-btn{
     width: 40%;
     border-radius: 10px;
     border-style: none;
-    color: rgb(223, 215, 215);
-    background-color: rgb(77, 74, 74);
+    color: rgb(43, 42, 42);
+    background-color: white;
     transition-duration: 500ms;
 }
 #upload-btn:hover{
-    background-color: rgb(110, 114, 114);
+    background-color: #779ecc;
 }
 #post-row{
     display: flex;
@@ -51,16 +52,16 @@ body{
     margin-right: 2px;
     border-radius: 5px;
     border-style: none;
-    background-color: rgb(77, 74, 74);
-    color: rgb(223, 215, 215);
+    background-color: white;
+    color: rgb(43, 42, 42);
     transition-duration: 500ms;
 }
 .like-and-comment:hover {
-    background-color: rgb(110, 114, 114);
+    background-color: #779ecc;
 }
 #user-fullname{
     text-decoration: none;
-    color: rgb(223, 215, 215);
+    color: rgb(43, 42, 42);
     font-weight: 700;
 }
 #user-fullname:hover{
@@ -69,7 +70,7 @@ body{
 #comment-textbox{
     margin-top: 10px;
     border-radius:10px 0px 0px 10px;
-    background-color: rgb(211, 202, 202);
+    background-color: rgb(247, 242, 242);
 }
 #send-comment-button{
     border-style: none;
@@ -79,6 +80,6 @@ body{
     color: rgb(77, 74, 74);
 }
 #send-comment-button:hover{
-    background-color: rgb(32, 32, 32);
+    background-color: rgb(112, 108, 108);
     color: rgb(223, 215, 215);
 }

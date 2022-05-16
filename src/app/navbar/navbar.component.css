@@ -1,12 +1,12 @@
 .navbar{
-    background-color: rgb(63, 62, 62);
-    color: rgb(223, 215, 215);
+    background-color: #779ecc;
+    color: rgb(43, 42, 42);
     display: flex;
     justify-content: space-between;
 }
 #pastebook{
     text-decoration: none;
-    color: rgb(223, 215, 215);
+    color: rgb(43, 42, 42);
 }
 #pastebook:hover{
     text-decoration: underline;
@@ -21,7 +21,7 @@
     margin-left: 10px;
     height: 10%;
     border-style: none;
-    background-color: rgb(211, 202, 202);
+    background-color: rgb(247, 242, 242);
 }
 #search-icon{
     border-style: none;
@@ -31,12 +31,12 @@
     color: rgb(77, 74, 74);
 }
 #search-icon:hover{
-    background-color: rgb(32, 32, 32);
+    background-color: rgb(112, 108, 108);
     color: rgb(223, 215, 215);
 }
 #home{
     text-decoration: none;
-    color: rgb(223, 215, 215);
+    color: rgb(43, 42, 42);
     transition-duration: 300ms;
 }
 #home:hover{
@@ -57,7 +57,7 @@
 #profile-link{
     text-decoration: none;
     display: flex;
-    color: rgb(223, 215, 215);
+    color: rgb(43, 42, 42);
     transition-duration: 300ms;
 }
 #profile-link:hover{

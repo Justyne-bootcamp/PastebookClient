@@ -129,8 +129,8 @@ body {
   .multi-button button{
     height: 40px;
     width: 120px;
-    background:  rgb(77, 74, 74);
-    color: rgb(223, 215, 215);
+    background:  white;
+    color: rgb(43, 42, 42);
     border: none;
     margin: -5px; 
     padding: 0;
@@ -150,7 +150,7 @@ body {
     filter: drop-shadow(3px 5px 5px rgba(0, 0, 0, 0.45));
   }
   .multi-button button:hover{
-    background-color: rgb(110, 114, 114);
+    background-color: #779ecc;
   }
 
   button:active{
