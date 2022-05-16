@@ -8,7 +8,7 @@ import { UserAccount } from './user-account.model';
 })
 export class UserAccountService {
 
-  baseUrl = 'https://localhost:44364/api/useraccount'
+  baseUrl = 'https://localhost:44364/api/UserAccount'
 
   constructor(private http: HttpClient) { }
 

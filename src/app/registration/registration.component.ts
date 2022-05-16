@@ -10,7 +10,6 @@ import { UserAccount } from '../shared/user-account.model';
 })
 export class RegistrationComponent implements OnInit {
 
-  users: UserAccount[] = [];
   user: UserAccount = {
     userAccountId: '',
     firstName: '',

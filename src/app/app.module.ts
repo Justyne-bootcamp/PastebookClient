@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,7 @@ import { FriendsComponent } from './friends/friends.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { AlbumComponent } from './album/album.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PostFormComponent } from './home/post-form/post-form.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +25,15 @@ import { HttpClientModule } from '@angular/common/http';
     ProfileComponent,
     FriendsComponent,
     TimelineComponent,
-    AlbumComponent
+    AlbumComponent,
+    PostFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
