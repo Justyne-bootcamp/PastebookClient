@@ -1,5 +1,68 @@
-
-.navBarContents{
+.navbar{
+    background-color: rgb(63, 62, 62);
+    color: rgb(223, 215, 215);
     display: flex;
     justify-content: space-between;
+}
+#pastebook{
+    text-decoration: none;
+    color: rgb(223, 215, 215);
+}
+#pastebook:hover{
+    text-decoration: underline;
+}
+#pastebook-and-search{
+    display: flex;
+    margin-left: 10px;
+}
+#search{
+    width: 50%;
+    border-radius: 15px 0px 0px 15px;
+    margin-left: 10px;
+    height: 10%;
+    border-style: none;
+    background-color: rgb(211, 202, 202);
+}
+#search-icon{
+    border-style: none;
+    background-color: rgb(211, 202, 202);
+    border-radius:0px 15px 15px 0px;
+    height: 33px;
+    color: rgb(77, 74, 74);
+}
+#search-icon:hover{
+    background-color: rgb(32, 32, 32);
+    color: rgb(223, 215, 215);
+}
+#home{
+    text-decoration: none;
+    color: rgb(223, 215, 215);
+    transition-duration: 300ms;
+}
+#home:hover{
+    text-decoration: underline;
+}
+#home-div{
+    margin-top: 10px;
+}
+#profile-div{
+    display: flex;
+}
+#user-icon-pic{
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    margin-right: 5px;
+}
+#profile-link{
+    text-decoration: none;
+    display: flex;
+    color: rgb(223, 215, 215);
+    transition-duration: 300ms;
+}
+#profile-link:hover{
+    text-decoration: underline;
+}
+#logout-div{
+    margin-right: 10px;
 }

@@ -14,6 +14,7 @@ import { AlbumComponent } from './album/album.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserAccountService } from './user-account.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PostComponent } from './post/post.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProfileComponent,
     FriendsComponent,
     TimelineComponent,
-    AlbumComponent
+    AlbumComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

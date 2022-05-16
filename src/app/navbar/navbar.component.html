@@ -1,10 +1,20 @@
-<nav class="navBar">
-    <div class="navBarItems">
-        <div class="navBarContents">
-            <div><a routerLink="/">PASTEBOOK</a><input type="text"></div>
-            <div><a routerLink="/">Home</a></div>
-            <div><a routerLink="/pastebook.com">Profile</a></div>
-            <div><a>Logout</a></div>
-        </div>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+<nav class="navbar">
+    <div id="pastebook-and-search">
+        <a id="pastebook" routerLink="/"><h3>PASTEBOOK</h3></a>
+        <input  id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+        <button id="search-icon"><i class="fas fa-search"></i></button>
+    </div>
+    <div id="home-div">
+        <h4><a id="home" routerLink="/"><i class="fas fa-home"></i>Home</a></h4>
+    </div>
+    <div id="profile-div">
+        <a id="profile-link" routerLink="/timeline">
+            <img id="user-icon-pic" src="../../assets/testPhoto/download.png" alt="Card image cap">
+            <h4>FirstName</h4>
+        </a>
+    </div>
+    <div id="logout-div">
+        <h4>Logout</h4>
     </div>
 </nav>
