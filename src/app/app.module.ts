@@ -14,6 +14,8 @@ import { TimelineComponent } from './timeline/timeline.component';
 import { AlbumComponent } from './album/album.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PostFormComponent } from './home/post-form/post-form.component';
+import { UserAccountService } from './user-account.service';
+import { PostComponent } from './post/post.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { PostFormComponent } from './home/post-form/post-form.component';
     TimelineComponent,
     AlbumComponent,
     PostFormComponent
+    PostComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ import { PostFormComponent } from './home/post-form/post-form.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [HttpClientModule, UserAccountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
