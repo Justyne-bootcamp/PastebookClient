@@ -1,20 +1,30 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
+
 <nav class="navbar">
     <div id="pastebook-and-search">
         <a id="pastebook" routerLink="/"><h3>PASTEBOOK</h3></a>
         <input  id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
         <button id="search-icon"><i class="fas fa-search"></i></button>
     </div>
-    <div id="home-div">
-        <h4><a id="home" routerLink="/"><i class="fas fa-home"></i>Home</a></h4>
-    </div>
-    <div id="profile-div">
-        <a id="profile-link" routerLink="/timeline">
-            <img id="user-icon-pic" src="../../assets/testPhoto/download.png" alt="Card image cap">
-            <h4>FirstName</h4>
-        </a>
-    </div>
-    <div id="logout-div">
-        <h4>Logout</h4>
+    <div id="right-nav">
+        <div id="home-div">
+            <h5><a id="home" routerLink="/"><i class="fas fa-home"></i>Home</a></h5>
+        </div>
+        <div id="profile-div">
+            <a id="profile-link" routerLink="/timeline">
+                <img id="user-icon-pic" src="../../assets/testPhoto/download.png" alt="Card image cap">
+                <h5>FirstName</h5>
+            </a>
+        </div>
+        <div id="logout-div">
+            <h5> Logout
+            <!-- <h5> more <i class="fas fa-caret-down"></i> -->
+                <!-- <ul class="dropdown">
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Logout</a></li>
+                </ul> -->
+            </h5>
+        </div>
     </div>
 </nav>

@@ -16,9 +16,9 @@ body {
 }
 .card-one {
     position: relative;
-    width: 300px;
+    width: 370px;
     background: #fff;
-    box-shadow: 0 10px 7px -5px rgba(0, 0, 0, .4);
+    box-shadow: rgb(185, 185, 185) 0px 2px 4px 0px, rgb(202, 201, 201) 0px 2px 16px 0px;
 }
 .card-one header {
     position: relative;
@@ -70,7 +70,7 @@ body {
     border-radius: 50%;
     overflow: hidden;
     background: #ccc;
-    border: 3px solid rgb(63, 62, 62);
+    border: 3px solid #779ecc;
 }
 .card-one header .avatar img {
     position: absolute;
@@ -124,11 +124,11 @@ body {
 }
 
 .multi-button {
-    filter: drop-shadow(3px 10px 15px rgba(0, 0, 0, 0.45));
+    filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.45));
   }
   .multi-button button{
     height: 40px;
-    width: 120px;
+    width: 110px;
     background:  white;
     color: rgb(43, 42, 42);
     border: none;
@@ -142,7 +142,7 @@ body {
   .multi-button :nth-child(1){
     border-radius: 20px 0 0 20px;
   }
-  .multi-button :nth-child(2){
+  .multi-button :nth-child(3){
     border-radius: 0 20px 20px 0;
   }
   button:hover{
