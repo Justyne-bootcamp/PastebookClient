@@ -18,6 +18,7 @@ import { UserAccountService } from './user-account.service';
 import { PostComponent } from './post/post.component';
 import { NewsFeedComponent } from './home/news-feed/news-feed.component';
 import { FriendslistComponent } from './friendslist/friendslist.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FriendslistComponent } from './friendslist/friendslist.component';
     PostFormComponent,
     PostComponent,
     NewsFeedComponent,
-    FriendslistComponent
+    FriendslistComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,
