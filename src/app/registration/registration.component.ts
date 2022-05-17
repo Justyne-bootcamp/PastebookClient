@@ -10,6 +10,7 @@ import { UserAccount } from '../shared/user-account.model';
 })
 export class RegistrationComponent implements OnInit {
 
+  confirmPassword: string;
   user: UserAccount = {
     userAccountId: '',
     firstName: '',
