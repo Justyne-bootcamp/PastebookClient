@@ -8,3 +8,9 @@ export interface UserAccount {
     gender: string;
     mobileNumber: string;
 }
+
+export class UserAccount {
+    public constructor(init?: Partial<UserAccount>) {
+          Object.assign(this, init);
+      }
+  }

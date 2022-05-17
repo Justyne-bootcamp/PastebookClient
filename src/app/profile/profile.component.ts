@@ -12,6 +12,7 @@ import { UserAccountService } from '../user-account.service';
 })
 export class ProfileComponent implements OnInit {
 
+  username: string;
   user!:UserAccount;
   showAboutMeModal: boolean = false;
   editForm: FormGroup;

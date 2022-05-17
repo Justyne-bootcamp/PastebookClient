@@ -20,4 +20,16 @@ export class UserAccountService {
     user.userAccountId = '00000000-0000-0000-0000-000000000000';
     return this.http.post<UserAccount>(this.baseUrl, user);
   }
+
+  getUserBySessionId(): Observable<UserAccount> {
+    return this.http.get<UserAccount>(this.baseUrl+'/setting')
+  }
+
+  updateUser(user: UserAccount): Observable<UserAccount> {
+    return this.http.put<UserAccount>(this.baseUrl+'/setting', user)
+  }
+
+  // getByUsername(username: string): Observable<UserAccount> {
+
+  // }
 }
