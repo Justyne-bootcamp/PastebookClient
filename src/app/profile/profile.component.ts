@@ -12,19 +12,22 @@ import { UserAccountService } from '../user-account.service';
 })
 export class ProfileComponent implements OnInit {
 
+  username: string;
   user!:UserAccount;
 
   constructor(private userAccountService: UserAccountService, private route:ActivatedRoute) {
    }
 
   ngOnInit(): void {
-    let username = this.route.snapshot.paramMap.get('username') as string;
-    this.userAccountService.getUserAccountByUsername(username)
-    .subscribe(user => {
-      this.user = user; 
-    });
+    this.route.params.subscribe( params =>
+      this.username = params['username'])
+    // let username = this.route.snapshot.paramMap.get('username') as string;
+    // this.userAccountService.getUserAccountByUsername(username)
+    // .subscribe(user => {
+    //   this.user = user; 
+    // });
 
 
-    console.log(JSON.stringify(this.user));
+    // console.log(JSON.stringify(this.user));
   }
 }

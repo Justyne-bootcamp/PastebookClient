@@ -24,16 +24,6 @@ export class RegistrationComponent implements OnInit {
   constructor(public service:UserAccountService) { }
 
   ngOnInit(): void {
-    this.getAll();
-  }
-
-  getAll() {
-    this.service.getAll()
-    .subscribe(
-      response => {
-        console.log(response);
-      }
-    );
   }
 
   onSubmit() {

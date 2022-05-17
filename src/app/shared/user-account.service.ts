@@ -20,4 +20,8 @@ export class UserAccountService {
     user.userAccountId = '00000000-0000-0000-0000-000000000000';
     return this.http.post<UserAccount>(this.baseUrl, user);
   }
+
+  // getByUsername(username: string): Observable<UserAccount> {
+
+  // }
 }

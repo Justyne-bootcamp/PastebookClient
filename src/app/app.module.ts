@@ -17,6 +17,8 @@ import { PostFormComponent } from './home/post-form/post-form.component';
 import { UserAccountService } from './user-account.service';
 import { PostComponent } from './post/post.component';
 import { NewsFeedComponent } from './home/news-feed/news-feed.component';
+import { TimelineFeedComponent } from './profile/timeline-feed/timeline-feed.component';
+import { ProfilePostFormComponent } from './profile/profile-post-form/profile-post-form.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { NewsFeedComponent } from './home/news-feed/news-feed.component';
     AlbumComponent,
     PostFormComponent,
     PostComponent,
-    NewsFeedComponent
+    NewsFeedComponent,
+    TimelineFeedComponent,
+    ProfilePostFormComponent
   ],
   imports: [
     BrowserModule,
