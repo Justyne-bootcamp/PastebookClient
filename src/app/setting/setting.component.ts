@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { UserAccountService } from '../shared/user-account.service';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, NgForm, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { UserAccount } from '../shared/user-account.model';
 import Validation from '../shared/validation';
+import { UserAccountService } from '../shared/user-account.service';
 
 @Component({
-  selector: 'app-registration',
-  templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css']
+  selector: 'app-setting',
+  templateUrl: './setting.component.html',
+  styleUrls: ['./setting.component.css']
 })
-export class RegistrationComponent implements OnInit {
+export class SettingComponent implements OnInit {
 
-  user: UserAccount;
+  userOld: UserAccount;
+  userUpdate: UserAccount;
 
-  registrationForm: FormGroup = new FormGroup({
+  settingsForm: FormGroup = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
     email: new FormControl(''),
@@ -28,7 +29,7 @@ export class RegistrationComponent implements OnInit {
   constructor(public service:UserAccountService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.registrationForm = this.formBuilder.group(
+    this.settingsForm = this.formBuilder.group(
       {
         firstName: ['', Validators.required],
         lastName: ['', Validators.required],
@@ -41,24 +42,45 @@ export class RegistrationComponent implements OnInit {
       },
       {validators: Validation.match('password', 'confirmPassword')}
     )
+    this.getUser();
   }
 
   get u(): { [key: string]: AbstractControl } {
-    return this.registrationForm.controls;
+    return this.settingsForm.controls;
+  }
+
+  getUser(){
+    this.service.getUserBySessionId()
+    .subscribe(
+      response => {
+        this.userOld = new UserAccount(response);
+        this.settingsForm.patchValue({
+          firstName: this.userOld.firstName,
+          lastName: this.userOld.lastName,
+          email: this.userOld.email,
+          birthday: this.userOld.birthday,
+          gender: this.userOld.gender,
+          mobileNumber: this.userOld.mobileNumber
+        })
+        console.log(response);
+      }
+    )
   }
 
   onSubmit() {
     this.submitted = true;
-    if(this.registrationForm.invalid){
+    if(this.settingsForm.invalid){
       return;
     }
-    this.user = new UserAccount(this.registrationForm.value)
-    this.service.newUser(this.user)
+    this.userUpdate = new UserAccount(this.settingsForm.value)
+    this.userUpdate.userAccountId = this.userOld.userAccountId
+    this.service.updateUser(this.userUpdate)
     .subscribe(
       response => {
         console.log(response);
       }
     )
+    console.log(this.userUpdate)
   }
 
 }

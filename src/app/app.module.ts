@@ -21,6 +21,7 @@ import { FriendslistComponent } from './friendslist/friendslist.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { TimelineFeedComponent } from './profile/timeline-feed/timeline-feed.component';
 import { ProfilePostFormComponent } from './profile/profile-post-form/profile-post-form.component';
+import { SettingComponent } from './setting/setting.component';
 
 @NgModule({
   declarations: [
@@ -37,9 +38,10 @@ import { ProfilePostFormComponent } from './profile/profile-post-form/profile-po
     PostComponent,
     NewsFeedComponent,
     FriendslistComponent,
-    SearchResultComponent
+    SearchResultComponent,
     TimelineFeedComponent,
-    ProfilePostFormComponent
+    ProfilePostFormComponent,
+    SettingComponent
   ],
   imports: [
     BrowserModule,
