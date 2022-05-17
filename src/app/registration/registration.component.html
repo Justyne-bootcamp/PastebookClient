@@ -60,44 +60,116 @@
     </form>
 </section>
 -->
-<div class="testbox">
+<!-- <div class="testbox">
     <h1>Registration</h1>
     <form action="/" novalidate #form="ngForm" (ngSubmit)="onSubmit()">
         <hr>
-        <label id="icon" for="firstName"><i class="fa fa-user-alt"></i></label>
+        <label id="icon" for="register-firstName"><i class="fa fa-user-alt"></i></label>
         <input type="text" id="register-firstName" placeholder="First Name"
         name="firstName" #firstName="ngModel" [(ngModel)]="user.firstName"
         required [class.invalid]="firstName.invalid && firstName.touched"/>
-        <label id="icon" for="name"><i class="fa fa-user-alt"></i></label>
+        <label id="icon" for="register-lastName"><i class="fa fa-user-alt"></i></label>
         <input type="text" id="register-lastName" placeholder="Last Name"
         name="lastName" #lastName="ngModel" [(ngModel)]="user.lastName"
         required [class.invalid]="lastName.invalid && lastName.touched"/>
-        <label id="icon" for="name"><i class="fa fa-envelope "></i></label>
+        <label id="icon" for="register-email"><i class="fa fa-envelope "></i></label>
         <input type="text" id="register-email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" #email="ngModel" [(ngModel)]="user.email"
         required [class.invalid]="email.invalid && email.touched"/>
-        <label id="icon" for="name"><i class="fa fa-shield-alt"></i></label>
+        <label id="icon" for="register-password"><i class="fa fa-shield-alt"></i></label>
         <input type="password" id="register-password" placeholder="Password" name="password" #password="ngModel" [(ngModel)]="user.password"
         required minlength="6" [class.invalid]="password.invalid && password.touched"/>
         <label id="icon" for="name"><i class="fa fa-shield-alt"></i></label>
-        <input type="password" id="register-confirmPassword" placeholder="Confirm Password" name="confirm-password" #confirmPassword="ngModel" [(ngModel)]="confirmPassword"
+        <input type="password" id="register-confirmPassword" placeholder="Confirm Password" name="confirmPassword" #confirmPassword="ngModel" [(ngModel)]="confirmInputPassword"
         required minlength="6" ngValidateEqual="password" [class.invalid]="(confirmPassword.invalid && confirmPassword.touched)"/>
         <small *ngIf="confirmPassword.hasError('notEqual') && password.valid">Password don't match</small>
-        <label id="icon" for="name"><i class="fa fa-mobile"></i></label>
+        <label id="icon" for="register-mobileNumber"><i class="fa fa-mobile"></i></label>
         <input type="text" id="register-mobileNumber" placeholder="Phone number" name="mobileNumber" #mobileNumber="ngModel" [(ngModel)]="user.mobileNumber"
         maxlength="11" minlength="11" [class.invalid]="mobileNumber.invalid && mobileNumber.touched"/>
-        <label id="icon" for="name"><i class="fa fa-calendar"></i></label>
+        <label id="icon" for="register-birthday"><i class="fa fa-calendar"></i></label>
         <input type="date" id="register-birthday" name="birthday" #birthday="ngModel" [(ngModel)]="user.birthday"
         required [class.invalid]="birthday.invalid && birthday.touched">
         <div class="gender">
-             <input type="radio" value="M" id="male" name="gender" checked/>
-             <label for="male" class="radio" chec>Male</label>
-             <input type="radio" value="F" id="female" name="gender" />
-             <label for="female" class="radio">Female</label>
+             <input type="radio" value="M" id="register-maleGender" name="gender" #gender="ngModel" [(ngModel)]="user.gender"
+             required [class.invalid]="gender.invalid && gender.touched" checked/>
+             <label for="register-maleGender" class="radio">Male</label>
+             <input type="radio" value="F" id="register-femaleGender" name="gender" #gender="ngModel" [(ngModel)]="user.gender"
+             required [class.invalid]="gender.invalid && gender.touched"/>
+             <label for="register-femaleGender" class="radio">Female</label>
         </div>
         <hr>
         <div class="register">
             <p>By clicking Register, you agree on our <a href="#">terms and condition</a>.</p>
-            <span><a href="#" class="button">Register</a></span>
+            <button class="btn" type="submit" [disabled]="form.invalid">Register</button>
         </div>
     </form>
+</div> -->
+<div class="testbox">
+  <h1>Registration</h1>
+  <form action="/" novalidate [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <hr>
+      <div class="form-group">
+        <label id="icon" for="register-firstName"><i class="fa fa-user-alt"></i></label>
+        <input type="text" id="register-firstName" placeholder="First Name" name="firstName" formControlName="firstName"
+          #firstName [ngClass]="{ 'is-invalid': submitted && u['firstName'].errors }" required />
+          <p class="invalid-input" *ngIf="submitted && u['firstName'].errors">First Name is required</p>
+      </div>
+      <div class="form-group">
+        <label id="icon" for="register-lastName"><i class="fa fa-user-alt"></i></label>
+        <input type="text" id="register-lastName" placeholder="Last Name" name="lastName" formControlName="lastName" #lastName
+          [ngClass]="{ 'is-invalid': submitted && u['lastName'].errors }" required />
+        <p class="invalid-input" *ngIf="submitted && u['lastName'].errors">Last Name is required</p>
+      </div>
+      <div class="form-group">
+        <label id="icon" for="register-email"><i class="fa fa-envelope "></i></label>
+        <input type="text" id="register-email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          [ngClass]="{ 'is-invalid': submitted && u['email'].errors }" name="email" formControlName="email" #email
+          required />
+        <p class="invalid-input" *ngIf="submitted && u['email'].errors">Email is required</p>
+      </div>
+      <div class="form-group">
+        <label id="icon" for="register-password"><i class="fa fa-shield-alt"></i></label>
+        <input type="password" id="register-password" placeholder="Password" name="password" formControlName="password"
+          #password required [ngClass]="{ 'is-invalid': submitted && u['password'].errors }" minlength="6" />
+          <p class="invalid-input" *ngIf="submitted && u['password'].errors">
+            <span *ngIf="u['password'].errors['required']">Password is required</span>
+            <span *ngIf="u['password'].errors['minlength']">Password should be at least 6 characters</span>
+          </p>
+      </div>
+      <div class="form-group">
+        <label id="icon" for="name"><i class="fa fa-shield-alt"></i></label>
+        <input type="password" id="register-confirmPassword" placeholder="Confirm Password" formControlName="confirmPassword"
+          name="confirmPassword" #confirmPassword required [ngClass]="{ 'is-invalid': submitted && u['confirmPassword'].errors }"
+          minlength="6" />
+          <p class="invalid-input" *ngIf="submitted && u['confirmPassword'].errors">
+            <span *ngIf="u['confirmPassword'].errors['required']">Password is required</span>
+            <span *ngIf="u['confirmPassword'].errors['minlength']">Password should be at least 6 characters</span>
+            <span *ngIf="u['confirmPassword'].errors['matching']">Passwords do not match. Retype both passwords</span>
+          </p>
+      </div>
+      <div class="form-group">
+        <label id="icon" for="register-mobileNumber"><i class="fa fa-mobile"></i></label>
+        <input type="text" id="register-mobileNumber" placeholder="Phone number" name="mobileNumber"
+          formControlName="mobileNumber" #mobileNumber maxlength="11" minlength="11" />
+      </div>
+      <div class="form-group">
+        <label id="icon" for="register-birthday"><i class="fa fa-calendar"></i></label>
+        <input type="date" id="register-birthday" name="birthday" formControlName="birthday" #birthday
+          [ngClass]="{ 'is-invalid': submitted && u['birthday'].errors }" required>
+          <p class="invalid-input" *ngIf="submitted && u['birthday'].errors">Birthday is required</p>
+      </div>
+      <div class="form-group gender">
+           <input type="radio" value="M" id="register-maleGender" name="gender" formControlName="gender" #gender
+           required [ngClass]="{ 'is-invalid': submitted && u['gender'].errors }"  checked/>
+           <label for="register-maleGender" class="radio">Male</label>
+           <input type="radio" value="F" id="register-femaleGender" name="gender" formControlName="gender" #gender
+           required [ngClass]="{ 'is-invalid': submitted && u['gender'].errors }"/>
+           <label for="register-femaleGender" class="radio">Female</label>
+           <p class="invalid-input" *ngIf="submitted && u['gender'].errors">Gender is required</p>
+      </div>
+      <hr>
+      <div class="register">
+          <p>By clicking Register, you agree on our <a href="#">terms and condition</a>.</p>
+          <button class="btn" type="submit">Register</button>
+      </div>
+  </form>
 </div>

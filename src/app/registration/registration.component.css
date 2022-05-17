@@ -37,6 +37,9 @@ html{
   background-color: #ffffff;
 } */
 
+.is-invalid{
+  border-color: red;
+}
 .testbox {
   margin: 20px auto;
   width: 500px; 
