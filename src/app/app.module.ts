@@ -19,6 +19,8 @@ import { PostComponent } from './post/post.component';
 import { NewsFeedComponent } from './home/news-feed/news-feed.component';
 import { FriendslistComponent } from './friendslist/friendslist.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { TimelineFeedComponent } from './profile/timeline-feed/timeline-feed.component';
+import { ProfilePostFormComponent } from './profile/profile-post-form/profile-post-form.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { SearchResultComponent } from './search-result/search-result.component';
     NewsFeedComponent,
     FriendslistComponent,
     SearchResultComponent
+    TimelineFeedComponent,
+    ProfilePostFormComponent
   ],
   imports: [
     BrowserModule,
