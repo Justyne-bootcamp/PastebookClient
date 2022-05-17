@@ -42,7 +42,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [HttpClientModule, UserAccountService],
   bootstrap: [AppComponent]

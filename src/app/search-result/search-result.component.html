@@ -1,1 +1,9 @@
-<p>search-result works!</p>
+<h3>Search result</h3>
+<div *ngFor="let user of users">
+    <div>
+        <img src="" alt="profile-picture">
+    </div>
+    <div>
+        <a [routerLink]="['/pastebook.com', user.username]">{{ user.firstName + " " + user.lastName }}</a>
+    </div>
+</div>  

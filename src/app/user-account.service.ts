@@ -18,4 +18,8 @@ export class UserAccountService {
    getUserAccountByUsername(username: string): Observable<UserAccount>{
      return this.http.get<UserAccount>(this.baseUrl + username);
     }
+
+    getSearchResult(searchName: string): Observable<UserAccount[]>{
+        return this.http.get<UserAccount[]>(this.baseUrl+"search/"+searchName);
+    }
 }
