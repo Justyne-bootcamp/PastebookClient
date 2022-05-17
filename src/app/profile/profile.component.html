@@ -20,17 +20,17 @@
                       </div>
                     </header>
                 
-                    <h3>Roland Chester Seda</h3>
+                    <h3>{{ user.firstName + " " + user.lastName}}</h3>
                     <div id="details" class = "desc" style="color: rgb(43, 42, 42);">
-                        <div id="Birthday"><i class="fas fa-birthday-cake"></i> February 30, 2000</div>
-                        <div id="Gender"><i class="fas fa-venus-mars"></i> Male</div>
-                        <div id="Email"><i class="fas fa-envelope"></i> roland.seda@pw.com.ph</div>
-                        <div id="MobileNumber"><i class="fas fa-phone-alt"></i> 09191234567</div>
+                        <div id="Birthday"><i class="fas fa-birthday-cake"></i> {{ user.birthday | date: 'mediumDate' }}</div>
+                        <div id="Gender"><i class="fas fa-venus-mars"></i> {{ user.gender }}</div>
+                        <div id="Email"><i class="fas fa-envelope"></i> {{ user.email }}</div>
+                        <div id="MobileNumber"><i class="fas fa-phone-alt"></i> {{ user.mobileNumber }}</div>
                     </div>
         
                     <div class="desc" style="color: rgb(43, 42, 42);">
                         <h6>About Me</h6>
-                        <p>You know that tingly feeling you get on the back of your neck sometimes? I just got that feeling when talking with her. You know I don't believe in sixth senses, but there is something not right with her. I don't know how I know, but I just do.</p>
+                        <p>{{ user.aboutMe }}</p>
                         <br>
                         <div class="multi-button">
                             <button><i class="fa fa-users"></i> Friends</button>
