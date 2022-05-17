@@ -16,7 +16,8 @@
                 <div class="card card-one" style="background-color: white; color: rgb(43, 42, 42)">
                     <header>
                       <div class="avatar">
-                        <img src="../../assets/testPhoto/download.png" alt="alternate" />
+                        <img src="../../assets/uploaded_photo/SanaMinatozaki1/profilePicture/{{user.profilePhotoPath}}" alt="alternate" />
+                        <!-- <img src="../../assets/testPhoto/download.png" alt="alternate" /> -->
                       </div>
                     </header>
                 
@@ -35,7 +36,7 @@
                         <div class="multi-button">
                             <button><i class="fa fa-users"></i> Friends</button>
                             <button><i class="fa fa-images"></i> Album</button>
-                            <button><i class="fas fa-user-edit"></i> Edit</button>
+                            <button (click)="showAboutMe(true)"><i class="fas fa-user-edit"></i> Edit</button>
                         </div>
                         <br>
                     </div>
@@ -49,5 +50,30 @@
                 <app-timeline></app-timeline>
             </div>
         </div>
+
+         <!-- about me modal -->
+        <div [ngClass]="{'aboutMe-modal-container': true, 'show-aboutMe': showAboutMeModal}">
+            <div class="aboutMe-modal" >
+                <div>
+                    <button (click)="showAboutMe(false)">X</button>
+                </div>
+                <div>
+                    <form [formGroup]="editForm" (submit)="submitEditForm()" enctype="multipart/form-data" >
+                        <div>
+                            <label for="profilePicture">Profile Picture</label>
+                            <input type="file" accept=".png,.jpg" class="btn btn-info btn-lg btn-block" name="profilePicture" 
+                                (change)="onFileSelected($event)" formControlName="profilePicture" />
+                        </div>
+                        <label for="aboutMe">About Me:</label>
+                        <textarea cols="30" rows="5" formControlName="aboutMe" ></textarea>
+                        <div>
+                            <input type="submit" value="submit">
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
     </div>
+   
 </body>

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { UserAccount } from '../models/user-account.model';
 import { UserAccountService } from '../user-account.service';
@@ -13,8 +13,15 @@ import { UserAccountService } from '../user-account.service';
 export class ProfileComponent implements OnInit {
 
   user!:UserAccount;
+  showAboutMeModal: boolean = false;
+  editForm: FormGroup;
+  selectedFile: File | null;
 
-  constructor(private userAccountService: UserAccountService, private route:ActivatedRoute) {
+  constructor(private userAccountService: UserAccountService, private route:ActivatedRoute, private fb: FormBuilder) {
+    this.editForm = fb.group({
+      aboutMe: [""],
+      profilePicture: [""]
+    });
    }
 
   ngOnInit(): void {
@@ -23,8 +30,26 @@ export class ProfileComponent implements OnInit {
     .subscribe(user => {
       this.user = user; 
     });
+  }
 
+  showAboutMe(value: boolean){
+    this.showAboutMeModal = value;
+  }
 
-    console.log(JSON.stringify(this.user));
+  onFileSelected(event:any){
+    this.selectedFile=<File>event.target.files[0];
+  }
+
+  submitEditForm(){
+    const formData = new FormData();
+
+    if(this.selectedFile != null){
+      formData.append("profilePicture", this.selectedFile)
+    }
+    formData.append("aboutMe", this.editForm.get('aboutMe')?.value);
+
+    console.log(formData);
+    this.userAccountService.updateProfile(formData);
+    this.showAboutMeModal = false;
   }
 }
