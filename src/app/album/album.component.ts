@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IAlbum } from '../models/album.model';
+import { AlbumService } from '../shared/album.service';
 
 @Component({
   selector: 'app-album',
@@ -7,9 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlbumComponent implements OnInit {
 
-  constructor() { }
+  showModal: boolean = false;
+  albumName: string;
+  albums: IAlbum[];
+  constructor(private albumService: AlbumService) { }
 
   ngOnInit(): void {
+    this.albumService.getAlbums().subscribe(response => {
+      this.albums = response;
+    });
+  }
+
+  showModalFunction(value: boolean){
+    this.showModal = value;
+  }
+  createAlbum(){
+    this.albumService.createAlbum(this.albumName);
+    this.showModal = false;
+    window.location.reload();
+  }
+  deleteAlbum(albumId: string){
+    alert(albumId);
+    this.albumService.deleteAlbum(albumId);
+  }
+  openAlbum(albumId: string, albumName: string){
+    alert(albumId + " " + albumName)
+  }
+  uploadPhoto(albumName: string){
+    alert(albumName);
   }
 
 }

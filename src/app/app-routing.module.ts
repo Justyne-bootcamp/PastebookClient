@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'pastebook.com/:username', component: ProfileComponent},
   {path: 'register', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'album', component: AlbumComponent},
+  {path: 'album/:username', component: AlbumComponent},
   {path: 'timeline', component: TimelineComponent},
   {path: 'friends', component: FriendsComponent},
   {path: 'search/:searchName', component: SearchResultComponent},

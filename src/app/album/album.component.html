@@ -1,1 +1,29 @@
 <p>album works!</p>
+
+<button (click)="showModalFunction(true)">Create New Album</button>
+<div class="row">
+    <div *ngFor="let album of albums" class="col-md-2 offset-md-1" style="background-color: gray; height: 100px">
+        <span>{{ album.albumName }}</span>
+        <button (click)="openAlbum(album.albumId, album.albumName)">Open Album</button>
+        <button (click)="deleteAlbum(album.albumId)">Delete</button>
+    </div>
+</div>
+
+<!-- about me modal -->
+<div [ngClass]="{'album-modal-container': true, 'show': showModal}">
+    <div class="album-modal" >
+        <div>
+            <button (click)="showModalFunction(false)">X</button>
+        </div>
+        <div>
+            <div>
+                <label for="albumNamed">Album Name</label>
+                <input type="text" [(ngModel)]="albumName" placeholder="album name">
+            </div>
+            <div>
+                <button (click)="createAlbum()">create</button>
+            </div>
+        </div>
+        
+    </div>
+</div>

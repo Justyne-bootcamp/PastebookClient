@@ -26,8 +26,8 @@ export class ProfileComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    let username = this.route.snapshot.paramMap.get('username') as string;
-    this.userAccountService.getUserAccountByUsername(username)
+    this.username = this.route.snapshot.paramMap.get('username') as string;
+    this.userAccountService.getUserAccountByUsername(this.username)
     .subscribe(user => {
       this.user = user; 
     });
@@ -47,10 +47,14 @@ export class ProfileComponent implements OnInit {
     if(this.selectedFile != null){
       formData.append("profilePicture", this.selectedFile)
     }
-    formData.append("aboutMe", this.editForm.get('aboutMe')?.value);
+    if(this.editForm.get('aboutMe')?.value != ""){
+
+      formData.append("aboutMe", this.editForm.get('aboutMe')?.value);
+    }
 
     console.log(formData);
     this.userAccountService.updateProfile(formData);
     this.showAboutMeModal = false;
+    window.location.reload();
   }
 }

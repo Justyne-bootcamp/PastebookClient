@@ -1,0 +1,28 @@
+.album-modal-container{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(114, 110, 110, 0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
+}
+
+.album-modal{
+    background-color: rgb(255, 255, 255);
+    height: 60%;
+    width: 50%;
+    border-radius: 15px;
+    padding-top: 0;
+}
+
+.show{
+    visibility: visible;
+    opacity: 1;
+}
