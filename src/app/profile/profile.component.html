@@ -1,4 +1,7 @@
 <app-navbar></app-navbar>
+
+<app-profile-post-form></app-profile-post-form>
+<app-timeline-feed></app-timeline-feed>
 <body>
     <div class="col-md-12 row" style="background-color: rgb(247, 242, 242);">
         <div class="col-md-3">
@@ -6,18 +9,25 @@
                 <div class="card card-one" style="background-color: white; color: rgb(43, 42, 42)">
                     <header>
                       <div class="avatar">
-                        <img src="../../assets/uploaded_photo/SanaMinatozaki1/profilePicture/{{user.profilePhotoPath}}" alt="alternate" />
+                        <img src="../../assets/uploaded_photo/SanaMinatozaki1/profilePicture/{{user.profilePhotoPath}}" alt="alternate" *ngIf="user.profilePhotoPath != null"  />
+                        <img src="../../assets/testPhoto/download.png" alt="alternate" *ngIf="user.profilePhotoPath == null" />
                       </div>
                     </header>
                 
                     <h3>{{ user.firstName + " " + user.lastName}}</h3>
+
+                        <input type="hidden" [(ngModel)]="userId">
+                        <div>
+                            <button class="btn btn-primary" (click)="addFriend()">Add Friend</button>
+                        </div>
+
                     <div id="details" class = "desc" style="color: rgb(43, 42, 42);">
-                        <div id="Birthday"><i class="fas fa-birthday-cake"></i> {{ user.birthday | date: 'mediumDate' }}</div>
+                        <div id="Birthday"><i class="fas fa-birthday-cake"></i> {{ user.birthday | date: 'longDate' }}</div>
                         <div id="Gender"><i class="fas fa-venus-mars"></i> {{ user.gender }}</div>
                         <div id="Email"><i class="fas fa-envelope"></i> {{ user.email }}</div>
                         <div id="MobileNumber"><i class="fas fa-phone-alt"></i> {{ user.mobileNumber }}</div>
                       </div>
-        
+                    
                     <div class="desc" style="color: rgb(43, 42, 42);">
                         <h6>About Me</h6>
                         <p>{{ user.aboutMe }}</p>
@@ -37,11 +47,10 @@
         </div>
         <div class="col-md-9">
             <div>
-                <app-profile-post-form></app-profile-post-form>
             </div>
         </div>
 
-        <!-- about me modal -->
+        
         <div [ngClass]="{'profile-modal-container': true, 'renderModal': showModalChecker}">
             <div id="main-modal" class="profile-modal card" >
                 <div id="close-div" style="display:flex;justify-content:flex-end;">
