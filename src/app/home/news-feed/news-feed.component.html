@@ -11,7 +11,7 @@
                 </div>
                 <p class="card-text">{{post.textContent}}{{post.postPhotoPath}}</p>
             </div>
-            <img class="card-img-top" src="./assets/uploaded_photo/{{post.postPhotoPath}}" alt="{{post.postPhotoPath}}" *ngIf="post.postPhotoPath">
+            <img class="card-img-top" src="../../../assets/uploaded_photo/{{post.username}}/posts/{{post.postPhotoPath}}" alt="{{post.postPhotoPath}}" *ngIf="post.postPhotoPath">
             <div class="card-body">
             <hr>
             <div id="post-btn">
