@@ -82,6 +82,16 @@ a:hover,
 a:visited {
     color:black
 }
+#logout-btn{
+    background-color: #779ecc;
+    color: rgb(43, 42, 42);
+    border-style: none;
+    font-weight: 700;
+    font-size: 20px;
+}
+#logout-btn:hover{
+    text-decoration: underline;
+}
 /* 
 .dropdown {
     visibility: hidden;
