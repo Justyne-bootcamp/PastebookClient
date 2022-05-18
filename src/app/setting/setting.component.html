@@ -26,6 +26,31 @@
             [ngClass]="{ 'is-invalid': submitted && u['birthday'].errors }" required>
             <p class="invalid-input" *ngIf="submitted && u['birthday'].errors">Birthday is required</p>
         </div>
+        <div class="form-group changeEmail">
+          <label id="icon" class="email" for="setting-email">Email</label>
+          <input type="text" id="setting-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            [ngClass]="{ 'is-invalid': submitted && u['email'].errors }" name="email" formControlName="email" #email
+            required />
+          <p class="invalid-input" *ngIf="submitted && u['email'].errors">Email is required</p>
+        </div>
+        <div class="form-group">
+          <label id="icon" class="newPassword1" for="setting-password">New Password</label>
+          <input type="password" id="setting-password" name="password" formControlName="password"
+            #password [ngClass]="{ 'is-invalid': submitted && u['password'].errors }" minlength="6" />
+            <p class="invalid-input" *ngIf="submitted && u['password'].errors">
+              <span *ngIf="u['password'].errors['minlength']">Password should be at least 6 characters</span>
+            </p>
+        </div>
+        <div class="form-group changePassword">
+          <label id="icon" class="newPassword2" for="setting-confirmPassword">Confirm New Password</label>
+          <input type="password" id="setting-confirmPassword" formControlName="confirmPassword"
+            name="confirmPassword" #confirmPassword [ngClass]="{ 'is-invalid': submitted && u['confirmPassword'].errors }"
+            minlength="6" />
+            <p class="invalid-input" *ngIf="submitted && u['confirmPassword'].errors">
+              <span *ngIf="u['confirmPassword'].errors['minlength']">Password should be at least 6 characters</span>
+              <span *ngIf="u['confirmPassword'].errors['matching']">Passwords do not match. Retype both passwords</span>
+            </p>
+        </div>
         <div class="form-group gender">
           <div class="userGender">Gender</div>
           <input type="radio" value="M" id="register-maleGender" name="gender" formControlName="gender" #gender
@@ -36,53 +61,15 @@
            <label for="register-femaleGender" class="radio">Female</label>
            <p class="invalid-input" *ngIf="submitted && u['gender'].errors">Gender is required</p>
         </div>
-        <div>
-          <button class="buttons mb-3" type="submit">Update Info</button>
-        </div>
         <hr>
-        <div id="header3">Change Email</div>
+        <div id="header2">Enter Current Password to Update</div>
         <div class="form-group">
-          <label id="icon" class="currentPassword1" for="setting-password">Current Password</label>
-          <input type="password" id="setting-password" name="password" formControlName="password" required />
-        </div>
-        <div class="form-group changeEmail">
-          <label id="icon" class="email" for="setting-email">Email</label>
-          <input type="text" id="setting-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-            [ngClass]="{ 'is-invalid': submitted && u['email'].errors }" name="email" formControlName="email" #email
-            required />
-          <p class="invalid-input" *ngIf="submitted && u['email'].errors">Email is required</p>
+          <label id="icon" class="currentPassword2" for="current-password">Current Password</label>
+          <input type="password" id="current-password" name="password" formControlName="currentPassword" #currentPassword required />
+          <p class="invalid-input" *ngIf="submitted && u['currentPassword'].errors">Enter current password to update</p>
         </div>
         <div>
-          <button class="buttons btn-block update3 mb-4" type="submit">Update Email</button>
-        </div>
-        <hr>
-        <div id="header2">Change Password</div>
-        <div class="form-group">
-          <label id="icon" class="currentPassword2" for="setting-password">Current Password</label>
-          <input type="password" id="setting-password" name="password" formControlName="password" required />
-        </div>
-        <div class="form-group">
-          <label id="icon" class="newPassword1" for="setting-password">New Password</label>
-          <input type="password" id="setting-password" name="password" formControlName="password"
-            #password required [ngClass]="{ 'is-invalid': submitted && u['password'].errors }" minlength="6" />
-            <p class="invalid-input" *ngIf="submitted && u['password'].errors">
-              <span *ngIf="u['password'].errors['required']">Password is required</span>
-              <span *ngIf="u['password'].errors['minlength']">Password should be at least 6 characters</span>
-            </p>
-        </div>
-        <div class="form-group changePassword">
-          <label id="icon" class="newPassword2" for="setting-confirmPassword">Confirm New Password</label>
-          <input type="password" id="setting-confirmPassword" formControlName="confirmPassword"
-            name="confirmPassword" #confirmPassword required [ngClass]="{ 'is-invalid': submitted && u['confirmPassword'].errors }"
-            minlength="6" />
-            <p class="invalid-input" *ngIf="submitted && u['confirmPassword'].errors">
-              <span *ngIf="u['confirmPassword'].errors['required']">Password is required</span>
-              <span *ngIf="u['confirmPassword'].errors['minlength']">Password should be at least 6 characters</span>
-              <span *ngIf="u['confirmPassword'].errors['matching']">Passwords do not match. Retype both passwords</span>
-            </p>
-        </div>
-        <div>
-          <button class="buttons btn-block update2 mb-4" type="submit">Update Password</button>
+          <button class="buttons btn-block update2 mb-4" type="submit">Update Information</button>
         </div>
     </form>
 </div>

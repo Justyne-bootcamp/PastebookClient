@@ -3,6 +3,7 @@ import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from
 import { UserAccount } from '../shared/user-account.model';
 import Validation from '../shared/validation';
 import { UserAccountService } from '../shared/user-account.service';
+import { SessionService } from '../shared/session.service';
 
 @Component({
   selector: 'app-setting',
@@ -22,11 +23,12 @@ export class SettingComponent implements OnInit {
     confirmPassword: new FormControl(''),
     birthday: new FormControl(''),
     gender: new FormControl(''),
-    mobileNumber: new FormControl('')
+    mobileNumber: new FormControl(''),
+    currentPassword: new FormControl('')
   });
   submitted = false;
 
-  constructor(public service:UserAccountService, private formBuilder: FormBuilder) { }
+  constructor(private userAccountService:UserAccountService, private sessionService:SessionService ,private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.settingsForm = this.formBuilder.group(
@@ -34,11 +36,13 @@ export class SettingComponent implements OnInit {
         firstName: ['', Validators.required],
         lastName: ['', Validators.required],
         email: ['', Validators.required],
-        password: ['', [Validators.required, Validators.minLength(6)]],
-        confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
+        password: ['', [Validators.minLength(6)]],
+        confirmPassword: ['', [Validators.minLength(6)]],
         birthday: ['', Validators.required],
         gender: ['', Validators.required],
-        mobileNumber: ['']
+        mobileNumber: [''],
+        currentPassword: ['', Validators.required]
+
       },
       {validators: Validation.match('password', 'confirmPassword')}
     )
@@ -50,15 +54,17 @@ export class SettingComponent implements OnInit {
   }
 
   getUser(){
-    this.service.getUserBySessionId()
+    this.userAccountService.getUserBySessionId()
     .subscribe(
       response => {
         this.userOld = new UserAccount(response);
+        let date: string[] = this.userOld.birthday.split("T");
+        let birthday = date[0];
         this.settingsForm.patchValue({
           firstName: this.userOld.firstName,
           lastName: this.userOld.lastName,
           email: this.userOld.email,
-          birthday: this.userOld.birthday,
+          birthday: birthday,
           gender: this.userOld.gender,
           mobileNumber: this.userOld.mobileNumber
         })
@@ -68,19 +74,40 @@ export class SettingComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
-    if(this.settingsForm.invalid){
-      return;
-    }
-    this.userUpdate = new UserAccount(this.settingsForm.value)
-    this.userUpdate.userAccountId = this.userOld.userAccountId
-    this.service.updateUser(this.userUpdate)
+    let currentPassword = this.settingsForm.controls['currentPassword'].value;
+    let jsonCurrentPassword = "\""+ currentPassword+  "\""
+    this.sessionService.settingPassword(jsonCurrentPassword)
+      .subscribe(
+        response => {
+          this.submitted = true;
+          if (this.settingsForm.invalid) {
+            return;
+          }
+          this.userUpdate = new UserAccount(this.settingsForm.value)
+          if (this.settingsForm.controls['password'].value === '') {
+            this.userUpdate.password = this.settingsForm.controls['currentPassword'].value;
+          }
+          this.userUpdate.userAccountId = this.userOld.userAccountId
+          this.userAccountService.updateUser(this.userUpdate)
+            .subscribe(
+              response => {
+                console.log(response);
+              }
+            )
+          console.log(this.userUpdate)
+          console.log(response);
+        }
+      )
+  }
+  
+  confirmPassword(){
+    let currentPassword = this.settingsForm.controls['currentPassword'].value;
+    this.sessionService.settingPassword(currentPassword)
     .subscribe(
       response => {
         console.log(response);
       }
     )
-    console.log(this.userUpdate)
   }
 
 }
