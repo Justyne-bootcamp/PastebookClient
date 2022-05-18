@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, Observable, tap, throwError } from 'rxjs';
 import { ILoginResponse } from './models/login-response.model';
 import { ILogin } from './models/login.models';
-import { IToken } from './models/token.model';
 
 @Injectable({
   providedIn: 'root'
