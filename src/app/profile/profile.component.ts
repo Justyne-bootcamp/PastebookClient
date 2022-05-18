@@ -12,25 +12,33 @@ import { UserAccountService } from '../user-account.service';
 })
 export class ProfileComponent implements OnInit {
 
+  userId: string;
   username: string;
   user!:UserAccount;
   showModalChecker: boolean = false;
   editForm: FormGroup;
+  addFriendForm: FormGroup;
   selectedFile: File | null;
-
   constructor(private userAccountService: UserAccountService, private route:ActivatedRoute, private fb: FormBuilder) {
+    let userid = localStorage.getItem("UserAccountId");
     this.editForm = fb.group({
       aboutMe: [""],
-      profilePicture: [""]
+      profilePicture: [""],
+      userAccountId: [userid]
     });
+
+   
    }
 
   ngOnInit(): void {
     this.username = this.route.snapshot.paramMap.get('username') as string;
     this.userAccountService.getUserAccountByUsername(this.username)
     .subscribe(user => {
-      this.user = user; 
+      this.user = user;
+      this.userId = user.userAccountId;
     });
+
+
   }
 
   showModal(){
@@ -54,10 +62,14 @@ export class ProfileComponent implements OnInit {
 
       formData.append("aboutMe", this.editForm.get('aboutMe')?.value);
     }
-
+    formData.append("userAccountId", this.editForm.get('userAccountId')?.value)
     console.log(formData);
     this.userAccountService.updateProfile(formData);
     this.closeModal();
     window.location.reload();
+  }
+
+  addFriend(){
+    alert(this.userId);
   }
 }

@@ -1,7 +1,8 @@
 <h3>Search result</h3>
 <div *ngFor="let user of users">
     <div>
-        <img src="" alt="profile-picture">
+        <img src="../../assets/uploaded_photo/SanaMinatozaki1/profilePicture/{{user.profilePhotoPath}}" alt="alternate" *ngIf="user.profilePhotoPath != null"  />
+                        <img src="../../assets/testPhoto/download.png" alt="alternate" *ngIf="user.profilePhotoPath == null" />
     </div>
     <div>
         <a [routerLink]="['/pastebook.com', user.username]">{{ user.firstName + " " + user.lastName }}</a>

@@ -15,14 +15,20 @@
                 <div class="card card-one" style="background-color: white; color: rgb(43, 42, 42)">
                     <header>
                       <div class="avatar">
-                        <img src="../../assets/uploaded_photo/SanaMinatozaki1/profilePicture/{{user.profilePhotoPath}}" alt="alternate" />
-                        <!-- <img src="../../assets/testPhoto/download.png" alt="alternate" /> -->
+                        <img src="../../assets/uploaded_photo/SanaMinatozaki1/profilePicture/{{user.profilePhotoPath}}" alt="alternate" *ngIf="user.profilePhotoPath != null"  />
+                        <img src="../../assets/testPhoto/download.png" alt="alternate" *ngIf="user.profilePhotoPath == null" />
                       </div>
                     </header>
                 
                     <h3>{{ user.firstName + " " + user.lastName}}</h3>
+
+                        <input type="hidden" [(ngModel)]="userId">
+                        <div>
+                            <button class="btn btn-primary" (click)="addFriend()">Add Friend</button>
+                        </div>
+
                     <div id="details" class = "desc" style="color: rgb(43, 42, 42);">
-                        <div id="Birthday"><i class="fas fa-birthday-cake"></i> {{ user.birthday | date: 'mediumDate' }}</div>
+                        <div id="Birthday"><i class="fas fa-birthday-cake"></i> {{ user.birthday | date: 'longDate' }}</div>
                         <div id="Gender"><i class="fas fa-venus-mars"></i> {{ user.gender }}</div>
                         <div id="Email"><i class="fas fa-envelope"></i> {{ user.email }}</div>
                         <div id="MobileNumber"><i class="fas fa-phone-alt"></i> {{ user.mobileNumber }}</div>
@@ -70,6 +76,7 @@
                 <div>
                     <form [formGroup]="editForm" (submit)="submitEditForm()" enctype="multipart/form-data" >
                         <div>
+                            <input type="hidden" formControlName="userAccountId"    >
                             <label for="profilePicture">Profile Picture</label>
                             <input type="file" accept=".png,.jpg" class="btn btn-info btn-lg btn-block" name="profilePicture" 
                                 (change)="onFileSelected($event)" formControlName="profilePicture" />
