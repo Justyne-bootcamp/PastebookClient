@@ -1,0 +1,56 @@
+.card{
+    border-radius: 10px;
+    box-shadow: rgb(185, 185, 185) 0px 2px 4px 0px, rgb(202, 201, 201) 0px 2px 16px 0px;
+}
+#friend-row{
+    margin-top: 15px;
+}
+#user-icon-pic{
+    height: 95px;
+    width: 95px;
+    border-radius: 10px;
+    border: 1px solid rgb(105, 104, 104);
+}
+#card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: auto;
+}
+#friend-card{
+    width: 410px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    position: relative;
+}
+#card-content{
+    display: flex;
+}
+#friend-name{
+    margin-top: 20px;
+    margin-left: 15px;
+}
+#friend-button{
+    margin-left: 140px;
+    background-color: white;
+    height: 40px;
+    width: 40px;
+    border-radius: 90px;
+    margin-top: 30px;
+    transition-duration: 500ms;
+    border-style: none;
+}
+#friend-button:hover{
+    background-color: rgb(201, 199, 197);
+}
+#mutual{
+    font-size: 12px;
+    font-weight: 100;
+}
+#fullname{
+    text-decoration: none;
+    color: black;
+}

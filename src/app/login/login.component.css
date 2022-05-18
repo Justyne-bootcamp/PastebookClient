@@ -22,8 +22,7 @@
 }
 
 .gradient-custom-3 {
-
-    background: #b2b5b6;
+    background: #7ec4cf;
     border-radius: .3rem;
     padding: 2px 4px 2px 4px;
 }
@@ -43,4 +42,29 @@ a:hover {
 }
 a {
     text-decoration: none;
+}
+#pastebook{
+    font-size: 50px;
+    font-weight: 900;
+    color: #779ecc;
+}
+#paste-it{
+    font-size: 30px;
+    font-weight: 700;
+    color: #779ecc;
+}
+#quote{
+    font-size: 20px;
+    font-weight: 700;
+    color: #797171;
+}
+#we-are-pastebook{
+    font-size: 30px;
+    font-weight: 900;
+    color: #797171;
+}
+#login{
+    width: 100%;
+    border-style: none;
+    box-shadow: rgb(185, 185, 185) 0px 2px 4px 0px, rgb(202, 201, 201) 0px 2px 16px 0px;
 }

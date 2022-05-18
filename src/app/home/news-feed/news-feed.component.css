@@ -19,7 +19,7 @@
     margin-right: 2px;
     border-radius: 5px;
     border-style: none;
-    background-color: white;
+    background-color: rgb(231, 224, 224);
     color: rgb(43, 42, 42);
     transition-duration: 500ms;
 }
@@ -55,4 +55,9 @@
 #send-comment-button:hover{
     background-color: #779ecc;
     color: rgb(223, 215, 215);
+}
+#user-icon-pic{
+    height: 60px;
+    width: 60px;
+    border-radius: 100px;
 }
