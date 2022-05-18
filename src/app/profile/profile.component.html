@@ -46,7 +46,7 @@
                         <div class="multi-button">
                             <a id="friends" routerLink="/friends"><button><i class="fa fa-users"></i> Friends</button></a>
                             <a id="album" routerLink="/album"><button><i class="fa fa-images"></i> Album</button></a>
-                            <button id="editProfile" (click)="showAboutMe(true)"><i class="fas fa-user-edit"></i> Edit</button>
+                            <button id="editProfile" (click)="showModal()"><i class="fas fa-user-edit"></i> Edit</button>
                         </div>
                         <br>
                     </div>
@@ -62,10 +62,10 @@
         </div>
 
         <!-- about me modal -->
-        <div [ngClass]="{'aboutMe-modal-container': true, 'show-aboutMe': showAboutMeModal}">
-            <div class="aboutMe-modal" >
+        <div [ngClass]="{'profile-modal-container': true, 'renderModal': showModalChecker}">
+            <div class="profile-modal" >
                 <div>
-                    <button (click)="showAboutMe(false)">X</button>
+                    <button (click)="closeModal()">X</button>
                 </div>
                 <div>
                     <form [formGroup]="editForm" (submit)="submitEditForm()" enctype="multipart/form-data" >
@@ -84,7 +84,7 @@
                 
             </div>
         </div>
+        
     </div>
    
 </body>
-<app-profile-post-form></app-profile-post-form>

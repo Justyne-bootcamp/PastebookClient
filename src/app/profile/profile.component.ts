@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
 
   username: string;
   user!:UserAccount;
-  showAboutMeModal: boolean = false;
+  showModalChecker: boolean = false;
   editForm: FormGroup;
   selectedFile: File | null;
 
@@ -33,8 +33,11 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  showAboutMe(value: boolean){
-    this.showAboutMeModal = value;
+  showModal(){
+    this.showModalChecker = true;
+  }
+  closeModal(){
+    this.showModalChecker = false;;
   }
 
   onFileSelected(event:any){
@@ -54,7 +57,7 @@ export class ProfileComponent implements OnInit {
 
     console.log(formData);
     this.userAccountService.updateProfile(formData);
-    this.showAboutMeModal = false;
+    this.closeModal();
     window.location.reload();
   }
 }

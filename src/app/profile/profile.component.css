@@ -166,7 +166,7 @@ body{
   }
   
 
-.aboutMe-modal-container{
+.profile-modal-container{
     position: fixed;
     width: 100%;
     height: 100vh;
@@ -182,7 +182,7 @@ body{
     transition: visibility 0s, opacity 0.5s;
 }
 
-.aboutMe-modal{
+.profile-modal{
     background-color: rgb(255, 255, 255);
     height: 60%;
     width: 50%;
@@ -190,7 +190,7 @@ body{
     padding-top: 0;
 }
 
-.show-aboutMe{
+.renderModal{
     visibility: visible;
     opacity: 1;
 }
