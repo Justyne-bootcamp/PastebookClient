@@ -9,12 +9,23 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   searchInput:string = "";
+  userAccountId: string;
+  username: string;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.username = localStorage.getItem("Username") as string;
+    console.log(this.username);
   }
 
   search(){
     this.router.navigate(['search/'+ this.searchInput]);
+  }
+
+  logout(){
+    localStorage.removeItem("UserAccountId");
+    localStorage.removeItem("Username");
+    console.log("logout");
+    this.router.navigate(['/login']);
   }
 }
