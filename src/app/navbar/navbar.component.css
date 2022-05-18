@@ -77,6 +77,11 @@
 #right-nav div{
     padding: 0px 20px 0px 20px;
 }
+a,
+a:hover,
+a:visited {
+    color:black
+}
 /* 
 .dropdown {
     visibility: hidden;
