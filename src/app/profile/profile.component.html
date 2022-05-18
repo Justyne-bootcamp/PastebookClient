@@ -1,7 +1,6 @@
 <app-navbar></app-navbar>
 
-<app-profile-post-form></app-profile-post-form>
-<app-timeline-feed></app-timeline-feed>
+
 <body>
     <div class="col-md-12 row" style="background-color: rgb(247, 242, 242);">
         <div class="col-md-3">
@@ -17,8 +16,8 @@
                     <h3>{{ user.firstName + " " + user.lastName}}</h3>
 
                         <input type="hidden" [(ngModel)]="userId">
-                        <div>
-                            <button class="btn btn-primary" (click)="addFriend()">Add Friend</button>
+                        <div id="addfriend-btn">
+                            <button style="background-color:#779ecc;border-style:none;" class="btn btn-primary" (click)="addFriend()">Add Friend</button>
                         </div>
 
                     <div id="details" class = "desc" style="color: rgb(43, 42, 42);">
@@ -35,7 +34,7 @@
                         
                         <div class="multi-button">
                             <a id="friends" routerLink="/friends"><button><i class="fa fa-users"></i> Friends</button></a>
-                            <a id="album" routerLink="/album"><button><i class="fa fa-images"></i> Album</button></a>
+                            <a id="album" routerLink="/album/:username"><button><i class="fa fa-images"></i> Album</button></a>
                             <a id="editProfile"><button (click)="showModal()"><i class="fas fa-user-edit"></i> Edit</button></a>
                         </div>
                         <br>
@@ -47,6 +46,8 @@
         </div>
         <div class="col-md-9">
             <div>
+                <app-profile-post-form></app-profile-post-form>
+                <app-timeline-feed></app-timeline-feed>
             </div>
         </div>
 

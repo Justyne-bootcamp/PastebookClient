@@ -12,12 +12,15 @@ export class AlbumComponent implements OnInit {
   showModal: boolean = false;
   albumName: string;
   albums: IAlbum[];
+  username: string;
   constructor(private albumService: AlbumService) { }
 
   ngOnInit(): void {
     this.albumService.getAlbums().subscribe(response => {
       this.albums = response;
     });
+    this.username = localStorage.getItem("Username") as string;
+    console.log(this.username);
   }
 
   showModalFunction(value: boolean){

@@ -43,12 +43,12 @@
           </p>
       </div>
       <div class="form-group">
-        <label id="icon" for="register-mobileNumber"><i class="fa fa-mobile"></i></label>
+        <label id="icon" for="register-mobileNumber"><i class="fas fa-phone-alt"></i></label>
         <input type="text" id="register-mobileNumber" placeholder="Phone number" name="mobileNumber"
           formControlName="mobileNumber" #mobileNumber maxlength="11" minlength="11" />
       </div>
       <div class="form-group">
-        <label id="icon" for="register-birthday"><i class="fa fa-calendar"></i></label>
+        <label id="icon" for="register-birthday"><i class="fas fa-birthday-cake"></i></label>
         <input type="date" id="register-birthday" name="birthday" formControlName="birthday" #birthday
           [ngClass]="{ 'is-invalid': submitted && u['birthday'].errors }" required>
           <p class="invalid-input" *ngIf="submitted && u['birthday'].errors">Birthday is required</p>
@@ -64,7 +64,7 @@
       </div>
       <hr>
       <div class="register">
-          <p>By clicking Register, you agree on our <a href="#">terms and condition</a>.</p>
+          <p>By clicking Register, you agree on our <u style="color:rgb(143, 143, 245)">terms and condition</u>.</p>
           <button class="btn" type="submit">Register</button>
       </div>
   </form>

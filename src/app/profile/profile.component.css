@@ -239,3 +239,8 @@ body{
     font-weight: 800;
     background-color: #779ecc;
 }
+#addfriend-btn{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}

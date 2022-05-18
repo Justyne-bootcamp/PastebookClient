@@ -21,7 +21,7 @@ const routes: Routes = [
   {path: 'friends', component: FriendsComponent},
   {path: 'search/:searchName', component: SearchResultComponent},
   {path: 'setting', component: SettingComponent},
-  {path: 'album/gallery', component: GalleryComponent},
+  {path: 'album/:username/gallery', component: GalleryComponent},
 ];
 
 @NgModule({

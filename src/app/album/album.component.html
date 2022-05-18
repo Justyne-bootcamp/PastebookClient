@@ -21,7 +21,7 @@
                                 <img class="project__image" src="../../assets/testPhoto/download.png" />
                                 <p>Album Name</p>
                                 <div class="grid__overlay">
-                                    <a id="gallery" routerLink="/album/gallery"><button class="viewbutton" >Open album</button></a>
+                                    <a id="gallery" routerLink="/album/{{username}}/gallery"><button class="viewbutton" >Open album</button></a>
                                 </div>
                             </div>
                         </div>
@@ -30,7 +30,7 @@
                                 <img class="project__image" src="../../assets/testPhoto/download.png" />
                                 <p>{{ album.albumName }}</p>
                                 <div class="grid__overlay">
-                                    <a id="gallery" routerLink="/album/gallery"><button (click)="openAlbum(album.albumId, album.albumName)" class="viewbutton" >Open album</button></a>
+                                    <a id="gallery" routerLink="/album/{{username}}/gallery"><button (click)="openAlbum(album.albumId, album.albumName)" class="viewbutton" >Open album</button></a>
                                 </div>
                             </div>
                         </div>            
