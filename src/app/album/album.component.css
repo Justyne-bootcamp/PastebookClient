@@ -71,7 +71,6 @@ button {
     padding: 0.5em 0;
     margin: 5%;
     /* letter-spacing: 2px; */
-    z-index: 3;
     background-color: #f2dad7;
 }
 
@@ -143,4 +142,48 @@ width: auto;
    color: rgba(229, 182, 177); 
    text-decoration: none;
    padding: 0%;
+}
+#addAlbum:hover{
+    cursor:pointer;
+}
+#modal-title{
+    display: flex;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 700;
+}
+#textbox-div{
+    display: flex;
+    justify-content: center;
+}
+#modal-textbox{
+    width: 90%;
+    font-size: 24px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+}
+#modal-close{
+    border-style: none;
+    font-size: 30px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    transition-duration: 500ms;
+}
+#modal-close:hover{
+    background-color: rgb(62, 106, 199);
+}
+#create-div{
+    display: flex;
+    justify-content: center;
+}
+#modal-create{
+    border-style: none;
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 0px 15px 0px 15px;
+    background-color: rgb(148, 145, 142);
+    transition-duration: 500ms;
+}
+#modal-create:hover{
+    background-color: rgb(62, 106, 199);
 }
