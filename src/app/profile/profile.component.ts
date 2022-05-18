@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { UserAccount } from '../models/user-account.model';
+import { FriendService } from '../shared/friend.service';
 import { UserAccountService } from '../user-account.service';
 
 @Component({
@@ -12,19 +13,20 @@ import { UserAccountService } from '../user-account.service';
 })
 export class ProfileComponent implements OnInit {
 
-  userId: string;
+  receiverAccountId: string;
   username: string;
   user!:UserAccount;
   showModalChecker: boolean = false;
   editForm: FormGroup;
   addFriendForm: FormGroup;
   selectedFile: File | null;
-  constructor(private userAccountService: UserAccountService, private route:ActivatedRoute, private fb: FormBuilder) {
-    let userid = localStorage.getItem("UserAccountId");
+  userAccountId: string;
+  constructor(private userAccountService: UserAccountService, private route:ActivatedRoute, private fb: FormBuilder, private friendService: FriendService) {
+    this.userAccountId = localStorage.getItem("UserAccountId") as string;
     this.editForm = fb.group({
       aboutMe: [""],
       profilePicture: [""],
-      userAccountId: [userid]
+      userAccountId: [this.userAccountId]
     });
 
    
@@ -35,7 +37,7 @@ export class ProfileComponent implements OnInit {
     this.userAccountService.getUserAccountByUsername(this.username)
     .subscribe(user => {
       this.user = user;
-      this.userId = user.userAccountId;
+      this.receiverAccountId = user.userAccountId;
     });
 
 
@@ -70,6 +72,7 @@ export class ProfileComponent implements OnInit {
   }
 
   addFriend(){
-    alert(this.userId);
+    console.log(this.userAccountId + " " + this.receiverAccountId);
+    this.friendService.addFriend(this.userAccountId, this.receiverAccountId);
   }
 }

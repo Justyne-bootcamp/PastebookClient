@@ -8,14 +8,14 @@
                 <div class="card card-one" style="background-color: white; color: rgb(43, 42, 42)">
                     <header>
                       <div class="avatar">
-                        <img src="../../assets/uploaded_photo/SanaMinatozaki1/profilePicture/{{user.profilePhotoPath}}" alt="alternate" *ngIf="user.profilePhotoPath != null"  />
+                        <img src="../../assets/uploaded_photo/{{user.username}}/profilePicture/{{user.profilePhotoPath}}" alt="alternate" *ngIf="user.profilePhotoPath != null"  />
                         <img src="../../assets/testPhoto/download.png" alt="alternate" *ngIf="user.profilePhotoPath == null" />
                       </div>
                     </header>
                 
                     <h3>{{ user.firstName + " " + user.lastName}}</h3>
 
-                        <input type="hidden" [(ngModel)]="userId">
+                        <input type="hidden" [(ngModel)]="receiverAccountId">
                         <div id="addfriend-btn">
                             <button style="background-color:#779ecc;border-style:none;" class="btn btn-primary" (click)="addFriend()">Add Friend</button>
                         </div>
