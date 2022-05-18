@@ -12,22 +12,16 @@
             <h5><a id="home" routerLink="/"><i class="fas fa-home"></i>Home</a></h5>
         </div>
         <div id="profile-div">
-            <a id="profile-link" routerLink="/pastebook.com/:username">
+            <a id="profile-link" routerLink="/pastebook.com/{{ username }}">
                 <img id="user-icon-pic" src="../../assets/testPhoto/download.png" alt="Card image cap">
-                <h5>FirstName</h5>
+                <h5>{{ username }}</h5>
             </a>
         </div>
         <div>
             <a [routerLink] = "['/setting']"><i class="fa fa-cog fa-lg"></i></a>
         </div>
         <div id="logout-div">
-            <h5> Logout
-            <!-- <h5> more <i class="fas fa-caret-down"></i> -->
-                <!-- <ul class="dropdown">
-                    <li><a href="#">Settings</a></li>
-                    <li><a href="#">Logout</a></li>
-                </ul> -->
-            </h5>
+            <button (click)="logout()">Logout</button>
         </div>
     </div>
 </nav>

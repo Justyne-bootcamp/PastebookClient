@@ -25,13 +25,14 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.loginForm.value);
     this.sessionService.login(this.loginForm.value).subscribe((response) =>{
-      console.log(response);
+      localStorage.setItem("UserAccountId", response.userAccountId);
+      localStorage.setItem("Username", response.username);
       this.router.navigate(['']);
     }, (err) => {
       console.log(err.message);
       this.errorMessage = "Incorrect Credential";
-    });
+    });    
   }
 }
+
