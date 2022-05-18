@@ -7,11 +7,10 @@
         <div id="Gender">{{ user.gender }}</div>
         <div id="AboutMe">{{ user.aboutMe}}</div>
     </div> -->
-   
 <app-navbar></app-navbar>
 <body>
     <div class="col-md-12 row" style="background-color: rgb(247, 242, 242);">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="col-md-11 offset-md-1" style="width: 18rem">
                 <div class="card card-one" style="background-color: white; color: rgb(43, 42, 42)">
                     <header>
@@ -27,16 +26,27 @@
                         <div id="Gender"><i class="fas fa-venus-mars"></i> {{ user.gender }}</div>
                         <div id="Email"><i class="fas fa-envelope"></i> {{ user.email }}</div>
                         <div id="MobileNumber"><i class="fas fa-phone-alt"></i> {{ user.mobileNumber }}</div>
-                    </div>
+                        <img src="../../assets/testPhoto/download.png" alt="alternate" />
+                      </div>
+                    </header>
+                
+                    <!-- <h3>Roland Chester Seda</h3>
+                    <div id="details" class = "desc" style="color: rgb(43, 42, 42);">
+                        <div id="Birthday"><i class="fas fa-birthday-cake"></i> February 30, 2000</div>
+                        <div id="Gender"><i class="fas fa-venus-mars"></i> Male</div>
+                        <div id="Email"><i class="fas fa-envelope"></i> roland.seda@pw.com.ph</div>
+                        <div id="MobileNumber"><i class="fas fa-phone-alt"></i> 09191234567</div>
+                    </div> -->
         
                     <div class="desc" style="color: rgb(43, 42, 42);">
                         <h6>About Me</h6>
                         <p>{{ user.aboutMe }}</p>
                         <br>
+                        
                         <div class="multi-button">
-                            <button><i class="fa fa-users"></i> Friends</button>
-                            <button><i class="fa fa-images"></i> Album</button>
-                            <button (click)="showAboutMe(true)"><i class="fas fa-user-edit"></i> Edit</button>
+                            <a id="friends" routerLink="/friends"><button><i class="fa fa-users"></i> Friends</button></a>
+                            <a id="album" routerLink="/album"><button><i class="fa fa-images"></i> Album</button></a>
+                            <button id="editProfile" (click)="showAboutMe(true)"><i class="fas fa-user-edit"></i> Edit</button>
                         </div>
                         <br>
                     </div>
@@ -45,7 +55,7 @@
                   </div>
             </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div>
                 <app-timeline></app-timeline>
             </div>

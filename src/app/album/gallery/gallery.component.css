@@ -1,0 +1,20 @@
+#card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: auto;
+    padding: 1%;
+}
+
+.albumPhoto{
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: rgb(185, 185, 185) 0px 2px 4px 0px, rgb(202, 201, 201) 0px 2px 16px 0px;
+    width: 195px;
+    height: 195px;
+    transition: transform ease-in-out 0.3s;
+    margin: 0.5%;
+    padding: 0%;
+}
+ 
+.albumPhoto:hover { transform: scale(1.3); }

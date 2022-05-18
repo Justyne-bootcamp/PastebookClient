@@ -25,4 +25,121 @@
 .show{
     visibility: visible;
     opacity: 1;
+body {
+    /* font-family: 'Inconsolata', monospace; */
+    background-color: rgb(247, 242, 242);
+    margin: 0;
+}
+button {
+    cursor: pointer;
+}
+#portfolio {
+   width: 33%;
+    min-height: 50vh;
+    position: relative;
+    display: flex;
+    /* grid-template-columns: repeat(4, minmax(200px, 1fr));
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 2px; */
+    padding: 20px;
+    justify-items: center;
+    
+}
+
+.project {
+   width: 100%;
+   height: 100%;
+    position: relative;
+    background: #f2dad7;
+    overflow: hidden;
+    width: 300px;
+    justify-items: center;
+    align-items: center;
+    border-radius: 5%;
+    box-shadow: rgb(185, 185, 185) 0px 2px 4px 0px, rgb(202, 201, 201) 0px 2px 16px 0px;
+}
+.project img { 
+    position: absolute;
+}
+.project p {
+    position: absolute;
+   text-align: center;
+   font-weight: bold;
+    width: 90%;
+    height: 15%;
+    padding: 0.5em 0;
+    margin: 5%;
+    /* letter-spacing: 2px; */
+    z-index: 3;
+    background-color: #f2dad7;
+}
+
+.project:hover .grid__overlay {
+    transform: translateY(0%);
+}
+.grid__overlay {
+    background: rgba(229, 182, 177, .9);
+    height: 100%;
+    /* grid-column: -1;
+    grid-row: -1; */
+    position: relative;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    transform: translateY(101%);
+    transition: all 0.3s ease-in-out;
+}
+.grid__overlay button {
+    background: none;
+    outline: none;
+    font-weight: 100;
+    border: 1px solid rgb(247, 242, 242);
+    color: rgb(247, 242, 242);
+
+    padding: 10px;
+}
+.grid__overlay button:hover {
+    transition: all 0.3s ease-in-out;
+    background: #f2dad7;
+    color: rgb(43, 42, 42);
+    transform: scale(1.05);
+}
+
+.project__image {
+   width: 100%;
+    height: 100%;
+    padding: 5%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#plusButton{
+   width: 100%;
+    height: 100%;
+    padding: 5%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#albumContainer{
+   display: flex;
+flex-wrap: wrap;
+justify-content: flex-start;
+width: auto;
+}
+
+.card{
+   border-radius: 10px;
+   box-shadow: rgb(185, 185, 185) 0px 2px 4px 0px, rgb(202, 201, 201) 0px 2px 16px 0px;
+}
+
+#addAlbum{
+   display: flex;
+   justify-content: flex-start;
+   font-size: larger;
+   color: rgba(229, 182, 177); 
+   text-decoration: none;
+   padding: 0%;
 }

@@ -9,6 +9,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { SettingComponent } from './setting/setting.component';
 import { TimelineComponent } from './timeline/timeline.component';
+import { GalleryComponent } from './album/gallery/gallery.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'friends', component: FriendsComponent},
   {path: 'search/:searchName', component: SearchResultComponent},
   {path: 'setting', component: SettingComponent}
+  {path: 'album/gallery', component: GalleryComponent},
 ];
 
 @NgModule({

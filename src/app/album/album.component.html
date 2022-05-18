@@ -27,3 +27,79 @@
         
     </div>
 </div>
+<app-navbar></app-navbar>
+<body>
+    <div class="col-md-12 row" style="background-color: rgb(247, 242, 242);">
+        <div class="col-md-8 offset-md-2">    
+            <div class="card" style= "margin-top: 20px;">
+                <div class="card-body">
+                    <h4 class="card-title"><strong>Albums</strong></h4>
+                    <hr>
+                    <div id="albumCards" style="display: flex; flex-wrap: wrap;">
+                        <div id="portfolio">
+                            <a id="addAlbum" class="project" routerLink="/friends">
+                                <p>Add Album</p>                               
+                            </a>
+                        </div> 
+                        
+                        <!-- ngFor here -->
+                        <div id="portfolio">
+                            <div class="project">
+                                <img class="project__image" src="../../assets/testPhoto/download.png" />
+                                <p>Album Name</p>
+                                <div class="grid__overlay">
+                                    <a id="gallery" routerLink="/album/gallery"><button class="viewbutton" >Open album</button></a>
+                                </div>
+                            </div>
+                        </div>   
+                        <div id="portfolio">
+                            <div class="project">
+                                <img class="project__image" src="../../assets/testPhoto/download.png" />
+                                <p>Album Name</p>
+                                <div class="grid__overlay">
+                                    <a id="gallery" routerLink="/album/gallery"><button class="viewbutton" >Open album</button></a>
+                                </div>
+                            </div>
+                        </div> 
+                        <div id="portfolio">
+                            <div class="project">
+                                <img class="project__image" src="../../assets/testPhoto/images.png" />
+                                <p>Album Name</p>
+                                <div class="grid__overlay">
+                                    <a id="gallery" routerLink="/album/gallery"><button class="viewbutton" >Open album</button></a>
+                                </div>
+                            </div>
+                        </div>   
+                        <div id="portfolio">
+                            <div class="project">
+                                <img class="project__image" src="../../assets/testPhoto/download.png" />
+                                <p>Album Name</p>
+                                <div class="grid__overlay">
+                                    <a id="gallery" routerLink="/album/gallery"><button class="viewbutton" >Open album</button></a>
+                                </div>
+                            </div>
+                        </div>   
+                        <div id="portfolio">
+                            <div class="project">
+                                <img class="project__image" src="../../assets/testPhoto/download.png" />
+                                <p>Album Name</p>
+                                <div class="grid__overlay">
+                                    <a id="gallery" routerLink="/album/gallery"><button class="viewbutton" >Open album</button></a>
+                                </div>
+                            </div>
+                        </div> 
+                        <div id="portfolio">
+                            <div class="project">
+                                <img class="project__image" src="../../assets/testPhoto/images.png" />
+                                <p>Album Name</p>
+                                <div class="grid__overlay">
+                                    <a id="gallery" routerLink="/album/gallery"><button class="viewbutton" >Open album</button></a>
+                                </div>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+            </div>     
+        </div>      
+    </div>
+</body>

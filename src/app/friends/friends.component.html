@@ -1,12 +1,24 @@
-<div><h2><strong>Pending Friends</strong></h2></div>
-<div>
-    <div id="FullName">FirstName + LastName</div>
-    <div id="ProfilePhoto"><img src="../../assets/testPhoto/images.png" alt="alternate"></div>
+<app-navbar></app-navbar>
+<div class="col-md-12 row">
+    <div id="friend-row" class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"><strong>Friends</strong></h4>
+                <hr>
+                <!-- ngFor here -->
+                <div id="card-container">
+                    <div id="friend-card" class="card">
+                        <div id="card-content" class="card-body">
+                            <a routerLink="/pastebook.com/:username"><img id="user-icon-pic" src="../../assets/testPhoto/images.png" alt="Card image cap"></a>
+                            <div id="friend-name">
+                                <a id="fullname" routerLink="/pastebook.com/:username"><h5>FullName</h5></a>
+                                <p id="mutual">500 mutual friends</p>
+                            </div>
+                            <button id="friend-button"><i class="fas fa-ellipsis-h"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-<div><h2><strong>Friends</strong></h2></div>
-<div>
-    <div id="FullName">FirstName + LastName</div>
-    <div id="ProfilePhoto"><img src="../../assets/testPhoto/images.png" alt="alternate"></div>
-</div>
-

@@ -22,6 +22,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
 import { TimelineFeedComponent } from './profile/timeline-feed/timeline-feed.component';
 import { ProfilePostFormComponent } from './profile/profile-post-form/profile-post-form.component';
 import { SettingComponent } from './setting/setting.component';
+import { GalleryComponent } from './album/gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { SettingComponent } from './setting/setting.component';
     TimelineFeedComponent,
     ProfilePostFormComponent,
     SettingComponent
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
