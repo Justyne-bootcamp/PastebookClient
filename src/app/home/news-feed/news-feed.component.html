@@ -1,17 +1,17 @@
 <div class="col-md-12 row">
-    <div id="post-row" class="col-md-8 offset-md-2">
+    <div id="post-row" class="col-md-8 offset-md-2" *ngFor="let post of newsFeed">
         <div class="card" style="width: 32rem;">
             <div class="card-body">
                 <div style="display: flex;">
-                    <a routerLink="/pastebook.com/:username"><img id="user-icon-pic" src="../../assets/testPhoto/download.png" alt="Card image cap"></a>
+                    <a [routerLink]="['/pastebook.com/', post.username]"><img id="user-icon-pic" src="../../assets/testPhoto/download.png" alt="Card image cap"></a>
                     <div>
-                        <h5 class="card-title"><a id="user-fullname" routerLink="/timeline">FULLNAME</a></h5>
-                        <p><strong>4h</strong></p>
+                        <h5 class="card-title"><a id="user-fullname" [routerLink]="['/pastebook.com', post.username]">{{post.firstName}} {{post.lastName}}</a></h5>
+                        <p><strong>{{post.timeStamp}}</strong></p>
                     </div>
                 </div>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">{{post.textContent}}{{post.postPhotoPath}}</p>
             </div>
-            <img class="card-img-top" src="../../assets/testPhoto/download.png" alt="Card image cap">
+            <img class="card-img-top" src="./assets/uploaded_photo/{{post.postPhotoPath}}" alt="{{post.postPhotoPath}}" *ngIf="post.postPhotoPath">
             <div class="card-body">
             <hr>
             <div id="post-btn">
