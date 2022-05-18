@@ -25,6 +25,7 @@
 .show{
     visibility: visible;
     opacity: 1;
+}
 body {
     /* font-family: 'Inconsolata', monospace; */
     background-color: rgb(247, 242, 242);

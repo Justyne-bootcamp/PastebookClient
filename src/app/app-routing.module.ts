@@ -20,7 +20,7 @@ const routes: Routes = [
   {path: 'timeline', component: TimelineComponent},
   {path: 'friends', component: FriendsComponent},
   {path: 'search/:searchName', component: SearchResultComponent},
-  {path: 'setting', component: SettingComponent}
+  {path: 'setting', component: SettingComponent},
   {path: 'album/gallery', component: GalleryComponent},
 ];
 

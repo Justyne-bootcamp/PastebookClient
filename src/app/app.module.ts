@@ -42,7 +42,7 @@ import { GalleryComponent } from './album/gallery/gallery.component';
     SearchResultComponent,
     TimelineFeedComponent,
     ProfilePostFormComponent,
-    SettingComponent
+    SettingComponent,
     GalleryComponent
   ],
   imports: [
