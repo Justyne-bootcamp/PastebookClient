@@ -1,12 +1,3 @@
-    <!-- <div>
-        <div id="ProfilePhoto"><img src="../../assets/testPhoto/download.png" alt="alternate"></div>
-        <div id="FullName">{{ user.firstName + " " + user.lastName }}</div>
-        <div id="Email">{{ user.email }}</div>
-        <div id="MobileNumber"> {{ user.mobileNumber }}</div>
-        <div id="Birthday">{{ user.birthday }}</div>
-        <div id="Gender">{{ user.gender }}</div>
-        <div id="AboutMe">{{ user.aboutMe}}</div>
-    </div> -->
 <app-navbar></app-navbar>
 <body>
     <div class="col-md-12 row" style="background-color: rgb(247, 242, 242);">
@@ -16,7 +7,6 @@
                     <header>
                       <div class="avatar">
                         <img src="../../assets/uploaded_photo/SanaMinatozaki1/profilePicture/{{user.profilePhotoPath}}" alt="alternate" />
-                        <!-- <img src="../../assets/testPhoto/download.png" alt="alternate" /> -->
                       </div>
                     </header>
                 
@@ -27,15 +17,6 @@
                         <div id="Email"><i class="fas fa-envelope"></i> {{ user.email }}</div>
                         <div id="MobileNumber"><i class="fas fa-phone-alt"></i> {{ user.mobileNumber }}</div>
                       </div>
-                    
-                
-                    <!-- <h3>Roland Chester Seda</h3>
-                    <div id="details" class = "desc" style="color: rgb(43, 42, 42);">
-                        <div id="Birthday"><i class="fas fa-birthday-cake"></i> February 30, 2000</div>
-                        <div id="Gender"><i class="fas fa-venus-mars"></i> Male</div>
-                        <div id="Email"><i class="fas fa-envelope"></i> roland.seda@pw.com.ph</div>
-                        <div id="MobileNumber"><i class="fas fa-phone-alt"></i> 09191234567</div>
-                    </div> -->
         
                     <div class="desc" style="color: rgb(43, 42, 42);">
                         <h6>About Me</h6>
@@ -45,7 +26,7 @@
                         <div class="multi-button">
                             <a id="friends" routerLink="/friends"><button><i class="fa fa-users"></i> Friends</button></a>
                             <a id="album" routerLink="/album"><button><i class="fa fa-images"></i> Album</button></a>
-                            <button id="editProfile" (click)="showModal()"><i class="fas fa-user-edit"></i> Edit</button>
+                            <a id="editProfile"><button (click)="showModal()"><i class="fas fa-user-edit"></i> Edit</button></a>
                         </div>
                         <br>
                     </div>
@@ -62,21 +43,30 @@
 
         <!-- about me modal -->
         <div [ngClass]="{'profile-modal-container': true, 'renderModal': showModalChecker}">
-            <div class="profile-modal" >
-                <div>
-                    <button (click)="closeModal()">X</button>
+            <div id="main-modal" class="profile-modal card" >
+                <div id="close-div" style="display:flex;justify-content:flex-end;">
+                    <button id="modal-close" (click)="closeModal()"><i class="fa fa-window-close" aria-hidden="true"></i></button>
                 </div>
-                <div>
+                <div id="modal-title" class="card-title" style="display:flex;justify-content:center;">
+                    <p>Edit Details</p>
+                </div>
+                <div class="card-body">
                     <form [formGroup]="editForm" (submit)="submitEditForm()" enctype="multipart/form-data" >
-                        <div>
-                            <label for="profilePicture">Profile Picture</label>
-                            <input type="file" accept=".png,.jpg" class="btn btn-info btn-lg btn-block" name="profilePicture" 
+                        <div id="profile-pic-div">
+                            <div>
+                                <p style="font-size: 24px;font-weight:600">Profile Picture:</p>
+                            </div>
+                            <div>
+                                <input style="background-color:#779ecc" type="file" accept=".png,.jpg" name="profilePicture" 
                                 (change)="onFileSelected($event)" formControlName="profilePicture" />
+                            </div>
                         </div>
-                        <label for="aboutMe">About Me:</label>
-                        <textarea cols="30" rows="5" formControlName="aboutMe" ></textarea>
-                        <div>
-                            <input type="submit" value="submit">
+                        <div id="aboutme-div">
+                            <div style="font-size: 24px;font-weight:600">About Me:</div>
+                            <div style="margin-left:220px;"><textarea style="width:173%" formControlName="aboutMe" ></textarea></div>
+                        </div>
+                        <div id="submit-div">
+                            <input id="submit-btn" type="submit" value="Submit">
                         </div>
                     </form>
                 </div>

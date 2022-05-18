@@ -194,3 +194,48 @@ body{
     visibility: visible;
     opacity: 1;
 }
+
+#modal-close{
+    border-style: none;
+    background-color: white;
+    font-size: 24px;
+    border-radius: 10px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+#profile-pic-modal{
+    display: flex;
+}
+#modal-card{
+    display: flex;
+    justify-content: center;
+}
+#modal-title{
+    font-size: 35px;
+    font-weight: 700;
+}
+#profile-pic-div{
+    display: flex;
+    justify-content: space-between;
+}
+#aboutme-div{
+    display: flex;
+}
+#submit-div{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+#submit-btn{
+    border-style: none;
+    background-color: #bacfe7;
+    font-size: 24px;
+    font-weight: 600;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: rgb(185, 185, 185) 0px 2px 4px 0px, rgb(202, 201, 201) 0px 2px 16px 0px;
+}
+#submit-btn:hover{
+    font-weight: 800;
+    background-color: #779ecc;
+}

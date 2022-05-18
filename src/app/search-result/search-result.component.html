@@ -1,9 +1,23 @@
-<h3>Search result</h3>
-<div *ngFor="let user of users">
-    <div>
-        <img src="" alt="profile-picture">
+<app-navbar></app-navbar>
+<div class="col-md-12 row">
+    <div id="friend-row" class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"><strong>Search Result</strong></h4>
+                <hr>
+                <div id="card-container">
+                    <!-- ngFor here -->
+                    <div *ngFor="let user of users" id="friend-card" class="card">
+                        <div id="card-content" class="card-body">
+                            <a routerLink="/pastebook.com/:username"><img id="user-icon-pic" src="../../assets/testPhoto/images.png" alt="Card image cap"></a>
+                            <div id="friend-name">
+                                <a id="fullname" [routerLink]="['/pastebook.com', user.username]"><h5>{{ user.firstName + " " + user.lastName }}</h5></a>
+                            </div>
+                            <button id="friend-button"><i class="fas fa-ellipsis-h"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <a [routerLink]="['/pastebook.com', user.username]">{{ user.firstName + " " + user.lastName }}</a>
-    </div>
-</div>  
+</div>
