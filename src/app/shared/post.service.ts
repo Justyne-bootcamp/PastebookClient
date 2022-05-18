@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Post } from './post.model';
+import { Post, PostFeed } from './post.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +17,9 @@ export class PostService {
 
   newPostToProfile(username: string, form: FormData): Observable<Post> {
     return this.http.post<Post>(this.baseUrl + '/pastebook.com/' + username, form)
+  }
+
+  getHomePosts(): Observable<PostFeed[]>{
+    return this.http.get<PostFeed[]>(this.baseUrl+'/newsfeed')
   }
 }
