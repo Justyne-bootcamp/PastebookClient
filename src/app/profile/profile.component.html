@@ -8,7 +8,10 @@
         <div id="AboutMe">{{ user.aboutMe}}</div>
     </div> -->
 <app-navbar></app-navbar>
-<body>
+
+<app-profile-post-form></app-profile-post-form>
+<app-timeline-feed></app-timeline-feed>
+<!-- <body>
     <div class="col-md-12 row" style="background-color: rgb(247, 242, 242);">
         <div class="col-md-3">
             <div class="col-md-11 offset-md-1" style="width: 18rem">
@@ -16,7 +19,6 @@
                     <header>
                       <div class="avatar">
                         <img src="../../assets/uploaded_photo/SanaMinatozaki1/profilePicture/{{user.profilePhotoPath}}" alt="alternate" />
-                        <!-- <img src="../../assets/testPhoto/download.png" alt="alternate" /> -->
                       </div>
                     </header>
                 
@@ -29,15 +31,6 @@
                         <img src="../../assets/testPhoto/download.png" alt="alternate" />
                       </div>
                     
-                
-                    <!-- <h3>Roland Chester Seda</h3>
-                    <div id="details" class = "desc" style="color: rgb(43, 42, 42);">
-                        <div id="Birthday"><i class="fas fa-birthday-cake"></i> February 30, 2000</div>
-                        <div id="Gender"><i class="fas fa-venus-mars"></i> Male</div>
-                        <div id="Email"><i class="fas fa-envelope"></i> roland.seda@pw.com.ph</div>
-                        <div id="MobileNumber"><i class="fas fa-phone-alt"></i> 09191234567</div>
-                    </div> -->
-        
                     <div class="desc" style="color: rgb(43, 42, 42);">
                         <h6>About Me</h6>
                         <p>{{ user.aboutMe }}</p>
@@ -57,11 +50,10 @@
         </div>
         <div class="col-md-9">
             <div>
-                <app-timeline></app-timeline>
             </div>
         </div>
 
-        <!-- about me modal -->
+        about me modal
         <div [ngClass]="{'aboutMe-modal-container': true, 'show-aboutMe': showAboutMeModal}">
             <div class="aboutMe-modal" >
                 <div>
@@ -86,5 +78,4 @@
         </div>
     </div>
    
-</body>
-<app-profile-post-form></app-profile-post-form>
+</body> -->

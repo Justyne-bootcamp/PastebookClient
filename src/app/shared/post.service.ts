@@ -22,4 +22,8 @@ export class PostService {
   getHomePosts(): Observable<PostFeed[]>{
     return this.http.get<PostFeed[]>(this.baseUrl+'/newsfeed')
   }
+
+  getProfilePosts(): Observable<PostFeed[]> {
+    return this.http.get<PostFeed[]>(this.baseUrl+'/timeline')
+  }
 }

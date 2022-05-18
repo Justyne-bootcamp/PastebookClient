@@ -5,6 +5,7 @@ export interface Post {
 }
 
 export interface PostFeed {
+    postId: string;
     textContent: string;
     postLocation: string;
     timeStamp: string;
