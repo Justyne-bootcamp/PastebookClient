@@ -14,7 +14,7 @@ export class LikeService {
   }
   constructor(private http:HttpClient) { }
 
-  postLike(postStringId: string): Observable<Like>{
-    return this.http.post<Like>(this.baseUrl, postStringId, this.httpOptions)
+  postLike(form: FormData): Observable<Like>{
+    return this.http.post<Like>(this.baseUrl, form)
   }
 }

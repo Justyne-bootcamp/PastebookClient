@@ -4,6 +4,7 @@ import { UserAccount } from '../shared/user-account.model';
 import Validation from '../shared/validation';
 import { UserAccountService } from '../shared/user-account.service';
 import { SessionService } from '../shared/session.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-setting',
@@ -12,6 +13,7 @@ import { SessionService } from '../shared/session.service';
 })
 export class SettingComponent implements OnInit {
 
+  sessionId: string;
   userOld: UserAccount;
   userUpdate: UserAccount;
 
@@ -28,7 +30,12 @@ export class SettingComponent implements OnInit {
   });
   submitted = false;
 
-  constructor(private userAccountService:UserAccountService, private sessionService:SessionService ,private formBuilder: FormBuilder) { }
+  constructor(private userAccountService:UserAccountService,
+              private sessionService:SessionService ,
+              private formBuilder: FormBuilder, 
+              private router: Router) {
+    this.sessionId = localStorage.getItem("UserAccountId") as string;
+  }
 
   ngOnInit(): void {
     this.settingsForm = this.formBuilder.group(
@@ -54,7 +61,7 @@ export class SettingComponent implements OnInit {
   }
 
   getUser(){
-    this.userAccountService.getUserBySessionId()
+    this.userAccountService.getUserBySessionId(this.sessionId)
     .subscribe(
       response => {
         this.userOld = new UserAccount(response);
@@ -88,16 +95,16 @@ export class SettingComponent implements OnInit {
             this.userUpdate.password = this.settingsForm.controls['currentPassword'].value;
           }
           this.userUpdate.userAccountId = this.userOld.userAccountId
+          this.userUpdate.sessionId = this.sessionId;
           this.userAccountService.updateUser(this.userUpdate)
             .subscribe(
               response => {
                 console.log(response);
               }
             )
-          console.log(this.userUpdate)
-          console.log(response);
         }
       )
+      this.router.navigate(['']);
   }
   
   confirmPassword(){

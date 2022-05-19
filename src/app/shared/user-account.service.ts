@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserAccount } from './user-account.model';
@@ -21,11 +21,15 @@ export class UserAccountService {
     return this.http.post<UserAccount>(this.baseUrl, user);
   }
 
-  getUserBySessionId(): Observable<UserAccount> {
-    return this.http.get<UserAccount>(this.baseUrl+'/setting')
+  getUserBySessionId(sessionId: string): Observable<UserAccount> {
+    let params = new HttpParams();
+    params = params
+    .set('sessionId', sessionId);
+    return this.http.get<UserAccount>(this.baseUrl+'/setting', {params: params})
   }
 
   updateUser(user: UserAccount): Observable<UserAccount> {
+    console.log(user.sessionId);
     return this.http.put<UserAccount>(this.baseUrl+'/setting', user)
   }
 
