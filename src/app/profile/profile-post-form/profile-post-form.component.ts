@@ -19,9 +19,10 @@ export class ProfilePostFormComponent implements OnInit {
   
   constructor(private route: ActivatedRoute, public service: PostService) { }
 
-  ngOnInit(): void {
-    this.route.params.subscribe( params =>
-      this.username = params['username'])
+  ngOnInit() {
+    this.route.paramMap.subscribe((params) => {
+      this.username = params.get('username')!;
+    });
   }
 
   onFileSelected(event:any){
@@ -35,7 +36,8 @@ export class ProfilePostFormComponent implements OnInit {
     }
     formData.append('textContent', this.post.textContent);
     formData.append('postLocation', this.post.postLocation);
-    this.service.newPostToProfile(this.username, formData)
+    formData.append('username', this.username)
+    this.service.newPostToProfile(formData)
     .subscribe(
       response => {
         console.log(response);
