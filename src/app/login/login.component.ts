@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['']);
     }, (err) => {
       console.log(err.message);
-      this.errorMessage = "Incorrect Credential";
+      this.errorMessage = "Incorrect Email or Password";
     });    
   }
 }
