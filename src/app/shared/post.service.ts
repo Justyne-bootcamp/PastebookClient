@@ -11,8 +11,8 @@ export class PostService {
   baseUrl = 'https://localhost:44364/api/Post'
   constructor(private http: HttpClient) { }
 
-  newPostToNewsFeed(form: FormData): Observable<Post> {
-    return this.http.post<Post>(this.baseUrl, form);
+  newPostToNewsFeed(sessionId: string, form: FormData): Observable<Post> {
+    return this.http.post<Post>(this.baseUrl, [sessionId, form]);
   }
 
   newPostToProfile(username: string, form: FormData): Observable<Post> {

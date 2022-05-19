@@ -11,6 +11,7 @@ import { PostService } from 'src/app/shared/post.service';
 export class PostFormComponent implements OnInit {
 
   selectedFile: File | null;
+  sessionId: string;
   post: Post = {
     textContent:'',
     postLocation:'00000000-0000-0000-0000-000000000000',
@@ -19,6 +20,7 @@ export class PostFormComponent implements OnInit {
   constructor(public service: PostService) { }
 
   ngOnInit(): void {
+    this.sessionId = localStorage.getItem("UserAccountId") as string;
   }
 
   onFileSelected(event:any){
@@ -32,7 +34,7 @@ export class PostFormComponent implements OnInit {
     }
     formData.append('textContent', this.post.textContent);
     formData.append('postLocation', this.post.postLocation);
-    this.service.newPostToNewsFeed(formData)
+    this.service.newPostToNewsFeed(this.sessionId, formData)
     .subscribe(
       response => {
         console.log(response);
