@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: 'friends', component: FriendsComponent},
   {path: 'search/:searchName', component: SearchResultComponent},
   {path: 'setting', component: SettingComponent},
-  {path: 'album/:username/gallery', component: GalleryComponent},
+  {path: 'album/:username/:albumName/gallery', component: GalleryComponent},
   {path: '**', component: NotFoundComponent},
 ];
 

@@ -31,13 +31,13 @@
                       </div>
                     
                     <div class="desc" style="color: rgb(43, 42, 42);">
-                        <h6>About Me</h6>
+                        <h6><strong>About Me</strong></h6>
                         <p>{{ user.aboutMe }}</p>
                         <br>
                         
                         <div class="multi-button">
                             <a id="friends" routerLink="/friends"><button><i class="fa fa-users"></i> Friends</button></a>
-                            <a id="album" routerLink="/album/:username"><button><i class="fa fa-images"></i> Album</button></a>
+                            <a id="album" routerLink="/album/{{username}}"><button><i class="fa fa-images"></i> Album</button></a>
                             <a id="editProfile">
                                 <span *ngIf="userAccountId == receiverAccountId; else elseBlock">
                                     <button (click)="showModal()"><i class="fas fa-user-edit"></i> Edit</button>
@@ -72,19 +72,25 @@
                 </div>
                 <div class="card-body">
                     <form [formGroup]="editForm" (submit)="submitEditForm()" enctype="multipart/form-data" >
-                        <div id="profile-pic-div">
-                            <div>
-                                <p style="font-size: 24px;font-weight:600">Profile Picture:</p>
-                            </div>
-                            <div>
-                                <input style="background-color:#779ecc" type="file" accept=".png,.jpg" name="profilePicture" 
-                                (change)="onFileSelected($event)" formControlName="profilePicture" />
-                            </div>
-                        </div>
-                        <div id="aboutme-div">
-                            <div style="font-size: 24px;font-weight:600">About Me:</div>
-                            <div style="margin-left:220px;"><textarea style="width:173%" formControlName="aboutMe" ></textarea></div>
-                        </div>
+                        <table style="align-items: center">
+                            <tr>
+                                <td>
+                                    <p style="font-size: 24px;font-weight:600">Profile Picture:</p>
+                                </td> 
+                                <td  style="display: flex; justify-content:flex-end;">
+                                    <input style=" width: 400px; background-color:#779ecc" type="file" accept=".png,.jpg" name="profilePicture" 
+                                    (change)="onFileSelected($event)" formControlName="profilePicture" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="font-size: 24px;font-weight:600">About Me:</div>
+                                </td>
+                                <td style="display: flex; justify-content:flex-end">
+                                    <div><textarea style="width: 400px; height: 100px" formControlName="aboutMe" ></textarea></div>
+                                </td>
+                            </tr>
+                        </table>
                         <div id="submit-div">
                             <input id="submit-btn" type="submit" value="Submit">
                         </div>

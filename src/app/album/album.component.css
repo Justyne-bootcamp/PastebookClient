@@ -178,12 +178,22 @@ width: auto;
 }
 #modal-create{
     border-style: none;
-    border-radius: 10px;
-    font-size: 30px;
-    padding: 0px 15px 0px 15px;
-    background-color: rgb(148, 145, 142);
-    transition-duration: 500ms;
+    background-color: #779ecc;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 20px;
+    margin-top: 20px;
+    width: 200px;
+    box-shadow: rgb(185, 185, 185) 0px 2px 4px 0px, rgb(202, 201, 201) 0px 2px 16px 0px;
 }
+
 #modal-create:hover{
-    background-color: rgb(62, 106, 199);
+    background-color: #3c699c;
+    color: rgb(243, 242, 242);
+}
+
+.album-modal{
+    min-height: 300px;
+    height: 300px;
+    width: 500px;
 }

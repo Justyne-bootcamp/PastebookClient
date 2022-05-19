@@ -19,7 +19,7 @@
                         <div id="portfolio">
                             <div class="project">
                                 <img class="project__image" src="../../assets/testPhoto/download.png" />
-                                <p>Album Name</p>
+                                <p>Uploaded Photos</p>
                                 <div class="grid__overlay">
                                     <a id="gallery" routerLink="/album/{{username}}/gallery"><button class="viewbutton" >Open album</button></a>
                                 </div>
@@ -30,8 +30,9 @@
                                 <img class="project__image" src="../../assets/testPhoto/download.png" />
                                 <p>{{ album.albumName }}</p>
                                 <div class="grid__overlay">
-                                    <a id="gallery" routerLink="/album/{{username}}/gallery"><button (click)="openAlbum(album.albumId, album.albumName)" class="viewbutton" >Open album</button></a>
-                                </div>
+                                    <a id="gallery" routerLink="/album/{{username}}/{{album.albumName}}/gallery"><button (click)="openAlbum(album.albumId, album.albumName)" class="viewbutton" >Open album</button></a>
+                                    <button id="gallery" (click)="deleteAlbum(album.albumId)"><i class="fas fa-trash-alt"></i> Delete</button>
+                                </div> 
                             </div>
                         </div>            
                     </div>
@@ -40,18 +41,9 @@
         </div>      
     </div>
 
-    <!-- <button (click)="showModalFunction(true)">Create New Album</button>
-<div class="row">
-    <div *ngFor="let album of albums" class="col-md-2 offset-md-1" style="background-color: gray; height: 100px">
-        <span>{{ album.albumName }}</span>
-        <button (click)="openAlbum(album.albumId, album.albumName)">Open Album</button>
-        <button (click)="deleteAlbum(album.albumId)">Delete</button>
-    </div>
-</div> -->
-
 <!-- add album modal -->
 <div [ngClass]="{'album-modal-container': true, 'show': showModal}">
-    <div class="album-modal">
+    <div class="album-modal" id="album-modal-3">
         <div style="display: flex;justify-content:flex-end">
             <button id="modal-close" (click)="showModalFunction(false)"><i class="fa fa-window-close" aria-hidden="true"></i></button>
         </div>
