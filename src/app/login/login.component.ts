@@ -15,8 +15,8 @@ export class LoginComponent implements OnInit {
   errorMessage?: string;
   constructor(private sessionService: SessonService, fb: FormBuilder, private router: Router) {
     this.loginForm = fb.group({
-      email: ["example@gmail.com",[Validators.required]],
-      password: ["example", Validators.required]
+      email: ["john@gmail.com",[Validators.required]],
+      password: ["testing", Validators.required]
     });
    }
 
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['']);
     }, (err) => {
       console.log(err.message);
-      this.errorMessage = "Incorrect Credential";
+      this.errorMessage = "Incorrect Email or Password";
     });    
   }
 }

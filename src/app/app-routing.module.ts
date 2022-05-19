@@ -10,6 +10,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
 import { SettingComponent } from './setting/setting.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { GalleryComponent } from './album/gallery/gallery.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'search/:searchName', component: SearchResultComponent},
   {path: 'setting', component: SettingComponent},
   {path: 'album/:username/gallery', component: GalleryComponent},
+  {path: '**', component: NotFoundComponent},
 ];
 
 @NgModule({

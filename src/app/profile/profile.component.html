@@ -22,7 +22,10 @@
 
                     <div id="details" class = "desc" style="color: rgb(43, 42, 42);">
                         <div id="Birthday"><i class="fas fa-birthday-cake"></i> {{ user.birthday | date: 'longDate' }}</div>
-                        <div id="Gender"><i class="fas fa-venus-mars"></i> {{ user.gender }}</div>
+                        <div id="Gender"><i class="fas fa-venus-mars"></i>
+                            <span *ngIf="user.gender == 'M'" >Male</span>
+                            <span *ngIf="user.gender == 'F'" >Female</span>
+                        </div>
                         <div id="Email"><i class="fas fa-envelope"></i> {{ user.email }}</div>
                         <div id="MobileNumber"><i class="fas fa-phone-alt"></i> {{ user.mobileNumber }}</div>
                       </div>

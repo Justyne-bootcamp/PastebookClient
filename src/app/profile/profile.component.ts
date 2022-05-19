@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserAccount } from '../models/user-account.model';
 import { FriendService } from '../shared/friend.service';
 import { UserAccountService } from '../user-account.service';
@@ -21,8 +21,18 @@ export class ProfileComponent implements OnInit {
   addFriendForm: FormGroup;
   selectedFile: File | null;
   userAccountId: string;
-  constructor(private userAccountService: UserAccountService, private route:ActivatedRoute, private fb: FormBuilder, private friendService: FriendService) {
+  constructor(private userAccountService: UserAccountService,
+    private route:ActivatedRoute,
+    private fb: FormBuilder,
+    private friendService: FriendService,
+    private router: Router) {
+      
     this.userAccountId = localStorage.getItem("UserAccountId") as string;
+
+    if(this.userAccountId == null){
+      this.router.navigate(['/login']);
+    }
+
     this.editForm = fb.group({
       aboutMe: [""],
       profilePicture: [""],

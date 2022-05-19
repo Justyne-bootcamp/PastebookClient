@@ -10,7 +10,6 @@ export class HomeComponent implements OnInit {
 
   constructor(private router: Router) {
     let userAccountId = localStorage.getItem("UserAccountId") as string;
-    alert("welcome to homepage id:" + userAccountId);
     if(userAccountId == null){
       this.router.navigate(['/login']);
     }
