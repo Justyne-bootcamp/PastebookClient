@@ -15,8 +15,11 @@ export class PostService {
     return this.http.post<Post>(this.baseUrl, form);
   }
 
-  newPostToProfile(username: string, form: FormData): Observable<Post> {
-    return this.http.post<Post>(this.baseUrl + '/pastebook.com/' + username, form)
+  newPostToProfile(form: FormData): Observable<Post> {
+    console.log(form.get('username'));
+    console.log(form.get('textContent'));
+    console.log(form.get('postLocation'));
+    return this.http.post<Post>(this.baseUrl + '/posttoprofile', form)
   }
 
   getHomePosts(sessionId: string): Observable<PostFeed[]>{
