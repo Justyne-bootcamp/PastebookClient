@@ -74,6 +74,7 @@ export class TimelineFeedComponent implements OnInit {
     this.likeService.postLike(formData)
     .subscribe(
       response => {
+        this.ngOnInit();
         console.log(response);
       }
     )
