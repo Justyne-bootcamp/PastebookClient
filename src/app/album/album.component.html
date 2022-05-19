@@ -16,15 +16,7 @@
                         </div> 
                         
                         
-                        <div id="portfolio">
-                            <div class="project">
-                                <img class="project__image" src="../../assets/testPhoto/download.png" />
-                                <p>Uploaded Photos</p>
-                                <div class="grid__overlay">
-                                    <a id="gallery" routerLink="/album/{{username}}/gallery"><button class="viewbutton" >Open album</button></a>
-                                </div>
-                            </div>
-                        </div>
+                       
                         <div *ngFor="let album of albums" id="portfolio">
                             <div class="project">
                                 <img class="project__image" src="../../assets/testPhoto/download.png" />
@@ -53,7 +45,7 @@
             </div>
             <hr>
             <div id="textbox-div">
-                <input id="modal-textbox" type="text" [(ngModel)]="albumName" placeholder="album name">
+                <input id="modal-textbox" type="text" [(ngModel)]="albumName" placeholder="album name" (keyup.enter)="createAlbum()">
                 <hr>
             </div>
             <div id="create-div">

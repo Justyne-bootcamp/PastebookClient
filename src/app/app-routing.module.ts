@@ -20,7 +20,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'album/:username', component: AlbumComponent},
   {path: 'timeline', component: TimelineComponent},
-  {path: 'friends', component: FriendsComponent},
+  {path: 'friends/:userAccountId', component: FriendsComponent},
   {path: 'search/:searchName', component: SearchResultComponent},
   {path: 'setting', component: SettingComponent},
   {path: 'album/:username/:albumName/gallery', component: GalleryComponent},

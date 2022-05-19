@@ -13,13 +13,16 @@ export class AlbumComponent implements OnInit {
   albumName: string;
   albums: IAlbum[];
   username: string;
+  userAccountId: string;
   constructor(private albumService: AlbumService) { }
 
   ngOnInit(): void {
-    this.albumService.getAlbums().subscribe(response => {
+    this.username = localStorage.getItem("Username") as string;
+    this.userAccountId = localStorage.getItem("UserAccountId") as string;
+    
+    this.albumService.getAlbums(this.userAccountId).subscribe(response => {
       this.albums = response;
     });
-    this.username = localStorage.getItem("Username") as string;
     console.log(this.username);
   }
 
@@ -27,13 +30,13 @@ export class AlbumComponent implements OnInit {
     this.showModal = value;
   }
   createAlbum(){
-    this.albumService.createAlbum(this.albumName);
+    this.albumService.createAlbum(this.userAccountId, this.albumName);
     this.showModal = false;
     window.location.reload();
   }
   deleteAlbum(albumId: string){
-    alert(albumId);
     this.albumService.deleteAlbum(albumId);
+    window.location.reload();
   }
   openAlbum(albumId: string, albumName: string){
     alert(albumId + " " + albumName)

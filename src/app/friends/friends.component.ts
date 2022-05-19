@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { UserAccount } from '../models/user-account.model';
 import { FriendService } from '../shared/friend.service';
 
@@ -11,8 +12,8 @@ export class FriendsComponent implements OnInit {
 
   friends: UserAccount[];
   userAccountId: string;
-  constructor(private friendService: FriendService) {
-    this.userAccountId = localStorage.getItem("UserAccountId") as string;
+  constructor(private friendService: FriendService, private route:ActivatedRoute) {
+    this.userAccountId = this.route.snapshot.paramMap.get('userAccountId') as string;
    }
 
   ngOnInit(): void {

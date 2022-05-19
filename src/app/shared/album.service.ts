@@ -11,18 +11,17 @@ export class AlbumService {
   readonly baseUrl: string = "https://localhost:44364/api/Album/";
   constructor(private http: HttpClient) { }
 
-  createAlbum(albumName: string){
-    this.http.post(this.baseUrl+"insert", {albumName: albumName}).subscribe(response => {
+  createAlbum(userAccountId: string, albumName: string){
+    this.http.post(this.baseUrl+"insert", {userAccountId: userAccountId, albumName: albumName}).subscribe(response => {
       console.log(response);
     });
   }
-  getAlbums(): Observable<IAlbum[]>{
-    return this.http.get<IAlbum[]>(this.baseUrl+"myalbum");
+  getAlbums(userAccountId: string): Observable<IAlbum[]>{
+    return this.http.get<IAlbum[]>(this.baseUrl+"myalbum/"+userAccountId);
   }
 
   deleteAlbum(albumId: string){
-    console.log(albumId);
-    this.http.delete(this.baseUrl+"delete/"+{albumId}).subscribe(response => {
+    this.http.delete(this.baseUrl+"delete/"+albumId).subscribe(response => {
       console.log(response);
     });
   }
