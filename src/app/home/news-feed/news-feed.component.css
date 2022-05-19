@@ -3,10 +3,39 @@
     border-radius: 10px;
     box-shadow: rgb(185, 185, 185) 0px 2px 4px 0px, rgb(202, 201, 201) 0px 2px 16px 0px;
 }
+#add-post{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
 #user-icon-pic{
     height: 60px;
     width: 60px;
     border-radius: 100px;
+}
+#post-textbox{
+    width: 90%;
+    height: 100%;
+    border-radius: 20px;
+    border-style: none;
+    background-color: rgb(247, 242, 242);
+    margin-left: 5px;
+}
+
+#post-textbox:hover{
+    background-color: rgb(235, 235, 235);
+}
+
+.upload-btn{
+    width: 40%;
+    border-radius: 10px;
+    border-style: none;
+    color: rgb(43, 42, 42);
+    background-color: rgb(231, 224, 224);
+    transition-duration: 500ms;
+}
+.upload-btn:hover{
+    background-color: #779ecc;
 }
 #post-row{
     display: flex;
@@ -18,6 +47,7 @@
     display: flex;
     justify-content: space-around;
 }
+
 .like-and-comment{
     width: 50%;
     margin-left: 2px;
