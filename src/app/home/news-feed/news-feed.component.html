@@ -6,7 +6,7 @@
                     <a [routerLink]="['/pastebook.com/', post.username]"><img id="user-icon-pic" src="../../assets/testPhoto/download.png" alt="Card image cap"></a>
                     <div>
                         <h5 class="card-title"><a id="user-fullname" [routerLink]="['/pastebook.com', post.username]">{{post.firstName}} {{post.lastName}}</a></h5>
-                        <p><strong>{{post.timeStamp}}</strong></p>
+                        <p><strong>{{post.timeStamp.split("T")[0]}} {{post.timeStamp.split("T")[1].slice(0,-8)}}</strong></p>
                     </div>
                 </div>
                 <p class="card-text">{{post.textContent}}{{post.postPhotoPath}}</p>
@@ -15,7 +15,7 @@
             <div class="card-body">
             <hr>
             <div id="post-btn">
-                <button class="like-and-comment" type="button">Like</button>
+                <button class="like-and-comment" type="button" (click)="onLike(post.postId)" [ngClass]="{'isLiked': post.isLiked}">Like</button>
                 <button class="like-and-comment" type="button">Comment</button>
             </div>
             <div style="display: flex;">

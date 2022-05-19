@@ -14,15 +14,18 @@ export class TimelineFeedComponent implements OnInit {
   timelineFeed: PostFeed[];
   likerId: string;
   liked: Like;
+  sessionId: string;
 
-  constructor(private postService: PostService, private likeService: LikeService) { }
+  constructor(private postService: PostService, private likeService: LikeService) {
+    this.sessionId = localStorage.getItem("UserAccountId") as string;
+  }
 
   ngOnInit(): void {
     this.getTimelinePosts();
   }
 
   getTimelinePosts(){
-    this.postService.getHomePosts()
+    this.postService.getProfilePosts(this.sessionId)
     .subscribe(
       response => {
         this.timelineFeed = response;
@@ -36,8 +39,13 @@ export class TimelineFeedComponent implements OnInit {
     console.log(postId);
   }
   onLike(postId: string){
-    postId = "\""+ postId+  "\""
-    this.likeService.postLike(postId)
+    //postId = "\""+ postId+  "\""
+    const formData = new FormData();
+    formData.append('postId', postId);
+    formData.append('sessionId', this.sessionId)
+    console.log(formData.get('sessionId'))
+    console.log(formData.get('postId'))
+    this.likeService.postLike(formData)
     .subscribe(
       response => {
         console.log(response);

@@ -14,6 +14,7 @@ export interface PostFeed {
     username: string;
     postPhotoPath: string;
     profilePhotoPath: string;
+    isLiked:boolean;
 }
 
 export class PostFeed {

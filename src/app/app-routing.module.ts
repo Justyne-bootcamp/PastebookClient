@@ -13,7 +13,8 @@ import { GalleryComponent } from './album/gallery/gallery.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent, pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
+  { path: '',   redirectTo: '/home', pathMatch: 'full' },
   {path: 'pastebook.com/:username', component: ProfileComponent},
   {path: 'register', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},

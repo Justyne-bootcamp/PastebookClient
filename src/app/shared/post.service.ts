@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Post, PostFeed } from './post.model';
@@ -19,11 +19,17 @@ export class PostService {
     return this.http.post<Post>(this.baseUrl + '/pastebook.com/' + username, form)
   }
 
-  getHomePosts(): Observable<PostFeed[]>{
-    return this.http.get<PostFeed[]>(this.baseUrl+'/newsfeed')
+  getHomePosts(sessionId: string): Observable<PostFeed[]>{
+    let params = new HttpParams();
+    params = params
+    .set('sessionId', sessionId);
+    return this.http.get<PostFeed[]>(this.baseUrl+'/newsfeed', {params: params})
   }
 
-  getProfilePosts(): Observable<PostFeed[]> {
-    return this.http.get<PostFeed[]>(this.baseUrl+'/timeline')
+  getProfilePosts(sessionId: string): Observable<PostFeed[]> {
+    let params = new HttpParams();
+    params = params
+    .set('sessionId', sessionId);
+    return this.http.get<PostFeed[]>(this.baseUrl+'/timeline', {params: params})
   }
 }

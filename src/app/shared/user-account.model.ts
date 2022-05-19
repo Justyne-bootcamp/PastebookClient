@@ -7,6 +7,7 @@ export interface UserAccount {
     birthday: string;
     gender: string;
     mobileNumber: string;
+    sessionId: string;
 }
 
 export class UserAccount {
