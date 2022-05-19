@@ -59,7 +59,6 @@ export class NewsFeedComponent implements OnInit {
     )
   }
 
-
   onLike(postId: string){
     //postId = "\""+ postId+  "\""
     const formData = new FormData();
@@ -70,6 +69,7 @@ export class NewsFeedComponent implements OnInit {
     this.likeService.postLike(formData)
     .subscribe(
       response => {
+        this.ngOnInit();
         console.log(response);
       }
     )
