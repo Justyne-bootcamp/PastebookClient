@@ -19,7 +19,10 @@ export class NavbarComponent implements OnInit {
   }
 
   search(){
-    this.router.navigate(['search/'+ this.searchInput]);
+    this.router.navigate(['search/'+ this.searchInput])
+    .then(() => {
+      window.location.reload();
+    });
   }
 
   logout(){

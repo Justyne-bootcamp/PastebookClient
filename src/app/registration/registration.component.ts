@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserAccountService } from '../shared/user-account.service';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, NgForm, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { UserAccount } from '../shared/user-account.model';
+import { Router } from '@angular/router';
 import Validation from '../shared/validation';
 
 @Component({
@@ -25,7 +26,7 @@ export class RegistrationComponent implements OnInit {
   });
   submitted = false;
 
-  constructor(public service:UserAccountService, private formBuilder: FormBuilder) { }
+  constructor(public service:UserAccountService, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.registrationForm = this.formBuilder.group(
@@ -59,6 +60,7 @@ export class RegistrationComponent implements OnInit {
         console.log(response);
       }
     )
+    this.router.navigate(['/login']);
   }
 
 }
