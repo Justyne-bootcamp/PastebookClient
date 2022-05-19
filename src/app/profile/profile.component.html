@@ -38,7 +38,14 @@
                         <div class="multi-button">
                             <a id="friends" routerLink="/friends"><button><i class="fa fa-users"></i> Friends</button></a>
                             <a id="album" routerLink="/album/:username"><button><i class="fa fa-images"></i> Album</button></a>
-                            <a id="editProfile"><button (click)="showModal()"><i class="fas fa-user-edit"></i> Edit</button></a>
+                            <a id="editProfile">
+                                <span *ngIf="userAccountId == receiverAccountId; else elseBlock">
+                                    <button (click)="showModal()"><i class="fas fa-user-edit"></i> Edit</button>
+                                </span>
+                                <ng-template #elseBlock>
+                                    <button (click)="showModal()" disabled><i class="fas fa-user-edit"></i> Edit</button>
+                                </ng-template>
+                            </a>
                         </div>
                         <br>
                     </div>
