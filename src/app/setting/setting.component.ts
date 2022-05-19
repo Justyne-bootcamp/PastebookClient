@@ -35,6 +35,9 @@ export class SettingComponent implements OnInit {
               private formBuilder: FormBuilder, 
               private router: Router) {
     this.sessionId = localStorage.getItem("UserAccountId") as string;
+    if(this.sessionId == null){
+      this.router.navigate(['/login']);
+    }
   }
 
   ngOnInit(): void {
