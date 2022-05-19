@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Like } from 'src/app/shared/like.model';
 import { LikeService } from 'src/app/shared/like.service';
 import { PostFeed } from 'src/app/shared/post.model';
@@ -15,17 +16,21 @@ export class TimelineFeedComponent implements OnInit {
   likerId: string;
   liked: Like;
   sessionId: string;
+  username: string;
 
-  constructor(private postService: PostService, private likeService: LikeService) {
+  constructor(private postService: PostService, private likeService: LikeService, private route: ActivatedRoute) {
     this.sessionId = localStorage.getItem("UserAccountId") as string;
   }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe((params) => {
+      this.username = params.get('username')!;
+    });
     this.getTimelinePosts();
   }
 
   getTimelinePosts(){
-    this.postService.getProfilePosts(this.sessionId)
+    this.postService.getProfilePosts(this.username)
     .subscribe(
       response => {
         this.timelineFeed = response;
