@@ -17,7 +17,22 @@
 
                         <input type="hidden" [(ngModel)]="receiverAccountId">
                         <div id="addfriend-btn">
-                            <button style="background-color:#779ecc;border-style:none;" class="btn btn-primary" (click)="addFriend()">Add Friend</button>
+                            <span *ngIf="relationship == 'stranger'">
+                                <button style="background-color:#779ecc;border-style:none;" class="btn btn-primary" (click)="addFriend()">Add Friend</button>
+                            </span>
+                            <span *ngIf="relationship == 'pendingresponse'">
+                                <button style="background-color:#779ecc;border-style:none;" class="btn btn-info" (click)="respondToRequest('Accepted')">Accept</button>
+                                <button style="background-color:#779ecc;border-style:none;" class="btn btn-danger" (click)="respondToRequest('Decline')">Decline</button>
+                            </span>
+                            <span *ngIf="relationship == 'pendingrequest'">
+                                <button style="background-color:#779ecc;border-style:none;" class="btn btn-info">Pending Request</button>
+                            </span>
+                            <span *ngIf="relationship == 'Accepted'">
+                                <button style="background-color:#779ecc;border-style:none;" class="btn btn-success">Friends</button>
+                            </span>
+                            <span *ngIf="relationship == 'self'">
+                                <button style="background-color:#779ecc;border-style:none;" class="btn btn-success">Own Account</button>
+                            </span>
                         </div>
 
                     <div id="details" class = "desc" style="color: rgb(43, 42, 42);">

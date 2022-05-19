@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserAccount } from '../models/user-account.model';
 import { FriendService } from '../shared/friend.service';
@@ -21,6 +20,8 @@ export class ProfileComponent implements OnInit {
   addFriendForm: FormGroup;
   selectedFile: File | null;
   userAccountId: string;
+  relationship: string;
+  friendId: string;
   constructor(private userAccountService: UserAccountService,
     private route:ActivatedRoute,
     private fb: FormBuilder,
@@ -48,9 +49,21 @@ export class ProfileComponent implements OnInit {
     .subscribe(user => {
       this.user = user;
       this.receiverAccountId = user.userAccountId;
+
+      this.getRelationship();
     });
+  }
 
-
+  getRelationship(){
+    if(this.receiverAccountId == this.userAccountId){
+      this.relationship = "self";
+    }else{
+      this.friendService.getRelationship(this.receiverAccountId, this.userAccountId).subscribe(response => {
+        this.relationship = response.relationship;
+        this.friendId = response.friendId;
+      });
+    }
+    
   }
 
   showModal(){
@@ -84,5 +97,10 @@ export class ProfileComponent implements OnInit {
   addFriend(){
     console.log(this.userAccountId + " " + this.receiverAccountId);
     this.friendService.addFriend(this.userAccountId, this.receiverAccountId);
+    window.location.reload();
+  }
+  respondToRequest(response: string){
+    this.friendService.respondToRequest(this.friendId, response);
+    window.location.reload();
   }
 }
