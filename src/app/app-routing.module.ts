@@ -19,11 +19,11 @@ const routes: Routes = [
   {path: 'register', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
   {path: 'album/:username', component: AlbumComponent},
+  {path: 'album/:username/:albumData', component: GalleryComponent},
   {path: 'timeline', component: TimelineComponent},
   {path: 'friends/:userAccountId', component: FriendsComponent},
   {path: 'search/:searchName', component: SearchResultComponent},
   {path: 'setting', component: SettingComponent},
-  {path: 'album/:username/:albumName/gallery', component: GalleryComponent},
   {path: '**', component: NotFoundComponent},
 ];
 

@@ -4,21 +4,16 @@
         <div class="col-md-8 offset-md-2">
             <div class="card" style= "margin-top: 20px;">
                 <div class="card-body">
-                    <h4 class="card-title"><strong>albumName</strong></h4>
+                    <h4 class="card-title"><strong>{{albumName | uppercase}}</strong></h4>
                     <hr>
+                    <div>
+                        <input type="file" (change)="FileSelected($event)">
+                    </div>
                     <div id="card-container">
                         <!-- ngFor here -->
-                        <img class="albumPhoto" src="../../assets/testPhoto/download.png" alt="Card image cap">
-                        <img class="albumPhoto" src="../../assets/testPhoto/MIKKO.jpg" alt="Card image cap">
-                        <img class="albumPhoto" src="../../assets/testPhoto/images.png" alt="Card image cap">
-                        <img class="albumPhoto" src="../../assets/testPhoto/download.png" alt="Card image cap">
-                        <img class="albumPhoto" src="../../assets/testPhoto/MIKKO.jpg" alt="Card image cap">
-                        <img class="albumPhoto" src="../../assets/testPhoto/images.png" alt="Card image cap">
-                        <img class="albumPhoto" src="../../assets/testPhoto/MIKKO.jpg" alt="Card image cap">
-                        <img class="albumPhoto" src="../../assets/testPhoto/images.png" alt="Card image cap">
-                        <img class="albumPhoto" src="../../assets/testPhoto/MIKKO.jpg" alt="Card image cap">
-                        <img class="albumPhoto" src="../../assets/testPhoto/download.png" alt="Card image cap">
-
+                        <span *ngFor="let photo of photos">
+                            <img class="albumPhoto" src="../../assets/uploaded_photo/{{username}}/{{albumName}}/{{photo.albumPhotoPath}}" alt="Card image cap">
+                        </span>
                     </div>
                 </div>
             </div>
