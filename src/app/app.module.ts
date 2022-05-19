@@ -23,6 +23,7 @@ import { TimelineFeedComponent } from './profile/timeline-feed/timeline-feed.com
 import { ProfilePostFormComponent } from './profile/profile-post-form/profile-post-form.component';
 import { SettingComponent } from './setting/setting.component';
 import { GalleryComponent } from './album/gallery/gallery.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { GalleryComponent } from './album/gallery/gallery.component';
     TimelineFeedComponent,
     ProfilePostFormComponent,
     SettingComponent,
-    GalleryComponent
+    GalleryComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
