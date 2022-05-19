@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { UserAccount } from '../models/user-account.model';
 import { IRelationshipResponse } from './relationship-response.model';
 
 @Injectable({
@@ -26,5 +27,9 @@ export class FriendService {
     this.http.post(this.baseUrl+"respondToRequest", {friendId: friendId, response: response}).subscribe(res => {
       console.log(res);
     });
+  }
+
+  getFriends(userAccountId: string): Observable<UserAccount[]>{
+    return this.http.get<UserAccount[]>(this.baseUrl+"friends/"+userAccountId);
   }
 }

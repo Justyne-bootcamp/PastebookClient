@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserAccount } from '../models/user-account.model';
+import { FriendService } from '../shared/friend.service';
 
 @Component({
   selector: 'app-friends',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FriendsComponent implements OnInit {
 
-  constructor() { }
+  friends: UserAccount[];
+  userAccountId: string;
+  constructor(private friendService: FriendService) {
+    this.userAccountId = localStorage.getItem("UserAccountId") as string;
+   }
 
   ngOnInit(): void {
+    this.friendService.getFriends(this.userAccountId).subscribe(response => {
+      this.friends = response;
+    });
   }
 
 }
