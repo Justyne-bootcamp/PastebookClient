@@ -16,9 +16,6 @@ export class PostService {
   }
 
   newPostToProfile(form: FormData): Observable<Post> {
-    console.log(form.get('username'));
-    console.log(form.get('textContent'));
-    console.log(form.get('postLocation'));
     return this.http.post<Post>(this.baseUrl + '/posttoprofile', form)
   }
 
@@ -29,10 +26,10 @@ export class PostService {
     return this.http.get<PostFeed[]>(this.baseUrl+'/newsfeed', {params: params})
   }
 
-  getProfilePosts(sessionId: string): Observable<PostFeed[]> {
+  getProfilePosts(username: string): Observable<PostFeed[]> {
     let params = new HttpParams();
     params = params
-    .set('sessionId', sessionId);
+    .set('username', username);
     return this.http.get<PostFeed[]>(this.baseUrl+'/timeline', {params: params})
   }
 }

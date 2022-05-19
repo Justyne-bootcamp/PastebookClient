@@ -10,14 +10,18 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./profile-post-form.component.css']
 })
 export class ProfilePostFormComponent implements OnInit {
+
   selectedFile: File | null;
   username: string;
+  sessionId: string;
   post: Post = {
     textContent:'',
     postLocation:'00000000-0000-0000-0000-000000000000',
   }
   
-  constructor(private route: ActivatedRoute, public service: PostService) { }
+  constructor(private route: ActivatedRoute, public service: PostService) {
+    this.sessionId = localStorage.getItem("UserAccountId") as string;
+   }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
@@ -37,6 +41,7 @@ export class ProfilePostFormComponent implements OnInit {
     formData.append('textContent', this.post.textContent);
     formData.append('postLocation', this.post.postLocation);
     formData.append('username', this.username)
+    formData.append('sessionId', this.sessionId)
     this.service.newPostToProfile(formData)
     .subscribe(
       response => {
