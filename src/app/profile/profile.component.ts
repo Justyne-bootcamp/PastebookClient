@@ -39,7 +39,7 @@ export class ProfileComponent implements OnInit {
       userAccountId: [this.userAccountId]
     });
 
-   
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
    }
 
   ngOnInit(): void {
