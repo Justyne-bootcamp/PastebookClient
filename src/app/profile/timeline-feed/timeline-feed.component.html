@@ -21,7 +21,10 @@
         <div class="card" style="width: 64rem;">
             <div class="card-body">
                 <div style="display: flex;">
-                    <a [routerLink]="['/pastebook.com/', post.username]"><img id="user-icon-pic" src="../../assets/testPhoto/download.png" alt="Card image cap"></a>
+                    <a [routerLink]="['/pastebook.com/', post.username]">
+                        <img id="user-icon-pic" src="../../../assets/uploaded_photo/{{post.username}}/posts/{{post.postPhotoPath}}" alt="Card image cap" *ngIf="post.postPhotoPath == null">
+                        <img id="user-icon-pic" src="../../assets/testPhoto/download.png" alt="Card image cap" *ngIf="post.postPhotoPath != null">
+                    </a>
                     <div>
                         <h5 class="card-title"><a id="user-fullname" [routerLink]="['/pastebook.com', post.username]">{{post.firstName}} {{post.lastName}}</a></h5>
                         <p><strong>{{post.timeStamp.split("T")[0]}} {{post.timeStamp.split("T")[1].slice(0,-8)}}</strong></p>
@@ -29,7 +32,7 @@
                 </div>
                 <p class="card-text">{{post.textContent}}{{post.postPhotoPath}}</p>
             </div>
-            <!--<img class="card-img-top" src="../../../assets/uploaded_photo/{{post.username}}/posts/{{post.postPhotoPath}}" alt="{{post.postPhotoPath}}" *ngIf="post.postPhotoPath">-->
+            <img class="card-img-top" src="../../../assets/uploaded_photo/{{post.username}}/posts/{{post.postPhotoPath}}" alt="{{post.postPhotoPath}}" *ngIf="post.postPhotoPath">
             <div class="card-body">
             <hr>
             <div id="post-btn">
