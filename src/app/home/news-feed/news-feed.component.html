@@ -17,7 +17,7 @@
     </div>
 </div>
 <div class="col-md-12 row">
-    <div id="post-row" class="col-md-8 offset-md-2" *ngFor="let post of newsFeed">
+    <div id="post-row" class="col-md-8 offset-md-2" *ngFor="let post of newsFeed, let i=index">
         <div class="card" style="width: 64rem;">
             <div class="card-body">
                 <div style="display: flex;">
@@ -37,8 +37,15 @@
                 <button class="like-and-comment" type="button">Comment</button>
             </div>
             <div style="display: flex;">
-                <input id="comment-textbox" class="form-control" type="text" placeholder="Write a comment...">
-                <button id="send-comment-button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                <form novalidate enctype="multipart/form-data" (ngSubmit)="onComment(post.postId)">
+                    <input id="comment-textbox" class="form-control" type="text" placeholder="Write a comment..." name="textContent" #textContent
+                    [ngModel]="comment.commentContent">
+                    <button id="send-comment-button" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                </form>
+            </div>
+            <div *ngFor="let comment of post.comments">
+                <small>comment section</small>
+                <p>post.comments.commentContent</p>
             </div>
             </div>
         </div>

@@ -1,4 +1,6 @@
 import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
+import { CommentForm } from 'src/app/shared/comment.model';
+import { CommentService } from 'src/app/shared/comment.service';
 import { Like } from 'src/app/shared/like.model';
 import { LikeService } from 'src/app/shared/like.service';
 import { Post, PostFeed } from 'src/app/shared/post.model';
@@ -18,7 +20,9 @@ export class NewsFeedComponent implements OnInit {
     postLocation:'00000000-0000-0000-0000-000000000000',
   }
 
-  constructor(private postService: PostService, private likeService: LikeService) {
+  constructor(private postService: PostService, 
+              private likeService: LikeService,
+              private commentService: CommentService ) {
     this.sessionId = localStorage.getItem("UserAccountId") as string;
   }
 
@@ -71,6 +75,26 @@ export class NewsFeedComponent implements OnInit {
       response => {
         this.ngOnInit();
         console.log(response);
+      }
+    )
+  }
+
+  
+  comment: CommentForm = {
+    commentContent: ''
+  }
+
+  onComment(postId: string) {
+    const formData = new FormData();
+    formData.append('userAccountId', this.sessionId),
+    formData.append('postId', postId),
+    formData.append('commentContent', this.comment.commentContent)
+    console.log(formData.get('commentContent'))
+    this.commentService.newComment(formData)
+    .subscribe(
+      response => {
+        this.ngOnInit();
+        console.log(response)
       }
     )
   }

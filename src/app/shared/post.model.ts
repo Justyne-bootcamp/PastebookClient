@@ -1,3 +1,5 @@
+import { CommentFeed } from "./comment.model";
+
 export interface Post {
     textContent: string;
     postLocation: string;
@@ -15,6 +17,7 @@ export interface PostFeed {
     postPhotoPath: string;
     profilePhotoPath: string;
     isLiked:boolean;
+    comments:CommentFeed[];
 }
 
 export class PostFeed {
