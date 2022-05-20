@@ -14,10 +14,13 @@ import { UserAccountService } from 'src/app/shared/user-account.service';
 })
 export class TimelineFeedComponent implements OnInit {
 
+
+  sessionId: string;
+  sessionUsername:string;
+
   timelineFeed: PostFeed[];
   likerId: string;
   liked: Like;
-  sessionId: string;
   username: string;
   currentUser: UserAccount;
 
@@ -31,6 +34,7 @@ export class TimelineFeedComponent implements OnInit {
               private likeService: LikeService, 
               private route: ActivatedRoute) {
     this.sessionId = localStorage.getItem("UserAccountId") as string;
+    this.sessionUsername = localStorage.getItem("Username") as string;
   }
 
   ngOnInit(): void {
@@ -50,6 +54,7 @@ export class TimelineFeedComponent implements OnInit {
     )
   }
 
+
   getTimelinePosts(){
     this.postService.getProfilePosts(this.username, this.sessionId)
     .subscribe(
@@ -59,6 +64,17 @@ export class TimelineFeedComponent implements OnInit {
       }
     )
   }
+  timeConvert (time:any) {
+    time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+  
+    if (time.length > 1) { 
+      time = time.slice (1);
+      time[5] = +time[0] < 12 ? 'AM' : 'PM';
+      time[0] = +time[0] % 12 || 12;
+    }
+    return time.join ('');
+  }
+
   onFileSelected(event:any){
     this.selectedFile=<File>event.target.files[0];
   }

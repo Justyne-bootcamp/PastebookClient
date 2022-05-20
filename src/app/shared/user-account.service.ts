@@ -33,7 +33,7 @@ export class UserAccountService {
     return this.http.put<UserAccount>(this.baseUrl+'/setting', user)
   }
 
-  // getByUsername(username: string): Observable<UserAccount> {
-
-  // }
+  getUserAccountByUsername(username: string): Observable<UserAccount>{
+    return this.http.get<UserAccount>(this.baseUrl + username);
+  }
 }

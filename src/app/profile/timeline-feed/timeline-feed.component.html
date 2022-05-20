@@ -29,8 +29,8 @@
                         <img id="user-icon-pic" src="../../assets/testPhoto/download.png" alt="Card image cap" *ngIf="post.profilePhotoPath == null">
                     </a>
                     <div>
-                        <h5 class="card-title"><a id="user-fullname" [routerLink]="['/pastebook.com', post.username]">{{post.firstName}} {{post.lastName}}</a></h5>
-                        <p><strong>{{post.timeStamp.split("T")[0]}} {{post.timeStamp.split("T")[1].slice(0,-8)}}</strong></p>
+                        <h5 class="card-title"><a class="user-fullname" [routerLink]="['/pastebook.com', post.username]">{{post.firstName}} {{post.lastName}}</a></h5>
+                        <p><strong>{{post.timeStamp.split("T")[0]}} {{timeConvert(post.timeStamp.split("T")[1].slice(0,-8))}}</strong></p>
                     </div>
                 </div>
                 <p class="card-text">{{post.textContent}}{{post.postPhotoPath}}</p>
