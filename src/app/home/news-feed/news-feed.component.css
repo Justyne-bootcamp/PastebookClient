@@ -96,6 +96,7 @@
     height: 60px;
     width: 60px;
     border-radius: 100px;
+    object-fit: cover;
 }
 .isLiked {
     background-color: #4c82c0;

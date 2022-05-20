@@ -8,8 +8,9 @@ export interface UserAccount {
     gender: string;
     mobileNumber: string;
     sessionId: string;
-    username: string;
+    aboutMe: string;
     profilePhotoPath: string;
+    username: string;
 }
 
 export class UserAccount {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IAlbum } from '../models/album.model';
+import { ActivatedRoute } from '@angular/router';
+import { IAlbum } from '../shared/album.model';
 import { AlbumService } from '../shared/album.service';
 
 @Component({
@@ -14,13 +15,14 @@ export class AlbumComponent implements OnInit {
   albums: IAlbum[];
   username: string;
   userAccountId: string;
-  constructor(private albumService: AlbumService) { }
+  albumOwnersUsername: string;
+  constructor(private albumService: AlbumService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.username = localStorage.getItem("Username") as string;
     this.userAccountId = localStorage.getItem("UserAccountId") as string;
-    
-    this.albumService.getAlbums(this.userAccountId).subscribe(response => {
+    this.albumOwnersUsername = this.route.snapshot.paramMap.get("username") as string;
+    this.albumService.getAlbums(this.albumOwnersUsername).subscribe(response => {
       this.albums = response;
     });
     console.log(this.username);
@@ -28,6 +30,7 @@ export class AlbumComponent implements OnInit {
 
   showModalFunction(value: boolean){
     this.showModal = value;
+    
   }
   createAlbum(){
     this.albumService.createAlbum(this.userAccountId, this.albumName);

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UserAccount } from '../models/user-account.model';
+import { UserAccount } from '../shared/user-account.model';
 import { IRelationshipResponse } from './relationship-response.model';
 
 @Injectable({

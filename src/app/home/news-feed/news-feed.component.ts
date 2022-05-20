@@ -87,7 +87,6 @@ export class NewsFeedComponent implements OnInit {
   }
 
   onLike(postId: string){
-    //postId = "\""+ postId+  "\""
     const formData = new FormData();
     formData.append('postId', postId);
     formData.append('sessionId', this.sessionId)

@@ -13,7 +13,7 @@ import Validation from '../shared/validation';
 export class RegistrationComponent implements OnInit {
 
   user: UserAccount;
-  errorMessage: string;
+  errorMessage: string = "";
 
   registrationForm: FormGroup = new FormGroup({
     firstName: new FormControl(''),
@@ -64,6 +64,10 @@ export class RegistrationComponent implements OnInit {
         this.errorMessage='Email already taken.';
       }
     )
+  }
+
+  cancel(){
+    this.router.navigate(["/login"]);
   }
 
 }

@@ -1,16 +1,3 @@
-<!-- <form novalidate enctype="multipart/form-data" #form="ngForm" (ngSubmit)="onSubmit()">
-    <div class="form-row">
-        <div class="form-group form-group-inline col-md-6">
-            <input class="form-control form-control-lg" placeholder="What's on your mind?" name="textContent" #textContent
-                [(ngModel)]="post.textContent">
-        </div>
-    </div>
-    <div class="form-row">
-        <input type="file" accept=".png,.jpg" class="btn btn-info btn-lg btn-block" name="photo" #photo 
-        (change)="onFileSelected($event)" [(ngModel)]="post.photo">
-        <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="!textContent && !photo">POST</button>
-    </div>
-</form> -->
 <div class="col-md-12 row">
     <div id="add-post" class="col-md-8 offset-md-2">
         <form class="card" style="width: 64rem;margin-top: 40px;" novalidate enctype="multipart/form-data" #form="ngForm" (ngSubmit)="onSubmit()">

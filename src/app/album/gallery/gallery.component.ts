@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IAlbumPhoto } from 'src/app/shared/album-photo.model';
 import { AlbumPhotoService } from 'src/app/shared/album-photo.service';
-import { IAlbum } from '../../models/album.model';
-import { AlbumService } from '../../shared/album.service';
+import { IAlbum } from 'src/app/shared/album.model';
 
 @Component({
   selector: 'app-gallery',
@@ -17,12 +16,14 @@ export class GalleryComponent implements OnInit {
   albums: IAlbum[];
   username: string;
   photos: IAlbumPhoto[];
+  albumOwnersUsername: string;
 
   constructor(private route: ActivatedRoute, private albumPhotoService: AlbumPhotoService) { }
 
   ngOnInit(): void {
     this.username = localStorage.getItem("Username") as string;
     let albumData = this.route.snapshot.paramMap.get("albumData") as string;
+    this.albumOwnersUsername = this.route.snapshot.paramMap.get("username") as string;
     this.getAlbumData(albumData);
 
     this.albumPhotoService.getPhotos(this.albumId).subscribe(response => {

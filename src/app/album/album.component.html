@@ -9,20 +9,17 @@
                     <h4 class="card-title"><strong>Albums</strong></h4>
                     <hr>
                     <div id="albumCards" style="display: flex; flex-wrap: wrap;">
-                        <div id="portfolio">
+                        <div id="portfolio" *ngIf="albumOwnersUsername == username">
                             <a id="addAlbum" class="project" (click)="showModalFunction(true)">
                                 <p>Add Album</p>                               
                             </a>
                         </div> 
-                        
-                        
-                       
                         <div *ngFor="let album of albums" id="portfolio">
                             <div class="project">
                                 <img class="project__image" src="../../assets/testPhoto/album_placeholder.png" />
                                 <p>{{ album.albumName }}</p>
                                 <div class="grid__overlay">
-                                    <a id="gallery" routerLink="/album/{{username}}/{{album.albumName}}_{{album.albumId}}"><button class="viewbutton" >Open album</button></a>
+                                    <a id="gallery" routerLink="/album/{{albumOwnersUsername}}/{{album.albumName}}_{{album.albumId}}"><button class="viewbutton" >Open album</button></a>
                                     <button id="gallery" (click)="deleteAlbum(album.albumId)"><i class="fas fa-trash-alt"></i> Delete</button>
                                 </div> 
                             </div>
@@ -33,26 +30,24 @@
         </div>      
     </div>
 
-<!-- add album modal -->
-<div [ngClass]="{'album-modal-container': true, 'show': showModal}">
-    <div class="album-modal" id="album-modal-3">
-        <div style="display: flex;justify-content:flex-end">
-            <button id="modal-close" (click)="showModalFunction(false)"><i class="fa fa-window-close" aria-hidden="true"></i></button>
-        </div>
-        <div class="card-body">
-            <div id="modal-title">
-                <label for="albumNamed">Create Album</label>
+    <div [ngClass]="{'album-modal-container': true, 'show': showModal}">
+        <div class="album-modal" id="album-modal-3">
+            <div style="display: flex;justify-content:flex-end">
+                <button id="modal-close" (click)="showModalFunction(false)"><i class="fa fa-window-close" aria-hidden="true"></i></button>
             </div>
-            <hr>
-            <div id="textbox-div">
-                <input id="modal-textbox" type="text" [(ngModel)]="albumName" placeholder="album name" (keyup.enter)="createAlbum()">
+            <div class="card-body">
+                <div id="modal-title">
+                    <label for="albumNamed">Create Album</label>
+                </div>
                 <hr>
-            </div>
-            <div id="create-div">
-                <button id="modal-create" (click)="createAlbum()">Add</button>
+                <div id="textbox-div">
+                    <input id="modal-textbox" type="text" [(ngModel)]="albumName" placeholder="album name" (keyup.enter)="createAlbum()">
+                    <hr>
+                </div>
+                <div id="create-div">
+                    <button id="modal-create" (click)="createAlbum()">Add</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
 </body>

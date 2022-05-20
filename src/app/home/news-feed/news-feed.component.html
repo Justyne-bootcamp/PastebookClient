@@ -4,7 +4,7 @@
             <div class="form-row" style="display:flex;margin-top: 20px;margin-left: 20px; margin-right: 10px;">
                 <a [routerLink]="['/pastebook.com/', currentUser.username]">
                     <img id="user-icon-pic" src="../../../assets/uploaded_photo/{{currentUser.username}}/profilePicture/{{currentUser.profilePhotoPath}}" alt="Card image cap" *ngIf="currentUser.profilePhotoPath != null">
-                    <img id="user-icon-pic" src="../../assets/testPhoto/download.png" alt="Card image cap" *ngIf="currentUser.profilePhotoPath == null || currentUser.profilePhotoPath == ''">
+                    <img id="user-icon-pic" src="../../assets/testPhoto/default.jpg" alt="Card image cap" *ngIf="currentUser.profilePhotoPath == null || currentUser.profilePhotoPath == ''">
                 </a>
                 <input id="post-textbox" class="form-control" placeholder="What's on your mind... " name="textContent" #textContent
                 [(ngModel)]="post.textContent">
@@ -26,9 +26,9 @@
                 <div style="display: flex;">
                     <a [routerLink]="['/pastebook.com/', post.username]">
                         <img id="user-icon-pic" src="../../../assets/uploaded_photo/{{post.username}}/profilePicture/{{post.profilePhotoPath}}" alt="Card image cap" *ngIf="post.profilePhotoPath != null">
-                        <img id="user-icon-pic" src="../../assets/testPhoto/download.png" alt="Card image cap" *ngIf="post.profilePhotoPath == null">
+                        <img id="user-icon-pic" src="../../assets/testPhoto/default.jpg" alt="Card image cap" *ngIf="post.profilePhotoPath == null">
                     </a>
-                    <div>
+                    <div style="margin-left: 10px">
                         <h5 class="card-title"><a id="user-fullname" [routerLink]="['/pastebook.com', post.username]">{{post.firstName}} {{post.lastName}}</a></h5>
                         <p><strong>{{post.timeStamp.split("T")[0]}} {{timeConvert(post.timeStamp.split("T")[1].slice(0,-8))}}</strong></p>
                     </div>
@@ -40,7 +40,7 @@
             <hr>
             <div id="post-btn">
                 <button class="like-and-comment" type="button" (click)="onLike(post.postId)" [ngClass]="{'isLiked': post.isLiked}"><i class="fas fa-thumbs-up"></i> Like</button>
-                <button class="like-and-comment" type="button"><i class="fas fa-comment-alt"></i>Comment</button>
+                <button class="like-and-comment" type="button"><i class="fas fa-comment-alt"></i> Comment</button>
             </div>
             <div style="display: flex;">
                 <input id="comment-textbox" class="form-control" type="text" placeholder="Write a comment...">

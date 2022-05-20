@@ -166,6 +166,7 @@ button.btn:hover {
 .register {
     display: flex;
     justify-content: space-evenly;
+    margin-bottom: 10px;
 }
 
 #register-btn{
@@ -173,5 +174,4 @@ button.btn:hover {
   height: 40px;
   font-size: 20px;
   padding: 0%;
-  margin: 0%;
 }

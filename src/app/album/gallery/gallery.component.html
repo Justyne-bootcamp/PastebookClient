@@ -6,13 +6,13 @@
                 <div class="card-body">
                     <h4 class="card-title"><strong>{{albumName | uppercase}}</strong></h4>
                     <hr>
-                    <div>
-                        <input type="file" (change)="FileSelected($event)">
-                    </div>
                     <div id="card-container">
-                        <!-- ngFor here -->
+                        <div *ngIf="albumOwnersUsername == username">
+                            <input style="display: none;" type="file" (change)="FileSelected($event)" #fileChooser>
+                            <label (click)="fileChooser.click()"><img class="albumPhoto addPhoto" src="../../../assets/testPhoto/add_photo.png" alt="add photo"></label>
+                        </div>
                         <span *ngFor="let photo of photos">
-                            <img class="albumPhoto" src="../../assets/uploaded_photo/{{username}}/{{albumName}}/{{photo.albumPhotoPath}}" alt="Card image cap">
+                            <img style="margin: 0px 10px 10px 0px" class="albumPhoto" src="../../assets/uploaded_photo/{{albumOwnersUsername}}/{{albumName}}/{{photo.albumPhotoPath}}" alt="Card image cap">
                         </span>
                     </div>
                 </div>

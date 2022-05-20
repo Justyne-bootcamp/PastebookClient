@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IAlbum } from '../models/album.model';
+import { IAlbum } from './album.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +16,8 @@ export class AlbumService {
       console.log(response);
     });
   }
-  getAlbums(userAccountId: string): Observable<IAlbum[]>{
-    return this.http.get<IAlbum[]>(this.baseUrl+"myalbum/"+userAccountId);
+  getAlbums(username: string): Observable<IAlbum[]>{
+    return this.http.get<IAlbum[]>(this.baseUrl+"myalbum/"+username);
   }
 
   deleteAlbum(albumId: string){

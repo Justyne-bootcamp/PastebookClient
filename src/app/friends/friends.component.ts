@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UserAccount } from '../models/user-account.model';
 import { FriendService } from '../shared/friend.service';
+import { UserAccount } from '../shared/user-account.model';
 
 @Component({
   selector: 'app-friends',

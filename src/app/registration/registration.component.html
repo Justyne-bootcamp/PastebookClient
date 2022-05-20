@@ -23,8 +23,8 @@
         <p class="invalid-input" *ngIf="submitted && u['email'].errors">
           <span *ngIf="u['email'].errors['required']">Email is required</span>
           <span *ngIf="u['email'].errors['pattern']">Format is incorrect</span>
-          <span *ngIf="errorMessage != null">{{ errorMessage }}</span>
         </p>
+        <p class="invalid-input" *ngIf="errorMessage != ''">{{ errorMessage }}</p>
       </div>
       <div class="form-group">
         <label id="icon" for="register-password"><i class="fa fa-shield-alt"></i></label>
@@ -68,6 +68,7 @@
       </div>
       <hr>
       <div class="register">
+          <button id="register-btn" class="btn" (click)="cancel()">Cancel</button>
           <button id="register-btn" class="btn" type="submit">Register</button>
       </div>
   </form>

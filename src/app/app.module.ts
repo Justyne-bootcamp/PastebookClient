@@ -15,12 +15,9 @@ import { AlbumComponent } from './album/album.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PostFormComponent } from './home/post-form/post-form.component';
 import { UserAccountService } from './user-account.service';
-import { PostComponent } from './post/post.component';
 import { NewsFeedComponent } from './home/news-feed/news-feed.component';
-import { FriendslistComponent } from './friendslist/friendslist.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { TimelineFeedComponent } from './profile/timeline-feed/timeline-feed.component';
-import { ProfilePostFormComponent } from './profile/profile-post-form/profile-post-form.component';
 import { SettingComponent } from './setting/setting.component';
 import { GalleryComponent } from './album/gallery/gallery.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -37,12 +34,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     TimelineComponent,
     AlbumComponent,
     PostFormComponent,
-    PostComponent,
     NewsFeedComponent,
-    FriendslistComponent,
     SearchResultComponent,
     TimelineFeedComponent,
-    ProfilePostFormComponent,
     SettingComponent,
     GalleryComponent,
     NotFoundComponent

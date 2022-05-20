@@ -27,7 +27,6 @@
     opacity: 1;
 }
 body {
-    /* font-family: 'Inconsolata', monospace; */
     background-color: rgb(247, 242, 242);
     margin: 0;
 }
@@ -39,9 +38,6 @@ button {
     min-height: 50vh;
     position: relative;
     display: flex;
-    /* grid-template-columns: repeat(4, minmax(200px, 1fr));
-    grid-template-rows: 1fr 1fr;
-    grid-gap: 2px; */
     padding: 20px;
     justify-items: center;
     
@@ -70,7 +66,6 @@ button {
     height: 15%;
     padding: 0.5em 0;
     margin: 5%;
-    /* letter-spacing: 2px; */
     background-color: #f2dad7;
 }
 
@@ -80,8 +75,6 @@ button {
 .grid__overlay {
     background: rgba(229, 182, 177, .9);
     height: 100%;
-    /* grid-column: -1;
-    grid-row: -1; */
     position: relative;
     display: grid;
     justify-items: center;

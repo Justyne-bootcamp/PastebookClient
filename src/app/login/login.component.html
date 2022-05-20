@@ -1,95 +1,53 @@
-<!-- <div id="LoginCard" class="col-md-12 row">
-    <div class="col-md-3" style="background-color: #edf2fb;">
-        left div
-    </div>
-    <div class="col-md-6" style="background-color: #c1d3fe;">
-        <h2>PASTEBOOK</h2>
-        <div><h4>Login to your acount</h4></div>
-        <form [formGroup]="loginForm" (submit)="onSubmit()">
-            <div class="form-group">
-                <div class="offset-md-2">
-                    <div class="col-md-10">
-                        <input type="text" formControlName="email" placeholder="Email Address" class="form-control form-control-lg">
-                    </div>
-                    <div class="col-md-10">
-                        <input type="text" formControlName="password" placeholder="Password" class="form-control form-control-lg">
-                    </div>
-                    <div class="col-md-10">
-                        <input type="submit" value="Submit" class="form-control form-control-lg btn btn-primary " />
-                    </div>
-                </div>
-                
-                <div class="col-md-8 offset-md-2 align-items-center">
-                    <a routerLink="/register">Create Account</a>
-                </div>
-                <div class="col-md-6 offset-md-5">
-                    <p *ngIf="loginForm.get('email')?.errors?.['required']"> Email is Requried</p>
-                    <p *ngIf="loginForm.get('password')?.errors?.['required']"> Password is Requried</p>
-                    <p *ngIf="errorMessage != null">Error: {{ errorMessage }}</p>
-                </div>
-            </div>
-            #fcf5c7
-        </form>
-    </div>
-    <div class="col-md-3" style="background-color: #edf2fb;">
-        right div
-    </div>
-</div> -->
 <section class="h-100" style="background-color: rgb(242, 243, 243);">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-xl-10">
-                <!-- <div class="card rounded-3 text-black"> -->
-                    <div class="row g-0">
-                        <div class="col-lg-6 gradient-custom-4" style="box-shadow: rgb(185, 185, 185) 0px 2px 4px 0px, rgb(202, 201, 201) 0px 2px 16px 0px;">
-                            <div class="card-body p-md-5 mx-md-4">
-                                <div class="text-center">
-                                    <p id="we-are-pastebook" class="mt-1 mb-5 pb-1">We are Pastebook</p>
-                                </div>
-                                <form [formGroup]="loginForm" (submit)="onSubmit()">
-                                    <p style="font-size:18px;color:rgb(85, 74, 74)"><strong>Please login to your account</strong></p>
+                <div class="row g-0">
+                    <div class="col-lg-6 gradient-custom-4" style="box-shadow: rgb(185, 185, 185) 0px 2px 4px 0px, rgb(202, 201, 201) 0px 2px 16px 0px;">
+                        <div class="card-body p-md-5 mx-md-4">
+                            <div class="text-center">
+                                <p id="we-are-pastebook" class="mt-1 mb-5 pb-1">We are Pastebook</p>
+                            </div>
+                            <form [formGroup]="loginForm" (submit)="onSubmit()">
+                                <p style="font-size:18px;color:rgb(85, 74, 74)"><strong>Please login to your account</strong></p>
 
-                                    <div class="form-outline mb-4">
-                                        <label style="font-weight:600" class="form-label" for="form2Example11">Email</label>
-                                        <input type="email" formControlName="email" class="form-control" placeholder="Email address" />
-                                        
-                                    </div>
-                                    <div class="form-outline mb-4">
-                                        <label style="font-weight:600" class="form-label" for="form2Example22">Password</label>
-                                        <input type="password" formControlName="password" class="form-control" placeholder="Password" />
-                                        
-                                    </div>
-                                    <div class="text-center pt-1">
-                                        <button id="login" style="font-weight:800;" class="btn btn-block gradient-custom-5 mb-1" type="submit">Login</button>
-                                    </div>
-                                    <div style="display: flex;justify-content:center;margin-bottom: 20px;">
-                                        <a class="text-muted" href="#!">Forgot password?</a>
-                                    </div>
-                                    <div class="col-md-6 offset-md-3" style="color: rgb(170, 19, 19); font-weight: bolder;">
-                                        <p *ngIf="loginForm.get('email')?.errors?.['required']"> Email is Required</p>
-                                        <p *ngIf="loginForm.get('password')?.errors?.['required']"> Password is Required</p>
-                                        <p *ngIf="errorMessage != null">{{ errorMessage }}</p>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center pb-4">
-                                        <p class="mb-0 me-2">Don't have an account?</p>
-                                        <button type="button" class="btn gradient-custom-3"><a id="create-text" [routerLink]="['/register']"><strong>Create one</strong></a></button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div id="card2" class="col-lg-6 d-flex">
-                            <div class="text-dark px-3 py-4 p-md-5 mx-md-4">
-                                <br>
-                                <br>
-                                <img style="width:550px;" src="../../assets/logo/Pastebook-logos_black_-_Copy.png" alt="">
-                                <br>
-                                <br>
-                                <br>
-                                <p id="paste-it">...PASTE IT!</p>
-                            </div>
+                                <div class="form-outline mb-4">
+                                    <label style="font-weight:600" class="form-label" for="form2Example11">Email</label>
+                                    <input type="email" formControlName="email" class="form-control" placeholder="Email address" />
+                                    
+                                </div>
+                                <div class="form-outline mb-4">
+                                    <label style="font-weight:600" class="form-label" for="form2Example22">Password</label>
+                                    <input type="password" formControlName="password" class="form-control" placeholder="Password" />
+                                    
+                                </div>
+                                <div class="text-center pt-1">
+                                    <button id="login" style="font-weight:800;" class="btn btn-block gradient-custom-5 mb-1" type="submit">Login</button>
+                                </div>
+                                <div class="col-md-12 text-muted text-center" style="color: rgb(170, 19, 19); font-weight: bolder; margin-top: 10px;">
+                                    <p *ngIf="submitted && loginForm.get('email')?.errors?.['required']"> Email is Required</p>
+                                    <p *ngIf="submitted && loginForm.get('password')?.errors?.['required']"> Password is Required</p>
+                                    <p *ngIf="errorMessage != null">{{ errorMessage }}</p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center pb-4" style="margin-top: 20px">
+                                    <p class="mb-0 me-2">Don't have an account?</p>
+                                    <button type="button" class="btn gradient-custom-3"><a id="create-text" [routerLink]="['/register']"><strong>Create one</strong></a></button>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                <!-- </div> -->
+                    <div id="card2" class="col-lg-6 d-flex">
+                        <div class="text-dark px-3 py-4 p-md-5 mx-md-4">
+                            <br>
+                            <br>
+                            <img style="width:550px;" src="../../assets/logo/Pastebook-logos_black_-_Copy.png" alt="">
+                            <br>
+                            <br>
+                            <br>
+                            <p id="paste-it">...PASTE IT!</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

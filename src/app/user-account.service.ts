@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { firstValueFrom, Observable } from 'rxjs';
-import { UserAccount } from './models/user-account.model';
-import { IEditProfileForm } from './models/edit-profile-form.model';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { UserAccount } from './shared/user-account.model';
 
 @Injectable({
   providedIn: 'root'

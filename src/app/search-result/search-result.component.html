@@ -6,16 +6,21 @@
                 <h4 class="card-title"><strong>Search Result</strong></h4>
                 <hr>
                 <div id="card-container">
-                    <!-- ngFor here -->
-                    <div *ngFor="let user of users" id="friend-card" class="card">
-                        <a style="text-decoration: none;" [routerLink]="['/pastebook.com', user.username]"><div id="card-content" class="card-body">
-                            <a [routerLink]="['/pastebook.com', user.username]"><img id="user-icon-pic" src="../../assets/uploaded_photo/{{user.username}}/profilePicture/{{user.profilePhotoPath}}" alt="alternate" *ngIf="user.profilePhotoPath != null"  />
-                                <img id="user-icon-pic" src="../../assets/testPhoto/download.png" alt="alternate" *ngIf="user.profilePhotoPath == null" /></a>
-                            <div id="friend-name">
-                                <a id="fullname" [routerLink]="['/pastebook.com', user.username]"><h5>{{ user.firstName + " " + user.lastName }}</h5></a>
-                            </div>
-                            <button id="friend-button"><i class="fas fa-ellipsis-h"></i></button>
-                        </div></a>
+                    <div *ngIf="users != null">
+                        <div *ngFor="let user of users" id="friend-card" class="card">
+                            <a style="text-decoration: none;" [routerLink]="['/pastebook.com', user.username]"><div id="card-content" class="card-body">
+                                <a [routerLink]="['/pastebook.com', user.username]"><img id="user-icon-pic" src="../../assets/uploaded_photo/{{user.username}}/profilePicture/{{user.profilePhotoPath}}" alt="alternate" *ngIf="user.profilePhotoPath != null"  />
+                                    <img id="user-icon-pic" src="../../assets/testPhoto/download.png" alt="alternate" *ngIf="user.profilePhotoPath == null" /></a>
+                                <div id="friend-name">
+                                    <a id="fullname" [routerLink]="['/pastebook.com', user.username]"><h5>{{ user.firstName + " " + user.lastName }}</h5></a>
+                                </div>
+                                <button id="friend-button"><i class="fas fa-ellipsis-h"></i></button>
+                            </div></a>
+                        </div>
+                    </div>
+                    
+                    <div *ngIf="users.length == 0">
+                        <p>No Result Found.</p>
                     </div>
                 </div>
             </div>
