@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Session } from './session.model';
+import { Session, SettingChangeConfirmation } from './session.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class SessionService {
   
   constructor(private http:HttpClient) { }
 
-  settingPassword(currentPassword: string): Observable<Session>{
-    return this.http.post<Session>(this.baseUrl + '/settingPassword', currentPassword, this.httpOptions)
+  settingPassword(settingChange: SettingChangeConfirmation): Observable<Session>{
+    return this.http.post<Session>(this.baseUrl + '/settingPassword', settingChange)
   }
 }

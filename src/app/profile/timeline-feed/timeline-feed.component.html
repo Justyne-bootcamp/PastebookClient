@@ -3,7 +3,7 @@
         <form class="card" style="width: 64rem;margin-top: 40px;" novalidate enctype="multipart/form-data" #form="ngForm" (ngSubmit)="onSubmit()">
             <div class="form-row" style="display:flex;margin-top: 20px;margin-left: 20px; margin-right: 20px;">
                 <a [routerLink]="['/pastebook.com/', currentUser.username]">
-                    <img id="user-icon-pic" src="../../../assets/uploaded_photo/{{currentUser.username}}/profilePhoto/{{currentUser.profilePhotoPath}}" alt="Card image cap" *ngIf="currentUser.profilePhotoPath != null">
+                    <img id="user-icon-pic" src="../../../assets/uploaded_photo/{{currentUser.username}}/profilePicture/{{currentUser.profilePhotoPath}}" alt="Card image cap" *ngIf="currentUser.profilePhotoPath != null">
                     <img id="user-icon-pic" src="../../assets/testPhoto/download.png" alt="Card image cap" *ngIf="currentUser.profilePhotoPath == null">
                 </a>
                 <input id="post-textbox" class="form-control" placeholder="What's on your mind... " name="textContent" #textContent
@@ -25,7 +25,7 @@
             <div class="card-body">
                 <div style="display: flex;">
                     <a [routerLink]="['/pastebook.com/', post.username]">
-                        <img id="user-icon-pic" src="../../../assets/uploaded_photo/{{post.username}}/profilePhoto/{{post.profilePhotoPath}}" alt="Card image cap" *ngIf="post.profilePhotoPath != null">
+                        <img id="user-icon-pic" src="../../../assets/uploaded_photo/{{post.username}}/profilePicture/{{post.profilePhotoPath}}" alt="Card image cap" *ngIf="post.profilePhotoPath != null">
                         <img id="user-icon-pic" src="../../assets/testPhoto/download.png" alt="Card image cap" *ngIf="post.profilePhotoPath == null">
                     </a>
                     <div>

@@ -5,6 +5,7 @@ import Validation from '../shared/validation';
 import { UserAccountService } from '../shared/user-account.service';
 import { SessionService } from '../shared/session.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SettingChangeConfirmation } from '../shared/session.model';
 
 @Component({
   selector: 'app-setting',
@@ -86,7 +87,11 @@ export class SettingComponent implements OnInit {
   onSubmit() {
     let currentPassword = this.settingsForm.controls['currentPassword'].value;
     let jsonCurrentPassword = "\""+ currentPassword+  "\""
-    this.sessionService.settingPassword(jsonCurrentPassword)
+    let sessionConfirmation: SettingChangeConfirmation = {
+      sessionId: this.sessionId,
+      password: this.settingsForm.controls['currentPassword'].value
+    }
+    this.sessionService.settingPassword(sessionConfirmation)
       .subscribe(
         response => {
           this.submitted = true;
@@ -98,7 +103,7 @@ export class SettingComponent implements OnInit {
             this.userUpdate.password = this.settingsForm.controls['currentPassword'].value;
           }
           this.userUpdate.userAccountId = this.userOld.userAccountId
-          this.userUpdate.userAccountId = this.userOld.username;
+          this.userUpdate.username = this.userOld.username;
           this.userUpdate.sessionId = this.sessionId;
           this.userAccountService.updateUser(this.userUpdate)
             .subscribe(
