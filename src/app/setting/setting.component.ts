@@ -98,6 +98,7 @@ export class SettingComponent implements OnInit {
             this.userUpdate.password = this.settingsForm.controls['currentPassword'].value;
           }
           this.userUpdate.userAccountId = this.userOld.userAccountId
+          this.userUpdate.userAccountId = this.userOld.username;
           this.userUpdate.sessionId = this.sessionId;
           this.userAccountService.updateUser(this.userUpdate)
             .subscribe(

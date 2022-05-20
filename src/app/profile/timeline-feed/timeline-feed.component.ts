@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { UserAccount } from 'src/app/shared/user-account.model';
 import { Like } from 'src/app/shared/like.model';
 import { LikeService } from 'src/app/shared/like.service';
 import { Post, PostFeed } from 'src/app/shared/post.model';
 import { PostService } from 'src/app/shared/post.service';
+import { UserAccountService } from 'src/app/shared/user-account.service';
 
 @Component({
   selector: 'app-timeline-feed',
@@ -17,13 +19,17 @@ export class TimelineFeedComponent implements OnInit {
   liked: Like;
   sessionId: string;
   username: string;
+  currentUser: UserAccount;
 
   selectedFile: File | null;
   post: Post = {
     textContent:'',
     postLocation:'00000000-0000-0000-0000-000000000000',
   }
-  constructor(private postService: PostService, private likeService: LikeService, private route: ActivatedRoute) {
+  constructor(private userService: UserAccountService,
+              private postService: PostService, 
+              private likeService: LikeService, 
+              private route: ActivatedRoute) {
     this.sessionId = localStorage.getItem("UserAccountId") as string;
   }
 
@@ -32,6 +38,16 @@ export class TimelineFeedComponent implements OnInit {
       this.username = params.get('username')!;
     });
     this.getTimelinePosts();
+    this.getCurrentUser();
+  }
+
+  getCurrentUser(){
+    this.userService.getUserBySessionId(this.sessionId)
+    .subscribe(
+      response => {
+        this.currentUser = new UserAccount(response);
+      }
+    )
   }
 
   getTimelinePosts(){

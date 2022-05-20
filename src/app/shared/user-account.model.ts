@@ -8,6 +8,8 @@ export interface UserAccount {
     gender: string;
     mobileNumber: string;
     sessionId: string;
+    username: string;
+    profilePhotoPath: string;
 }
 
 export class UserAccount {
