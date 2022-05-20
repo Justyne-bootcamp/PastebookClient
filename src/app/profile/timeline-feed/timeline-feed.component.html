@@ -36,8 +36,8 @@
             <div class="card-body">
             <hr>
             <div id="post-btn">
-                <button class="like-and-comment" type="button" (click)="onLike(post.postId)" [ngClass]="{'isLiked': post.isLiked}">Like</button>
-                <button class="like-and-comment" type="button">Comment</button>
+                <button class="like-and-comment" type="button" (click)="onLike(post.postId)" [ngClass]="{'isLiked': post.isLiked}"><i class="fas fa-thumbs-up"></i> Like</button>
+                <button class="like-and-comment" type="button"><i class="fas fa-comment-alt"></i> Comment</button>
             </div>
             <div style="display: flex;">
                 <input id="comment-textbox" class="form-control" type="text" placeholder="Write a comment...">
