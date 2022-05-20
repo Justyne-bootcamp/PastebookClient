@@ -26,10 +26,11 @@ export class PostService {
     return this.http.get<PostFeed[]>(this.baseUrl+'/newsfeed', {params: params})
   }
 
-  getProfilePosts(username: string): Observable<PostFeed[]> {
+  getProfilePosts(username: string, sessionId: string): Observable<PostFeed[]> {
     let params = new HttpParams();
     params = params
-    .set('username', username);
+    .set('username', username)
+    .set('sessionId', sessionId);
     return this.http.get<PostFeed[]>(this.baseUrl+'/timeline', {params: params})
   }
 }

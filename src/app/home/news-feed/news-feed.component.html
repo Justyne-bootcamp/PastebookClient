@@ -21,7 +21,10 @@
         <div class="card" style="width: 64rem;">
             <div class="card-body">
                 <div style="display: flex;">
-                    <a [routerLink]="['/pastebook.com/', post.username]"><img id="user-icon-pic" src="../../assets/testPhoto/download.png" alt="Card image cap"></a>
+                    <a [routerLink]="['/pastebook.com/', post.username]">
+                        <img id="user-icon-pic" src="../../../assets/uploaded_photo/{{post.username}}/profilePhoto/{{post.profilePhotoPath}}" alt="Card image cap" *ngIf="post.profilePhotoPath != null">
+                        <img id="user-icon-pic" src="../../assets/testPhoto/download.png" alt="Card image cap" *ngIf="post.profilePhotoPath == null">
+                    </a>
                     <div>
                         <h5 class="card-title"><a id="user-fullname" [routerLink]="['/pastebook.com', post.username]">{{post.firstName}} {{post.lastName}}</a></h5>
                         <p><strong>{{post.timeStamp.split("T")[0]}} {{post.timeStamp.split("T")[1].slice(0,-8)}}</strong></p>

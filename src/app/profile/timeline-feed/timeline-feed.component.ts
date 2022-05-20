@@ -35,7 +35,7 @@ export class TimelineFeedComponent implements OnInit {
   }
 
   getTimelinePosts(){
-    this.postService.getProfilePosts(this.username)
+    this.postService.getProfilePosts(this.username, this.sessionId)
     .subscribe(
       response => {
         this.timelineFeed = response;
