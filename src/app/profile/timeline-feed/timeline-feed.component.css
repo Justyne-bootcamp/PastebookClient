@@ -62,12 +62,12 @@
 .like-and-comment:hover {
     background-color: #779ecc;
 }
-#user-fullname{
+.user-fullname{
     text-decoration: none;
     color: rgb(43, 42, 42);
     font-weight: 700;
 }
-#user-fullname:hover{
+.user-fullname:hover{
    text-decoration:underline;
 }
 #comment-textbox{

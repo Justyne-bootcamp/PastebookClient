@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { UserAccount } from 'src/app/shared/user-account.model';
 import { Like } from 'src/app/shared/like.model';
 import { LikeService } from 'src/app/shared/like.service';
 import { Post, PostFeed } from 'src/app/shared/post.model';
 import { PostService } from 'src/app/shared/post.service';
+import { UserAccountService } from 'src/app/shared/user-account.service';
 
 @Component({
   selector: 'app-timeline-feed',
@@ -12,19 +14,27 @@ import { PostService } from 'src/app/shared/post.service';
 })
 export class TimelineFeedComponent implements OnInit {
 
+
+  sessionId: string;
+  sessionUsername:string;
+
   timelineFeed: PostFeed[];
   likerId: string;
   liked: Like;
-  sessionId: string;
   username: string;
+  currentUser: UserAccount;
 
   selectedFile: File | null;
   post: Post = {
     textContent:'',
     postLocation:'00000000-0000-0000-0000-000000000000',
   }
-  constructor(private postService: PostService, private likeService: LikeService, private route: ActivatedRoute) {
+  constructor(private userService: UserAccountService,
+              private postService: PostService, 
+              private likeService: LikeService, 
+              private route: ActivatedRoute) {
     this.sessionId = localStorage.getItem("UserAccountId") as string;
+    this.sessionUsername = localStorage.getItem("Username") as string;
   }
 
   ngOnInit(): void {
@@ -32,10 +42,21 @@ export class TimelineFeedComponent implements OnInit {
       this.username = params.get('username')!;
     });
     this.getTimelinePosts();
+    this.getCurrentUser();
   }
 
+  getCurrentUser(){
+    this.userService.getUserBySessionId(this.sessionId)
+    .subscribe(
+      response => {
+        this.currentUser = new UserAccount(response);
+      }
+    )
+  }
+
+
   getTimelinePosts(){
-    this.postService.getProfilePosts(this.username)
+    this.postService.getProfilePosts(this.username, this.sessionId)
     .subscribe(
       response => {
         this.timelineFeed = response;
@@ -43,6 +64,17 @@ export class TimelineFeedComponent implements OnInit {
       }
     )
   }
+  timeConvert (time:any) {
+    time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+  
+    if (time.length > 1) { 
+      time = time.slice (1);
+      time[5] = +time[0] < 12 ? 'AM' : 'PM';
+      time[0] = +time[0] % 12 || 12;
+    }
+    return time.join ('');
+  }
+
   onFileSelected(event:any){
     this.selectedFile=<File>event.target.files[0];
   }

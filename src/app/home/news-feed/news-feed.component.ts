@@ -3,6 +3,8 @@ import { Like } from 'src/app/shared/like.model';
 import { LikeService } from 'src/app/shared/like.service';
 import { Post, PostFeed } from 'src/app/shared/post.model';
 import { PostService } from 'src/app/shared/post.service';
+import { UserAccount } from 'src/app/shared/user-account.model';
+import { UserAccountService } from 'src/app/shared/user-account.service';
 
 @Component({
   selector: 'app-news-feed',
@@ -13,12 +15,15 @@ export class NewsFeedComponent implements OnInit {
 
   sessionId:string;
   selectedFile: File | null;
+  currentUser:UserAccount;
   post: Post = {
     textContent:'',
     postLocation:'00000000-0000-0000-0000-000000000000',
   }
 
-  constructor(private postService: PostService, private likeService: LikeService) {
+  constructor(private userService: UserAccountService,
+              private postService: PostService,
+              private likeService: LikeService) {
     this.sessionId = localStorage.getItem("UserAccountId") as string;
   }
 
@@ -26,6 +31,17 @@ export class NewsFeedComponent implements OnInit {
 
   ngOnInit(): void {
     this.getNewsFeedPosts();
+    this.getCurrentUser();
+  }
+
+  getCurrentUser(){
+    this.userService.getUserBySessionId(this.sessionId)
+    .subscribe(
+      response => {
+        this.currentUser = new UserAccount(response);
+        console.log(this.currentUser)
+      }
+    )
   }
 
   getNewsFeedPosts(){
@@ -36,6 +52,17 @@ export class NewsFeedComponent implements OnInit {
         console.log(response);
       }
     )
+  }
+
+  timeConvert (time:any) {
+    time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+  
+    if (time.length > 1) { 
+      time = time.slice (1);
+      time[5] = +time[0] < 12 ? 'AM' : 'PM';
+      time[0] = +time[0] % 12 || 12;
+    }
+    return time.join ('');
   }
 
   onFileSelected(event:any){

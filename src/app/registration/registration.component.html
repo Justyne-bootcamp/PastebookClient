@@ -23,6 +23,7 @@
         <p class="invalid-input" *ngIf="submitted && u['email'].errors">
           <span *ngIf="u['email'].errors['required']">Email is required</span>
           <span *ngIf="u['email'].errors['pattern']">Format is incorrect</span>
+          <span *ngIf="errorMessage != null">{{ errorMessage }}</span>
         </p>
       </div>
       <div class="form-group">
