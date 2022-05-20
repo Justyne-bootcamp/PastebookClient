@@ -95,6 +95,8 @@ export class TimelineFeedComponent implements OnInit {
         console.log(response);
       }
     )
+    this.selectedFile=null;
+    this.post.textContent = "";
   }
 
   onLike(postId: string){

@@ -20,7 +20,9 @@
                                 <p>{{ album.albumName }}</p>
                                 <div class="grid__overlay">
                                     <a id="gallery" routerLink="/album/{{albumOwnersUsername}}/{{album.albumName}}_{{album.albumId}}"><button class="viewbutton" >Open album</button></a>
-                                    <button id="gallery" (click)="deleteAlbum(album.albumId)"><i class="fas fa-trash-alt"></i> Delete</button>
+                                    <span *ngIf="albumOwnersUsername == username">
+                                        <button id="gallery" (click)="deleteAlbum(album.albumId)"><i class="fas fa-trash-alt"></i> Delete</button>
+                                    </span>
                                 </div> 
                             </div>
                         </div>            

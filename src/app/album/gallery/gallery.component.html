@@ -12,7 +12,9 @@
                             <label (click)="fileChooser.click()"><img class="albumPhoto addPhoto" src="../../../assets/testPhoto/add_photo.png" alt="add photo"></label>
                         </div>
                         <span *ngFor="let photo of photos">
-                            <img style="margin: 0px 10px 10px 0px" class="albumPhoto" src="../../assets/uploaded_photo/{{albumOwnersUsername}}/{{albumName}}/{{photo.albumPhotoPath}}" alt="Card image cap">
+                            <a href="assets/uploaded_photo/{{albumOwnersUsername}}/{{albumName}}/{{photo.albumPhotoPath}}" target="_blank">
+                                <img style="margin: 0px 10px 10px 0px" class="albumPhoto" src="../../assets/uploaded_photo/{{albumOwnersUsername}}/{{albumName}}/{{photo.albumPhotoPath}}" alt="Card image cap">
+                            </a>
                         </span>
                     </div>
                 </div>
