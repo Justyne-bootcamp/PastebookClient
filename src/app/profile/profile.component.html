@@ -18,20 +18,20 @@
                         <input type="hidden" [(ngModel)]="receiverAccountId">
                         <div id="addfriend-btn">
                             <span *ngIf="relationship == 'stranger'">
-                                <button style="background-color:#779ecc;border-style:none;" class="btn btn-primary" (click)="addFriend()">Add Friend</button>
+                                <button style="font-weight: 550;background-color:#779ecc;border-style:none;box-shadow: rgb(83, 79, 79) 0px 2px 4px 0px, rgb(83, 79, 79) 0px 2px 4px 0px;" class="btn btn-primary" (click)="addFriend()">Add Friend</button>
                             </span>
                             <span *ngIf="relationship == 'pendingresponse'">
-                                <button style="background-color:#779ecc;border-style:none;" class="btn btn-info" (click)="respondToRequest('Accepted')">Accept</button>
-                                <button style="background-color:#779ecc;border-style:none;" class="btn btn-danger" (click)="respondToRequest('Decline')">Decline</button>
+                                <button style="font-weight: 550;margin-right: 5px;color: rgb(43, 42, 42);background-color:#779ecc;border-style:none;box-shadow: rgb(83, 79, 79) 0px 2px 4px 0px, rgb(83, 79, 79) 0px 2px 4px 0px;" class="btn btn-info" (click)="respondToRequest('Accepted')">Accept</button>
+                                <button style="margin-left: 5px;color: rgb(43, 42, 42); font-weight: 550;background-color: rgb(221, 208, 208);border-style:none;box-shadow: rgb(83, 79, 79) 0px 2px 4px 0px, rgb(83, 79, 79) 0px 2px 4px 0px;" class="btn btn-danger" (click)="respondToRequest('Decline')">Decline</button>
                             </span>
                             <span *ngIf="relationship == 'pendingrequest'">
-                                <button style="background-color:#779ecc;border-style:none;" class="btn btn-info">Pending Request</button>
+                                <button style="font-weight: 550;color:rgb(247, 242, 242); background-color:#014088;border-style:none;box-shadow: rgb(83, 79, 79) 0px 2px 4px 0px, rgb(83, 79, 79) 0px 2px 4px 0px;" class="btn btn-info" disabled>Pending Request</button>
                             </span>
                             <span *ngIf="relationship == 'Accepted'">
-                                <button style="background-color:#779ecc;border-style:none;" class="btn btn-success">Friends</button>
+                                <button style="font-weight: 550;background-color:#014088;border-style:none;box-shadow: rgb(83, 79, 79) 0px 2px 4px 0px, rgb(83, 79, 79) 0px 2px 4px 0px;" class="btn btn-success" disabled>Friends</button>
                             </span>
                             <span *ngIf="relationship == 'self'">
-                                <button style="background-color:#779ecc;border-style:none;" class="btn btn-success">Own Account</button>
+                                <button style="font-weight: 550;background-color:#014088;border-style:none;box-shadow: rgb(83, 79, 79) 0px 2px 4px 0px, rgb(83, 79, 79) 0px 2px 4px 0px;" class="btn btn-success" disabled>Own Account</button>
                             </span>
                         </div>
 
