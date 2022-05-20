@@ -34,6 +34,7 @@
             [ngClass]="{ 'is-invalid': submitted && u['email'].errors }" name="email" formControlName="email" #email
             required />
           <p class="invalid-input" *ngIf="submitted && u['email'].errors">Email is required</p>
+          <p *ngIf="updateErrorMessage != null">{{ updateErrorMessage }}</p>
         </div>
         <div class="form-group">
           <label id="icon" class="newPassword1" for="setting-password">New Password</label>
@@ -69,6 +70,7 @@
           <label id="icon" class="currentPassword2" for="current-password">Current Password</label>
           <input type="password" id="current-password" name="password" formControlName="currentPassword" #currentPassword required />
           <p class="invalid-input" *ngIf="submitted && u['currentPassword'].errors">Enter current password to update</p>
+          <p *ngIf="confirmationErrorMessage != null">{{ confirmationErrorMessage }}</p>
         </div>
         <div>
           <button class="buttons btn-block update2 mb-4" type="submit">Update Information</button>

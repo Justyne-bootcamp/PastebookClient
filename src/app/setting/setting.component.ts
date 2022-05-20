@@ -17,6 +17,8 @@ export class SettingComponent implements OnInit {
   sessionId: string;
   userOld: UserAccount;
   userUpdate: UserAccount;
+  updateErrorMessage: string;
+  confirmationErrorMessage: string;
 
   settingsForm: FormGroup = new FormGroup({
     firstName: new FormControl(''),
@@ -86,7 +88,6 @@ export class SettingComponent implements OnInit {
 
   onSubmit() {
     let currentPassword = this.settingsForm.controls['currentPassword'].value;
-    let jsonCurrentPassword = "\""+ currentPassword+  "\""
     let sessionConfirmation: SettingChangeConfirmation = {
       sessionId: this.sessionId,
       password: this.settingsForm.controls['currentPassword'].value
@@ -109,11 +110,17 @@ export class SettingComponent implements OnInit {
             .subscribe(
               response => {
                 console.log(response);
+                this.router.navigate(['']);
+              },
+              error => {
+                this.updateErrorMessage = 'Email already taken.';
               }
             )
+        },
+        error => {
+          this.confirmationErrorMessage = 'Invalid password.';
         }
       )
-      this.router.navigate(['']);
   }
   
   confirmPassword(){
