@@ -19,7 +19,7 @@
                        
                         <div *ngFor="let album of albums" id="portfolio">
                             <div class="project">
-                                <img class="project__image" src="../../assets/testPhoto/download.png" />
+                                <img class="project__image" src="../../assets/testPhoto/album_placeholder.png" />
                                 <p>{{ album.albumName }}</p>
                                 <div class="grid__overlay">
                                     <a id="gallery" routerLink="/album/{{username}}/{{album.albumName}}_{{album.albumId}}"><button class="viewbutton" >Open album</button></a>

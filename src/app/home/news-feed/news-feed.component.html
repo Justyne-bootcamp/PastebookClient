@@ -3,7 +3,7 @@
         <form class="card" style="width: 64rem;margin-top: 40px;" novalidate enctype="multipart/form-data" #form="ngForm" (ngSubmit)="onSubmit()">
             <div class="form-row" style="display:flex;margin-top: 20px;margin-left: 20px; margin-right: 10px;">
                 <a routerLink="/pastebook.com/:username"><img id="user-icon-pic" src="../../assets/testPhoto/download.png" alt="Card image cap"></a>
-                <input id="post-textbox" class="form-control" placeholder="What's on your mind... " name="textContent" #textContent
+                <input id="post-textbox" class="form-control" placeholder="What's on your mind..." name="textContent" #textContent
                 [(ngModel)]="post.textContent">
             </div>
             <hr>
@@ -27,14 +27,14 @@
                         <p><strong>{{post.timeStamp.split("T")[0]}} {{post.timeStamp.split("T")[1].slice(0,-8)}}</strong></p>
                     </div>
                 </div>
-                <p class="card-text">{{post.textContent}}{{post.postPhotoPath}}</p>
+                <p class="card-text">{{post.textContent}}</p>
             </div>
             <img class="card-img-top" src="../../../assets/uploaded_photo/{{post.username}}/posts/{{post.postPhotoPath}}" alt="{{post.postPhotoPath}}" *ngIf="post.postPhotoPath">
             <div class="card-body">
             <hr>
             <div id="post-btn">
-                <button class="like-and-comment" type="button" (click)="onLike(post.postId)" [ngClass]="{'isLiked': post.isLiked}">Like</button>
-                <button class="like-and-comment" type="button">Comment</button>
+                <button class="like-and-comment" type="button" (click)="onLike(post.postId)" [ngClass]="{'isLiked': post.isLiked}"><i class="fas fa-thumbs-up"></i> Like</button>
+                <button class="like-and-comment" type="button"><i class="fas fa-comment-alt"></i>Comment</button>
             </div>
             <div style="display: flex;">
                 <input id="comment-textbox" class="form-control" type="text" placeholder="Write a comment...">

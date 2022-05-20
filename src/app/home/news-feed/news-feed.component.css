@@ -57,6 +57,7 @@
     background-color: rgb(231, 224, 224);
     color: rgb(43, 42, 42);
     transition-duration: 500ms;
+    font-weight: 600;
 }
 .like-and-comment:hover {
     background-color: #779ecc;
@@ -97,5 +98,6 @@
     border-radius: 100px;
 }
 .isLiked {
-    background-color: blue;
+    background-color: #4c82c0;
+    color: rgb(247, 242, 242);
 }
